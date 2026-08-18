@@ -17,7 +17,7 @@ jobs:
       matrix:
         php: ["7.4", "8.0", "8.1", "8.2", "8.3", "8.4"]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
@@ -33,7 +33,7 @@ jobs:
     name: WordPress coding standards + PHP compatibility
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: shivammathur/setup-php@v2
         with:
           php-version: "8.2"
@@ -54,7 +54,7 @@ jobs:
     name: JavaScript syntax
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
@@ -67,7 +67,7 @@ jobs:
     name: WordPress Plugin Check
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: shivammathur/setup-php@v2
         with:
           php-version: "8.2"
@@ -75,6 +75,7 @@ jobs:
           tools: wp-cli
       - name: Build the distributable (what wp.org would receive)
         run: |
+          wp package install wp-cli/dist-archive-command:@stable
           wp dist-archive . /tmp/pairs-memory-game.zip --plugin-dirname=pairs-memory-game
           mkdir -p /tmp/dist && unzip -q /tmp/pairs-memory-game.zip -d /tmp/dist
       - name: Run plugin-check on the distributable
@@ -93,7 +94,7 @@ jobs:
     name: Translation template is current
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: shivammathur/setup-php@v2
         with:
           php-version: "8.2"
@@ -101,9 +102,10 @@ jobs:
           tools: wp-cli
       - name: Regenerate POT and compare
         run: |
-          wp i18n make-pot . languages/pairs-memory-game.pot --exclude=vendor,node_modules,.github --headers='{"Report-Msgid-Bugs-To":"https://github.com/Mult1Hunter/pairs-memory-game/issues"}' --skip-audit
+          wp i18n make-pot . languages/pairs-memory-game.pot --exclude=vendor,node_modules,.github,bin --headers='{"Report-Msgid-Bugs-To":"https://github.com/Mult1Hunter/pairs-memory-game/issues"}' --skip-audit
           # Ignore the creation-date header; fail only on real string changes.
-          if ! git diff --ignore-matching-lines='POT-Creation-Date' --exit-code languages/pairs-memory-game.pot; then
+          # Ignore the creation-date header and line references; fail only on real string changes.
+          if ! git diff --ignore-matching-lines='POT-Creation-Date' --ignore-matching-lines='^#: ' --exit-code languages/pairs-memory-game.pot; then
             echo "::error::languages/pairs-memory-game.pot is out of date - run: wp i18n make-pot . languages/pairs-memory-game.pot"
             exit 1
           fi

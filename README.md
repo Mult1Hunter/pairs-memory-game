@@ -70,7 +70,8 @@ node --check assets/js/game.js blocks/game/index.js
 Regenerate the translation template after changing strings:
 
 ```
-wp i18n make-pot . languages/pairs-memory-game.pot --exclude=vendor,node_modules,.github
+wp i18n make-pot . languages/pairs-memory-game.pot --exclude=vendor,node_modules,.github,bin
+python3 bin/build-sl_SI.py && wp i18n make-mo languages
 ```
 
 Build the release zip (respects `.distignore`):

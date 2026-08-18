@@ -689,36 +689,36 @@ msgstr "Zvok vklopljen"
 msgid "Sound off"
 msgstr "Zvok izklopljen"
 
-#: includes/class-pairsmg-captcha.php:104
+#: includes/class-pairsmg-captcha.php:112
 msgid "None (no challenge)"
 msgstr "Brez (brez preizkusa)"
 
-#: includes/class-pairsmg-captcha.php:105
+#: includes/class-pairsmg-captcha.php:113
 msgid "Cloudflare Turnstile"
 msgstr "Cloudflare Turnstile"
 
-#: includes/class-pairsmg-captcha.php:106
+#: includes/class-pairsmg-captcha.php:114
 msgid "Google reCAPTCHA v2 (checkbox)"
 msgstr "Google reCAPTCHA v2 (potrditveno polje)"
 
-#: includes/class-pairsmg-captcha.php:107
+#: includes/class-pairsmg-captcha.php:115
 msgid "Google reCAPTCHA v3 (invisible)"
 msgstr "Google reCAPTCHA v3 (nevidna)"
 
-#: includes/class-pairsmg-captcha.php:108
+#: includes/class-pairsmg-captcha.php:116
 msgid "hCaptcha"
 msgstr "hCaptcha"
 
-#: includes/class-pairsmg-captcha.php:127
+#: includes/class-pairsmg-captcha.php:135
 msgid "Missing verification token."
 msgstr "Manjka žeton preverjanja."
 
-#: includes/class-pairsmg-captcha.php:131
+#: includes/class-pairsmg-captcha.php:139
 msgid "Bot protection is not configured. Enter the keys in the plugin settings."
 msgstr "Zaščita pred boti ni nastavljena. Vnesite ključe v nastavitvah vtičnika."
 
-#: includes/class-pairsmg-captcha.php:154
 #: includes/class-pairsmg-captcha.php:162
+#: includes/class-pairsmg-captcha.php:170
 msgid "Verification failed. Please try again."
 msgstr "Preverjanje ni uspelo. Poskusite znova."
 
