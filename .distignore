@@ -19,6 +19,7 @@
 /package-lock.json
 /phpcs.xml.dist
 /phpstan.neon.dist
+/docker-compose.yml
 /README.md
 /SECURITY.md
 /CONTRIBUTING.md

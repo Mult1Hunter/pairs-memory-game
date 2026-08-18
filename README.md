@@ -62,8 +62,13 @@ WordPress auth. The POST routes additionally refuse browser requests whose
 
 ## Development
 
-Local WordPress via Docker is not part of this repo - point any WordPress
-install's `wp-content/plugins/pairs-memory-game` at a checkout.
+A local WordPress + MySQL stack is in `docker-compose.yml` (dev-only
+credentials). It registers with the machine's shared traefik proxy as
+`http://pairs.local` (add `127.0.0.1 pairs.local` to `/etc/hosts`);
+`docker compose up -d`, then `wp core install` once via
+`docker compose exec -T wpcli wp core install --url=http://pairs.local ...`.
+The plugin is not bind-mounted - install it the way a user would with
+`bin/deploy-local.sh`.
 
 ```
 composer install          # PHPCS (WordPress + PHPCompatibility), parallel-lint, PHPUnit
@@ -86,8 +91,8 @@ wp i18n make-pot . languages/pairs-memory-game.pot --exclude=vendor,node_modules
 python3 bin/build-sl_SI.py && wp i18n make-mo languages
 ```
 
-Deploy the current checkout into the local Docker WordPress as a real
-plugin install (builds the same zip the release workflow does, then
+Deploy the current checkout into that local WordPress as a real plugin
+install (builds the same zip the release workflow does, then
 `wp plugin install --force`): `bin/deploy-local.sh`. Run it after every push
 so the local site tracks `main`.
 

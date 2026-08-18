@@ -1,0 +1,65 @@
+# Local development stack: a plain WordPress + MySQL, reachable as
+# http://pairs.local through the machine's shared traefik proxy
+# (~/PROJECTS/_infra/localhost-proxy). The plugin is NOT bind-mounted; it is
+# installed like an end user would with bin/deploy-local.sh, so what you test
+# is the built zip. Dev-only credentials, nothing here is used anywhere else.
+services:
+  db:
+    image: mysql:8.0
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: pairs_wp
+      MYSQL_USER: pairs
+      MYSQL_PASSWORD: pairs_dev_pw
+      MYSQL_ROOT_PASSWORD: pairs_root_pw
+    volumes:
+      - db_data:/var/lib/mysql
+
+  wordpress:
+    image: wordpress:php8.2-apache
+    restart: unless-stopped
+    depends_on:
+      - db
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: pairs_wp
+      WORDPRESS_DB_USER: pairs
+      WORDPRESS_DB_PASSWORD: pairs_dev_pw
+      WORDPRESS_DEBUG: 1
+      WORDPRESS_CONFIG_EXTRA: |
+        define('WP_DEBUG_LOG', true);
+        define('WP_DEBUG_DISPLAY', false);
+    volumes:
+      - wp_data:/var/www/html
+    networks:
+      - default
+      - proxy
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=proxy
+      - traefik.http.routers.pairsmg.rule=Host(`pairs.local`)
+      - traefik.http.routers.pairsmg.entrypoints=web
+      - traefik.http.services.pairsmg.loadbalancer.server.port=80
+
+  wpcli:
+    image: wordpress:cli-php8.2
+    depends_on:
+      - db
+      - wordpress
+    volumes:
+      - wp_data:/var/www/html
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: pairs_wp
+      WORDPRESS_DB_USER: pairs
+      WORDPRESS_DB_PASSWORD: pairs_dev_pw
+    entrypoint: ["tail", "-f", "/dev/null"]
+    user: "33:33"
+
+volumes:
+  db_data:
+  wp_data:
+
+networks:
+  proxy:
+    external: true

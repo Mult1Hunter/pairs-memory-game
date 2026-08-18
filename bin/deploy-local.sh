@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Build the release zip exactly like the GitHub workflow does and install it
-# into the local Docker WordPress (PERUN stack, wp-cli container "wpcli") as
+# into the local Docker WordPress (docker-compose.yml here, wp-cli container "wpcli") as
 # a real plugin upgrade - the way an end user gets it, not a bind mount.
 #
 # Usage: bin/deploy-local.sh            (from the plugin repo root)
@@ -8,7 +8,7 @@
 set -euo pipefail
 
 HERE="$(cd "$(dirname "$0")/.." && pwd)"
-STACK_DIR="${STACK_DIR:-$HERE/..}"
+STACK_DIR="${STACK_DIR:-$HERE}"
 VERSION="$(sed -n "s/^define('PAIRSMG_VERSION', '\([^']*\)');/\1/p" "$HERE/pairs-memory-game.php")"
 DIST="$(mktemp -d)"
 trap 'rm -rf "$DIST"' EXIT
