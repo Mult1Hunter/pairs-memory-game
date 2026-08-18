@@ -46,7 +46,7 @@ class PairsMG_Cron {
             return 0;
         }
         $now = time();
-        // phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared, WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- housekeeping on wp_options; the only interpolated piece is a "%s,%s,..." list built from count().
+        // phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared, WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare -- housekeeping on wp_options; the only interpolated piece is a "%s,%s,..." list built from count().
         $expired = $wpdb->get_col($wpdb->prepare(
             "SELECT option_name FROM {$wpdb->options}
              WHERE option_name LIKE %s AND option_value < %d",
