@@ -15,11 +15,22 @@ if (!defined('ABSPATH')) {
 class PairsMG_Scoring {
 
     const PAR_SECONDS_PER_PAIR = 3.2;
+    const MIN_SECONDS_PER_PAIR = 0.8;
     const MAX_SCORE = 1000;
     const MIN_SCORE = 25;
 
     public static function par_time($pairs) {
         return (float) apply_filters('pairsmg_par_time', $pairs * self::PAR_SECONDS_PER_PAIR, $pairs);
+    }
+
+    /**
+     * Fastest a run can plausibly be finished by a person: every one of the
+     * 2 x pairs cards has to be turned. Runs finished faster than this are
+     * refused, which stops a script from earning a perfect score by calling
+     * start and finish back to back. Filterable per site.
+     */
+    public static function min_time($pairs) {
+        return (float) apply_filters('pairsmg_min_time', max(1, $pairs * self::MIN_SECONDS_PER_PAIR), $pairs);
     }
 
     public static function compute($pairs, $moves, $elapsed) {

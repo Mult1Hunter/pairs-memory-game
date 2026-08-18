@@ -640,7 +640,19 @@
 
     api("/finish-run", { method: "POST", body: { runToken: state.runToken, moves: state.moves } })
       .then(function (data) { present(data.score, data.timeSeconds); })
-      .catch(function () { present(preview, state.elapsedSec); });
+      .catch(function (err) {
+        if (err.code === "too_fast" || err.code === "already_finished") {
+          // The server refused the run; nothing to celebrate or save.
+          state.runToken = null;
+          refreshMiniLeaderboard();
+          showScreen("setup");
+          showSetupNotice(err.message || T.saveFailed);
+          return;
+        }
+        // Network hiccup: still celebrate with the local preview; submit
+        // will fail cleanly and say so rather than hanging here.
+        present(preview, state.elapsedSec);
+      });
   }
 
   /* ---------------- Leaderboards ---------------- */

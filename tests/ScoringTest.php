@@ -33,4 +33,18 @@ class ScoringTest extends TestCase {
         add_filter('pairsmg_score', function ($score) { return $score + 1; });
         $this->assertSame(1001, PairsMG_Scoring::compute(6, 6, 1));
     }
+
+    public function test_min_time_scales_with_pairs_and_is_filterable() {
+        $this->assertEqualsWithDelta(4.8, PairsMG_Scoring::min_time(6), 0.001);
+        $this->assertEqualsWithDelta(11.2, PairsMG_Scoring::min_time(14), 0.001);
+        $this->assertGreaterThanOrEqual(1, PairsMG_Scoring::min_time(1));
+        add_filter('pairsmg_min_time', function ($t, $pairs) { return $pairs * 2; });
+        $this->assertEqualsWithDelta(12, PairsMG_Scoring::min_time(6), 0.001);
+    }
+
+    public function test_min_time_is_always_below_par() {
+        foreach (array(3, 6, 10, 14, 24) as $pairs) {
+            $this->assertLessThan(PairsMG_Scoring::par_time($pairs), PairsMG_Scoring::min_time($pairs));
+        }
+    }
 }

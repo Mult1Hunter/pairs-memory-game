@@ -292,6 +292,12 @@ class PairsMG_REST {
 
         $pairs = (int) $payload['pairs'];
         $elapsed = max(1, time() - (int) $payload['iat']);
+        // Plausibility floor: a person has to turn 2 x pairs cards. Faster
+        // than that is a script, and its run is refused outright.
+        if ($elapsed < PairsMG_Scoring::min_time($pairs)) {
+            do_action('pairsmg_run_rejected', 'too_fast', $payload, $elapsed);
+            return self::error('too_fast', __('That was faster than a person can play. The run was not counted.', 'pairs-memory-game'), 409);
+        }
         // Nothing legitimate runs at 20x par pace; caps a token parked for
         // hours so it cannot skew anything.
         $elapsed = min($elapsed, (int) round(PairsMG_Scoring::par_time($pairs) * 20));
