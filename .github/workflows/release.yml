@@ -13,11 +13,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - uses: shivammathur/setup-php@v2
-        with:
-          php-version: "8.2"
-          coverage: none
-          tools: wp-cli
       - name: Check version numbers agree with the tag
         run: |
           TAG="${GITHUB_REF_NAME#v}"
@@ -26,11 +21,12 @@ jobs:
           grep -q "Stable tag: $TAG" readme.txt || { echo "::error::readme.txt stable tag != $TAG"; exit 1; }
       - name: Build zip (honours .distignore)
         run: |
-          wp package install wp-cli/dist-archive-command:@stable
-          wp dist-archive . ./pairs-memory-game.zip --plugin-dirname=pairs-memory-game
+          mkdir -p /tmp/dist/pairs-memory-game
+          rsync -a --exclude-from=.distignore ./ /tmp/dist/pairs-memory-game/
+          (cd /tmp/dist && zip -qr "$GITHUB_WORKSPACE/pairs-memory-game.zip" pairs-memory-game)
           unzip -l pairs-memory-game.zip | tail -3
       - name: Attach to GitHub release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           files: pairs-memory-game.zip
           generate_release_notes: true

@@ -50,12 +50,31 @@ jobs:
           files: phpcs.xml
           notices-as-warnings: true
 
+  phpunit:
+    name: Unit tests (PHP ${{ matrix.php }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        php: ["7.4", "8.3"]
+    steps:
+      - uses: actions/checkout@v7
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          coverage: none
+          tools: composer:v2
+      - name: Install dev tools
+        run: composer install --no-interaction --no-progress --prefer-dist
+      - name: PHPUnit
+        run: composer test
+
   js:
     name: JavaScript syntax
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: "20"
       - name: node --check on every script
@@ -68,16 +87,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - uses: shivammathur/setup-php@v2
-        with:
-          php-version: "8.2"
-          coverage: none
-          tools: wp-cli
       - name: Build the distributable (what wp.org would receive)
         run: |
-          wp package install wp-cli/dist-archive-command:@stable
-          wp dist-archive . /tmp/pairs-memory-game.zip --plugin-dirname=pairs-memory-game
-          mkdir -p /tmp/dist && unzip -q /tmp/pairs-memory-game.zip -d /tmp/dist
+          mkdir -p /tmp/dist/pairs-memory-game
+          rsync -a --exclude-from=.distignore ./ /tmp/dist/pairs-memory-game/
+          find /tmp/dist -maxdepth 2 | sort
       - name: Run plugin-check on the distributable
         uses: wordpress/plugin-check-action@v1
         with:
@@ -102,7 +116,7 @@ jobs:
           tools: wp-cli
       - name: Regenerate POT and compare
         run: |
-          wp i18n make-pot . languages/pairs-memory-game.pot --exclude=vendor,node_modules,.github,bin --headers='{"Report-Msgid-Bugs-To":"https://github.com/Mult1Hunter/pairs-memory-game/issues"}' --skip-audit
+          wp i18n make-pot . languages/pairs-memory-game.pot --exclude=vendor,node_modules,.github,bin,tests --headers='{"Report-Msgid-Bugs-To":"https://github.com/Mult1Hunter/pairs-memory-game/issues"}' --skip-audit
           # Ignore the creation-date header; fail only on real string changes.
           # Ignore the creation-date header and line references; fail only on real string changes.
           if ! git diff --ignore-matching-lines='POT-Creation-Date' --ignore-matching-lines='^#: ' --exit-code languages/pairs-memory-game.pot; then

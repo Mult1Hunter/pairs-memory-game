@@ -28,9 +28,17 @@ class PairsMG_Assets {
 
         // Attached at registration on purpose: with block themes the
         // content (and so the shortcode) renders before wp_enqueue_scripts,
-        // and wp_localize_script on an unregistered handle silently drops
-        // the data. Localized data only prints if the handle is enqueued.
-        wp_localize_script(self::HANDLE_GAME, 'PairsMGConfig', self::config());
+        // and inline data added to an unregistered handle is silently
+        // dropped. It only prints if the handle is actually enqueued.
+        // wp_add_inline_script + wp_json_encode rather than
+        // wp_localize_script, because the latter casts top-level scalars to
+        // strings (false becomes "") and the frontend relies on real
+        // booleans and numbers.
+        wp_add_inline_script(
+            self::HANDLE_GAME,
+            'window.PairsMGConfig = ' . wp_json_encode(self::config()) . ';',
+            'before'
+        );
     }
 
     public static function enqueue() {

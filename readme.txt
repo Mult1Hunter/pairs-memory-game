@@ -1,6 +1,6 @@
 === Pairs - Memory Game ===
 Contributors: mult1hunter
-Tags: memory game, game, leaderboard, gamification, cards
+Tags: memory game, matching game, game, leaderboard, gamification
 Requires at least: 6.0
 Tested up to: 7.0
 Requires PHP: 7.4
@@ -12,9 +12,9 @@ Memory game with your own card images, three difficulties, server-verified score
 
 == Description ==
 
-Pairs turns any page into a memory game: players flip two cards at a time and find every matching pair as fast and as accurately as they can. Use it for sponsor logos at a club event, a brand campaign, a school or museum page, or just for fun.
+Pairs turns any page into a memory game (also known as concentration, matching pairs, pexeso or memo): players flip two cards at a time and find every matching pair as fast and as accurately as they can. Use it for sponsor logos at a club event, a brand or product campaign, a school, kindergarten or museum page, a quiz night, or just for fun.
 
-**Cards are yours.** Upload images as "Cards" (a custom post type with the familiar Media Library uploader). Published cards are in the game, drafts are not. Flag a card as *special* to guarantee it appears on every board - a main sponsor, an easter egg, a prize card. Until you have enough cards, a built-in deck of 16 hand-drawn animal cards tops up the board.
+**Cards are yours.** Upload images as "Cards" (a custom post type with the familiar Media Library uploader). Published cards are in the game, drafts are not. Optionally flag a card as *special* and set a quota to guarantee it appears on every board - a main sponsor, an easter egg, a prize card. Until you have enough cards, a built-in deck of 16 hand-drawn animal cards tops up the board.
 
 **Scores cannot be faked.** The browser never sends a score or a time that is trusted. Each game issues a signed, single-use run token; when the board is cleared the server stamps the elapsed time from its own clock and computes the score itself. Names are stored, IPs are only stored as a salted hash for rate limiting.
 
@@ -22,7 +22,7 @@ Pairs turns any page into a memory game: players flip two cards at a time and fi
 
 **Optional bot protection.** Cloudflare Turnstile, Google reCAPTCHA v2 / v3, hCaptcha - or none. Verification is always server-side, and every provider has a test mode for local and staging sites.
 
-**Looks like your site.** Three colour presets plus fully custom colours, bundled or inherited fonts, card shape (7:10 / 3:4 / square), corner radius, an optional card-back image. Flat and square by default. Phones can run the game full-screen with a "back to site" button.
+**Looks like your site.** Light, dark and parchment presets plus fully custom colours, bundled or inherited fonts, card shape (7:10 / 3:4 / square), corner radius, an optional card-back image. Flat and square by default. Phones can run the game full-screen with a "back to site" button.
 
 **Drop it anywhere.** A block ("Pairs - Memory Game"), a shortcode (`[pairs_memory_game]`) and an optional dedicated page at a slug you choose (default `/memory-game/`) - handy for a QR code on a poster.
 

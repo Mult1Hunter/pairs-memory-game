@@ -1,7 +1,7 @@
 /* Pairs - Memory Game: frontend styles.
  *
  * Every colour and font comes from a --pmg-* custom property set on the
- * .pairsmg-app wrapper. The base values below are the "parchment" preset;
+ * .pairsmg-app wrapper. The base values below are the "light" preset;
  * PairsMG_Assets::theme_css() overrides them inline from the Appearance
  * settings, and derived tones (soft ink, deep accent, lines, shadows) are
  * computed with color-mix so one accent colour is enough to retheme.
@@ -12,14 +12,14 @@
  */
 
   .pairsmg-app {
-    --pmg-bg: #f8eadc;
-    --pmg-panel: #fffbf3;
-    --pmg-ink: #3e2f27;
-    --pmg-accent: #594a41;
-    --pmg-success: #6b7a4a;
-    --pmg-card-back: #56554a;
-    --pmg-card-frame: #d5ab69;
-    --pmg-danger: #a8503a;
+    --pmg-bg: #f4f5f7;
+    --pmg-panel: #ffffff;
+    --pmg-ink: #1f2933;
+    --pmg-accent: #2f3e4e;
+    --pmg-success: #2e7d4f;
+    --pmg-card-back: #2f3e4e;
+    --pmg-card-frame: #c9d3dd;
+    --pmg-danger: #b3261e;
     --pmg-radius: 0px;
     --pmg-card-ratio: 7 / 10;
     --pmg-font-display: 'Rajdhani', -apple-system, "Segoe UI", sans-serif;
@@ -744,4 +744,5 @@ body.admin-bar .pairsmg-app.pmg-is-immersive { top: 32px; }
 
   .pairsmg-app .pmg-brand-tools { display: flex; align-items: center; gap: 10px; }
   .pairsmg-app .pmg-error { color: var(--pmg-danger); }
+  .pairsmg-app .pmg-setup-notice { margin-top: 14px; font-size: 13.5px; font-weight: 600; }
   .pairsmg-app .pmg-leader-preview { padding: 18px 22px 22px; }

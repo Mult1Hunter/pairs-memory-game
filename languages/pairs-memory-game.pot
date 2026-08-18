@@ -9,14 +9,14 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-08-18T11:38:46+00:00\n"
+"POT-Creation-Date: 2026-08-18T11:50:00+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: pairs-memory-game\n"
 
 #. Plugin Name of the plugin
 #: pairs-memory-game.php
-#: includes/class-pairsmg-admin-settings.php:281
+#: includes/class-pairsmg-admin-settings.php:282
 msgid "Pairs - Memory Game"
 msgstr ""
 
@@ -41,7 +41,7 @@ msgid "https://nextgen-solutions.xyz"
 msgstr ""
 
 #: includes/class-pairsmg-admin-leaderboard.php:17
-#: includes/class-pairsmg-admin-settings.php:269
+#: includes/class-pairsmg-admin-settings.php:270
 msgid "You do not have permission to access this page."
 msgstr ""
 
@@ -80,14 +80,14 @@ msgid "Score"
 msgstr ""
 
 #: includes/class-pairsmg-admin-leaderboard.php:89
-#: templates/game.php:90
-#: templates/game.php:120
+#: templates/game.php:92
+#: templates/game.php:122
 msgid "Time"
 msgstr ""
 
 #: includes/class-pairsmg-admin-leaderboard.php:90
-#: templates/game.php:91
-#: templates/game.php:121
+#: templates/game.php:93
+#: templates/game.php:123
 msgid "Moves"
 msgstr ""
 
@@ -128,7 +128,7 @@ msgid "General"
 msgstr ""
 
 #: includes/class-pairsmg-admin-settings.php:20
-#: includes/class-pairsmg-assets.php:137
+#: includes/class-pairsmg-assets.php:145
 msgid "Game"
 msgstr ""
 
@@ -169,259 +169,255 @@ msgstr ""
 msgid "Use this image"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:287
+#: includes/class-pairsmg-admin-settings.php:288
 msgid "Where the game is"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:291
+#: includes/class-pairsmg-admin-settings.php:292
 msgid "(page missing or unpublished - save settings to recreate it)"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:294
+#: includes/class-pairsmg-admin-settings.php:295
 msgid "no dedicated page (turn it on under General)"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:297
+#: includes/class-pairsmg-admin-settings.php:298
 msgid "Shortcode:"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:299
+#: includes/class-pairsmg-admin-settings.php:300
 msgid "Block: \"Pairs - Memory Game\""
 msgstr ""
 
 #. translators: 1: number of published cards, 2: of which special, 3: pairs needed for the hardest board
-#: includes/class-pairsmg-admin-settings.php:305
+#: includes/class-pairsmg-admin-settings.php:306
 #, php-format
 msgid "Published cards: %1$d (%2$d special). The hardest board needs %3$d."
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:311
+#: includes/class-pairsmg-admin-settings.php:312
 msgid "Manage cards"
 msgstr ""
 
 #. translators: %d: number of built-in cards
-#: includes/class-pairsmg-admin-settings.php:317
+#: includes/class-pairsmg-admin-settings.php:318
 #, php-format
 msgid "Until then the built-in deck (%d cards) tops up the board."
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:322
+#: includes/class-pairsmg-admin-settings.php:323
 msgid "The built-in deck is off, so some difficulties cannot start."
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:366
+#: includes/class-pairsmg-admin-settings.php:367
 msgid "Brand line"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:366
+#: includes/class-pairsmg-admin-settings.php:367
 msgid "Small header text above the game. Defaults to the site title."
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:367
+#: includes/class-pairsmg-admin-settings.php:368
 msgid "Intro eyebrow"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:367
+#: includes/class-pairsmg-admin-settings.php:368
 msgid "Short label above the intro title. Leave empty for the default."
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:368
+#: includes/class-pairsmg-admin-settings.php:369
 msgid "Intro title"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:371
+#: includes/class-pairsmg-admin-settings.php:372
 msgid "Intro text"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:378
+#: includes/class-pairsmg-admin-settings.php:379
 msgid "Leaderboard title"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:379
+#: includes/class-pairsmg-admin-settings.php:380
 msgid "Max name length"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:379
+#: includes/class-pairsmg-admin-settings.php:380
 msgid "Characters allowed in the player name on the leaderboard."
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:380
+#: includes/class-pairsmg-admin-settings.php:381
 msgid "Name when left blank"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:381
+#: includes/class-pairsmg-admin-settings.php:382
 msgid "Dedicated page"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:381
+#: includes/class-pairsmg-admin-settings.php:382
 msgid "Create and maintain a page for the game at the address below"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:381
+#: includes/class-pairsmg-admin-settings.php:382
 msgid "The plugin keeps a page at this slug and renames it when the slug changes. It never renames a page it did not create. Turn this off if you only use the shortcode or block."
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:384
+#: includes/class-pairsmg-admin-settings.php:385
 msgid "Page slug"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:392
+#: includes/class-pairsmg-admin-settings.php:393
 msgid "Exit URL"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:392
+#: includes/class-pairsmg-admin-settings.php:393
 msgid "Where the \"back to site\" button (shown on phones in full-screen mode) leads. Empty means the home page."
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:396
+#: includes/class-pairsmg-admin-settings.php:397
 msgid "Pairs - Easy"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:397
+#: includes/class-pairsmg-admin-settings.php:398
 msgid "Pairs - Medium"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:398
+#: includes/class-pairsmg-admin-settings.php:399
 msgid "Pairs - Hard"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:398
+#: includes/class-pairsmg-admin-settings.php:399
 msgid "Each difficulty has its own leaderboard. Changing a pair count keeps old scores in the same tier, so change it before the game goes live if you can."
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:399
+#: includes/class-pairsmg-admin-settings.php:400
 #: blocks/game/index.js:29
 msgid "Preselected difficulty"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:400
+#: includes/class-pairsmg-admin-settings.php:401
 msgid "Special cards per board"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:400
+#: includes/class-pairsmg-admin-settings.php:401
 msgid "How many cards flagged \"special\" are guaranteed on every board (if that many exist). 0 = no guarantee, they appear at random like the rest."
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:401
+#: includes/class-pairsmg-admin-settings.php:402
 msgid "Built-in deck"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:401
+#: includes/class-pairsmg-admin-settings.php:402
 msgid "Top up the board with the built-in animal cards when there are not enough of my own"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:401
+#: includes/class-pairsmg-admin-settings.php:402
 msgid "Once you have published enough cards for the hardest board, the built-in ones stop appearing by themselves."
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:402
-#: includes/class-pairsmg-assets.php:139
+#: includes/class-pairsmg-admin-settings.php:403
+#: includes/class-pairsmg-assets.php:147
 #: includes/class-pairsmg-settings.php:157
 msgid "Leaderboard"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:402
+#: includes/class-pairsmg-admin-settings.php:403
 msgid "Let players save their score with a name"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:402
+#: includes/class-pairsmg-admin-settings.php:403
 msgid "Off: the game still shows the score, but nothing is stored."
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:403
+#: includes/class-pairsmg-admin-settings.php:404
 msgid "Leaderboard entries shown"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:404
+#: includes/class-pairsmg-admin-settings.php:405
 msgid "Sound"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:404
+#: includes/class-pairsmg-admin-settings.php:405
 msgid "Sound effects on by default (players can toggle)"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:405
+#: includes/class-pairsmg-admin-settings.php:406
 msgid "Confetti"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:405
+#: includes/class-pairsmg-admin-settings.php:406
 msgid "Confetti on a good result"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:406
+#: includes/class-pairsmg-admin-settings.php:407
 msgid "Full screen on phones"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:406
+#: includes/class-pairsmg-admin-settings.php:407
 msgid "Pin the game over the whole viewport on small screens"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:406
+#: includes/class-pairsmg-admin-settings.php:407
 msgid "Recommended for a game that is played at events from a QR code. Off: the game sits inside the page like any other block."
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:410
+#: includes/class-pairsmg-admin-settings.php:411
 msgid "Provider"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:410
+#: includes/class-pairsmg-admin-settings.php:411
 msgid "Players solve one challenge per visit before the first game. Score submissions are always tied to a server-issued single-use token, so bot protection guards against automated play, not against score tampering (which is prevented regardless)."
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:411
+#: includes/class-pairsmg-admin-settings.php:412
 msgid "Site key"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:411
+#: includes/class-pairsmg-admin-settings.php:412
 msgid "The public key rendered in the browser."
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:414
+#: includes/class-pairsmg-admin-settings.php:415
 msgid "Secret key"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:421
+#: includes/class-pairsmg-admin-settings.php:422
 msgid "A secret key is stored. Leave blank to keep it."
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:423
+#: includes/class-pairsmg-admin-settings.php:424
 msgid "Never leaves the server."
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:430
+#: includes/class-pairsmg-admin-settings.php:431
 msgid "Test mode"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:430
+#: includes/class-pairsmg-admin-settings.php:431
 msgid "Use the provider's official always-pass test keys"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:430
+#: includes/class-pairsmg-admin-settings.php:431
 msgid "For local and staging sites, where real keys will not validate. The server-side verification still runs. reCAPTCHA v3 has no test keys - in test mode it is skipped. Turn this off before going live."
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:433
+#: includes/class-pairsmg-admin-settings.php:434
 msgid "reCAPTCHA v3 score threshold"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:437
+#: includes/class-pairsmg-admin-settings.php:438
 msgid "Scores below this are rejected. Google suggests 0.5."
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:441
+#: includes/class-pairsmg-admin-settings.php:442
 msgid "Privacy"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:444
+#: includes/class-pairsmg-admin-settings.php:445
 msgid "With a provider selected, the game page loads that provider's script and the verification token is sent to the provider's servers along with the visitor's IP address. Mention this in your privacy policy. With \"None\", no third-party requests are made."
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:452
-msgid "Theme"
-msgstr ""
-
 #: includes/class-pairsmg-admin-settings.php:453
-msgid "Parchment (warm)"
+msgid "Theme"
 msgstr ""
 
 #: includes/class-pairsmg-admin-settings.php:454
@@ -433,209 +429,213 @@ msgid "Dark"
 msgstr ""
 
 #: includes/class-pairsmg-admin-settings.php:456
-msgid "Custom colours"
+msgid "Parchment (warm)"
 msgstr ""
 
 #: includes/class-pairsmg-admin-settings.php:457
-msgid "Presets fill the colour fields; pick \"Custom\" to keep your own values."
+msgid "Custom colours"
 msgstr ""
 
 #: includes/class-pairsmg-admin-settings.php:458
-msgid "Background"
+msgid "Presets fill the colour fields; pick \"Custom\" to keep your own values."
 msgstr ""
 
 #: includes/class-pairsmg-admin-settings.php:459
-msgid "Panels"
+msgid "Background"
 msgstr ""
 
 #: includes/class-pairsmg-admin-settings.php:460
-msgid "Text"
+msgid "Panels"
 msgstr ""
 
 #: includes/class-pairsmg-admin-settings.php:461
-msgid "Accent / buttons"
+msgid "Text"
 msgstr ""
 
 #: includes/class-pairsmg-admin-settings.php:462
-msgid "Success (matched cards)"
+msgid "Accent / buttons"
 msgstr ""
 
 #: includes/class-pairsmg-admin-settings.php:463
-msgid "Card back"
+msgid "Success (matched cards)"
 msgstr ""
 
 #: includes/class-pairsmg-admin-settings.php:464
-msgid "Card frame"
+msgid "Card back"
 msgstr ""
 
 #: includes/class-pairsmg-admin-settings.php:465
-msgid "Fonts"
+msgid "Card frame"
 msgstr ""
 
 #: includes/class-pairsmg-admin-settings.php:466
-msgid "Bundled (Rajdhani + Open Sans, served from this site)"
+msgid "Fonts"
 msgstr ""
 
 #: includes/class-pairsmg-admin-settings.php:467
+msgid "Bundled (Rajdhani + Open Sans, served from this site)"
+msgstr ""
+
+#: includes/class-pairsmg-admin-settings.php:468
 msgid "Inherit from the theme"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:469
+#: includes/class-pairsmg-admin-settings.php:470
 msgid "Card shape"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:470
+#: includes/class-pairsmg-admin-settings.php:471
 msgid "Portrait 7:10 (playing card)"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:471
+#: includes/class-pairsmg-admin-settings.php:472
 msgid "Portrait 3:4"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:472
+#: includes/class-pairsmg-admin-settings.php:473
 msgid "Square"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:474
+#: includes/class-pairsmg-admin-settings.php:475
 msgid "Corner radius (px)"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:474
+#: includes/class-pairsmg-admin-settings.php:475
 msgid "0 for square corners everywhere."
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:475
+#: includes/class-pairsmg-admin-settings.php:476
 msgid "Card image fit"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:476
+#: includes/class-pairsmg-admin-settings.php:477
 msgid "Inset - image centred with a margin (logos)"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:477
+#: includes/class-pairsmg-admin-settings.php:478
 msgid "Full face - image fills the card (finished artwork)"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:478
+#: includes/class-pairsmg-admin-settings.php:479
 msgid "Default for your cards; each card can override it."
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:483
+#: includes/class-pairsmg-admin-settings.php:484
 msgid "Card back image"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:489
+#: includes/class-pairsmg-admin-settings.php:490
 msgid "Choose image"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:490
+#: includes/class-pairsmg-admin-settings.php:491
 msgid "Remove"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:491
+#: includes/class-pairsmg-admin-settings.php:492
 msgid "Optional. Drawn centred on the card back on top of the card back colour. A logo or emblem, ideally SVG or PNG with transparency."
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:498
+#: includes/class-pairsmg-admin-settings.php:499
 msgid "Verifications per IP per hour"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:498
+#: includes/class-pairsmg-admin-settings.php:499
 msgid "Each verification may cost an outbound request to the bot-protection provider. 0 disables the limit."
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:499
+#: includes/class-pairsmg-admin-settings.php:500
 msgid "Game starts per IP per hour"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:500
+#: includes/class-pairsmg-admin-settings.php:501
 msgid "Scores saved per IP per hour"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:501
+#: includes/class-pairsmg-admin-settings.php:502
 msgid "Reverse proxy / CDN"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:501
+#: includes/class-pairsmg-admin-settings.php:502
 msgid "This site is behind Cloudflare or another proxy - read the visitor IP from CF-Connecting-IP / X-Forwarded-For"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:501
+#: includes/class-pairsmg-admin-settings.php:502
 msgid "Only turn this on if the site really is behind a proxy, otherwise a visitor could forge the header and dodge the rate limits. IPs are only ever stored as a salted hash."
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:502
+#: includes/class-pairsmg-admin-settings.php:503
 msgid "Uninstall"
 msgstr ""
 
-#: includes/class-pairsmg-admin-settings.php:502
+#: includes/class-pairsmg-admin-settings.php:503
 msgid "Delete all plugin data (settings, scores, cards) when the plugin is deleted"
 msgstr ""
 
-#: includes/class-pairsmg-assets.php:135
+#: includes/class-pairsmg-assets.php:143
 msgid "Verification"
 msgstr ""
 
-#: includes/class-pairsmg-assets.php:136
+#: includes/class-pairsmg-assets.php:144
 msgid "Setup"
 msgstr ""
 
-#: includes/class-pairsmg-assets.php:138
+#: includes/class-pairsmg-assets.php:146
 msgid "Result"
 msgstr ""
 
-#: includes/class-pairsmg-assets.php:140
+#: includes/class-pairsmg-assets.php:148
 msgid "Verifying..."
 msgstr ""
 
-#: includes/class-pairsmg-assets.php:141
+#: includes/class-pairsmg-assets.php:149
 msgid "Verification failed. Please refresh the page and try again."
 msgstr ""
 
-#: includes/class-pairsmg-assets.php:142
+#: includes/class-pairsmg-assets.php:150
 msgid "Please complete the verification first."
 msgstr ""
 
-#: includes/class-pairsmg-assets.php:143
+#: includes/class-pairsmg-assets.php:151
 msgid "Your session has expired. Please verify again."
 msgstr ""
 
 #. translators: %d: number of pairs
-#: includes/class-pairsmg-assets.php:145
+#: includes/class-pairsmg-assets.php:153
 #, php-format
 msgid "%d pairs"
 msgstr ""
 
 #. translators: %d: number of cards
-#: includes/class-pairsmg-assets.php:147
+#: includes/class-pairsmg-assets.php:155
 #, php-format
 msgid "%d cards on the board"
 msgstr ""
 
 #. translators: %d: best score
-#: includes/class-pairsmg-assets.php:149
+#: includes/class-pairsmg-assets.php:157
 #, php-format
 msgid "Best: %d"
 msgstr ""
 
-#: includes/class-pairsmg-assets.php:150
+#: includes/class-pairsmg-assets.php:158
 #: templates/game.php:50
 msgid "Loading..."
 msgstr ""
 
-#: includes/class-pairsmg-assets.php:151
+#: includes/class-pairsmg-assets.php:159
 msgid "No scores for this difficulty yet - be the first."
 msgstr ""
 
-#: includes/class-pairsmg-assets.php:152
+#: includes/class-pairsmg-assets.php:160
 msgid "The leaderboard cannot be loaded right now."
 msgstr ""
 
 #. translators: %d: number of results
-#: includes/class-pairsmg-assets.php:157
-#: includes/class-pairsmg-assets.php:159
-#: includes/class-pairsmg-assets.php:161
-#: includes/class-pairsmg-assets.php:163
+#: includes/class-pairsmg-assets.php:165
+#: includes/class-pairsmg-assets.php:167
+#: includes/class-pairsmg-assets.php:169
+#: includes/class-pairsmg-assets.php:171
 #, php-format
 msgid "%d result"
 msgid_plural "%d results"
@@ -643,49 +643,49 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %d: number of moves
-#: includes/class-pairsmg-assets.php:166
+#: includes/class-pairsmg-assets.php:174
 #, php-format
 msgid "%d moves"
 msgstr ""
 
-#: includes/class-pairsmg-assets.php:167
+#: includes/class-pairsmg-assets.php:175
 msgid "The score could not be saved."
 msgstr ""
 
-#: includes/class-pairsmg-assets.php:168
+#: includes/class-pairsmg-assets.php:176
 #: includes/class-pairsmg-rest.php:287
 msgid "This score has already been saved."
 msgstr ""
 
-#: includes/class-pairsmg-assets.php:169
+#: includes/class-pairsmg-assets.php:177
 #: includes/class-pairsmg-rest.php:171
 #: includes/class-pairsmg-rest.php:187
 #: includes/class-pairsmg-rest.php:275
 msgid "Too many attempts. Please try again in a few minutes."
 msgstr ""
 
-#: includes/class-pairsmg-assets.php:170
+#: includes/class-pairsmg-assets.php:178
 msgid "The session has expired, the score could not be saved."
 msgstr ""
 
-#: includes/class-pairsmg-assets.php:171
+#: includes/class-pairsmg-assets.php:179
 #: includes/class-pairsmg-rest.php:205
 msgid "There are not enough cards for this board size yet."
 msgstr ""
 
-#: includes/class-pairsmg-assets.php:172
+#: includes/class-pairsmg-assets.php:180
 msgid "The game is not finished. Leave anyway?"
 msgstr ""
 
-#: includes/class-pairsmg-assets.php:173
+#: includes/class-pairsmg-assets.php:181
 msgid "Memory card"
 msgstr ""
 
-#: includes/class-pairsmg-assets.php:174
+#: includes/class-pairsmg-assets.php:182
 msgid "Sound on"
 msgstr ""
 
-#: includes/class-pairsmg-assets.php:175
+#: includes/class-pairsmg-assets.php:183
 msgid "Sound off"
 msgstr ""
 
@@ -928,98 +928,98 @@ msgstr ""
 msgid "Choose difficulty"
 msgstr ""
 
-#: templates/game.php:67
+#: templates/game.php:69
 msgid "Start game"
 msgstr ""
 
-#: templates/game.php:69
+#: templates/game.php:71
 msgid "View leaderboard"
 msgstr ""
 
-#: templates/game.php:77
+#: templates/game.php:79
 msgid "Top scores"
 msgstr ""
 
-#: templates/game.php:78
+#: templates/game.php:80
 msgid "Show all"
 msgstr ""
 
-#: templates/game.php:89
+#: templates/game.php:91
 msgid "Difficulty"
 msgstr ""
 
-#: templates/game.php:92
+#: templates/game.php:94
 msgid "Pairs"
 msgstr ""
 
-#: templates/game.php:94
+#: templates/game.php:96
 msgid "Quit"
 msgstr ""
 
-#: templates/game.php:102
+#: templates/game.php:104
 msgid "Restart"
 msgstr ""
 
-#: templates/game.php:110
+#: templates/game.php:112
 msgid "All pairs found!"
 msgstr ""
 
-#: templates/game.php:113
+#: templates/game.php:115
 msgid "score"
 msgstr ""
 
-#: templates/game.php:116
+#: templates/game.php:118
 msgid "How is the score calculated?"
 msgstr ""
 
-#: templates/game.php:117
+#: templates/game.php:119
 msgid "The score combines speed and accuracy: fewer wrong guesses and a shorter time mean a higher score (1000 at most). Each difficulty has its own leaderboard, so scores are always compared between boards of the same size."
 msgstr ""
 
-#: templates/game.php:122
+#: templates/game.php:124
 msgid "Board"
 msgstr ""
 
-#: templates/game.php:127
+#: templates/game.php:129
 msgid "Your name for the leaderboard"
 msgstr ""
 
-#: templates/game.php:129
+#: templates/game.php:131
 msgid "e.g. Alex"
 msgstr ""
 
 #. translators: %d: max characters
-#: templates/game.php:134
+#: templates/game.php:136
 #, php-format
 msgid "Up to %d characters. The name is shown publicly on the leaderboard."
 msgstr ""
 
-#: templates/game.php:140
+#: templates/game.php:142
 msgid "Save to leaderboard"
 msgstr ""
 
-#: templates/game.php:141
-#: templates/game.php:148
+#: templates/game.php:143
+#: templates/game.php:150
 msgid "Play again"
 msgstr ""
 
-#: templates/game.php:143
+#: templates/game.php:145
 msgid "Saved to the leaderboard"
 msgstr ""
 
-#: templates/game.php:149
+#: templates/game.php:151
 msgid "Change difficulty"
 msgstr ""
 
-#: templates/game.php:162
+#: templates/game.php:164
 msgid "Back"
 msgstr ""
 
-#: templates/game.php:164
+#: templates/game.php:166
 msgid "Choose leaderboard difficulty"
 msgstr ""
 
-#: templates/game.php:168
+#: templates/game.php:170
 msgid "Each difficulty has its own leaderboard, so scores are always compared between boards of the same size. Within a difficulty the score combines speed and accuracy."
 msgstr ""
 

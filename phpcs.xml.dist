@@ -7,6 +7,8 @@
   <exclude-pattern>*/node_modules/*</exclude-pattern>
   <exclude-pattern>*/assets/*</exclude-pattern>
   <exclude-pattern>*/blocks/*</exclude-pattern>
+  <!-- Test bootstrap deliberately redefines WordPress functions as stubs. -->
+  <exclude-pattern>*/tests/*</exclude-pattern>
 
   <arg name="extensions" value="php"/>
   <arg name="colors"/>

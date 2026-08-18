@@ -5,7 +5,10 @@
   "license": "GPL-2.0-or-later",
   "homepage": "https://github.com/Mult1Hunter/pairs-memory-game",
   "authors": [
-    { "name": "Matic Korošec", "homepage": "https://nextgen-solutions.xyz" }
+    {
+      "name": "Matic Korošec",
+      "homepage": "https://nextgen-solutions.xyz"
+    }
   ],
   "require": {
     "php": ">=7.4"
@@ -15,13 +18,19 @@
     "wp-coding-standards/wpcs": "^3.1",
     "phpcompatibility/phpcompatibility-wp": "^2.1",
     "php-parallel-lint/php-parallel-lint": "^1.4",
-    "php-stubs/wordpress-stubs": "^6.7"
+    "php-stubs/wordpress-stubs": "^7.0",
+    "phpunit/phpunit": "^9.6"
   },
   "scripts": {
     "lint": "parallel-lint --exclude vendor --exclude node_modules .",
     "phpcs": "phpcs",
     "phpcs:fix": "phpcbf",
-    "check": ["@lint", "@phpcs"]
+    "check": [
+      "@lint",
+      "@phpcs",
+      "@test"
+    ],
+    "test": "phpunit"
   },
   "config": {
     "allow-plugins": {

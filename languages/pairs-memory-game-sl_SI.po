@@ -14,7 +14,7 @@ msgstr ""
 
 #. Plugin Name of the plugin
 #: pairs-memory-game.php
-#: includes/class-pairsmg-admin-settings.php:281
+#: includes/class-pairsmg-admin-settings.php:282
 msgid "Pairs - Memory Game"
 msgstr "Pari - Igra spomina"
 
@@ -39,7 +39,7 @@ msgid "https://nextgen-solutions.xyz"
 msgstr "https://nextgen-solutions.xyz"
 
 #: includes/class-pairsmg-admin-leaderboard.php:17
-#: includes/class-pairsmg-admin-settings.php:269
+#: includes/class-pairsmg-admin-settings.php:270
 msgid "You do not have permission to access this page."
 msgstr "Nimate dovoljenja za dostop do te strani."
 
@@ -78,14 +78,14 @@ msgid "Score"
 msgstr "Rezultat"
 
 #: includes/class-pairsmg-admin-leaderboard.php:89
-#: templates/game.php:90
-#: templates/game.php:120
+#: templates/game.php:92
+#: templates/game.php:122
 msgid "Time"
 msgstr "Čas"
 
 #: includes/class-pairsmg-admin-leaderboard.php:90
-#: templates/game.php:91
-#: templates/game.php:121
+#: templates/game.php:93
+#: templates/game.php:123
 msgid "Moves"
 msgstr "Poteze"
 
@@ -126,7 +126,7 @@ msgid "General"
 msgstr "Splošno"
 
 #: includes/class-pairsmg-admin-settings.php:20
-#: includes/class-pairsmg-assets.php:137
+#: includes/class-pairsmg-assets.php:145
 msgid "Game"
 msgstr "Igra"
 
@@ -167,260 +167,256 @@ msgstr "Izberi sliko za hrbtno stran kartic"
 msgid "Use this image"
 msgstr "Uporabi to sliko"
 
-#: includes/class-pairsmg-admin-settings.php:287
+#: includes/class-pairsmg-admin-settings.php:288
 msgid "Where the game is"
 msgstr "Kje je igra"
 
-#: includes/class-pairsmg-admin-settings.php:291
+#: includes/class-pairsmg-admin-settings.php:292
 msgid "(page missing or unpublished - save settings to recreate it)"
 msgstr "(stran manjka ali ni objavljena - shranite nastavitve, da jo znova ustvarite)"
 
-#: includes/class-pairsmg-admin-settings.php:294
+#: includes/class-pairsmg-admin-settings.php:295
 msgid "no dedicated page (turn it on under General)"
 msgstr "brez namenske strani (vklopite jo pod Splošno)"
 
-#: includes/class-pairsmg-admin-settings.php:297
+#: includes/class-pairsmg-admin-settings.php:298
 msgid "Shortcode:"
 msgstr "Kratka koda:"
 
-#: includes/class-pairsmg-admin-settings.php:299
+#: includes/class-pairsmg-admin-settings.php:300
 msgid "Block: \"Pairs - Memory Game\""
 msgstr "Blok: \"Pari - Igra spomina\""
 
 #. translators: 1: number of published cards, 2: of which special, 3: pairs needed for the hardest board
-#: includes/class-pairsmg-admin-settings.php:305
+#: includes/class-pairsmg-admin-settings.php:306
 #, php-format
 msgid "Published cards: %1$d (%2$d special). The hardest board needs %3$d."
 msgstr "Objavljenih kartic: %1$d (od tega %2$d posebnih). Najtežja plošča jih potrebuje %3$d."
 
-#: includes/class-pairsmg-admin-settings.php:311
+#: includes/class-pairsmg-admin-settings.php:312
 msgid "Manage cards"
 msgstr "Upravljaj kartice"
 
 #. translators: %d: number of built-in cards
-#: includes/class-pairsmg-admin-settings.php:317
+#: includes/class-pairsmg-admin-settings.php:318
 #, php-format
 msgid "Until then the built-in deck (%d cards) tops up the board."
 msgstr "Do takrat ploščo dopolni vgrajeni komplet (%d kartic)."
 
-#: includes/class-pairsmg-admin-settings.php:322
+#: includes/class-pairsmg-admin-settings.php:323
 msgid "The built-in deck is off, so some difficulties cannot start."
 msgstr "Vgrajeni komplet je izklopljen, zato nekaterih težavnosti ni mogoče zagnati."
 
-#: includes/class-pairsmg-admin-settings.php:366
+#: includes/class-pairsmg-admin-settings.php:367
 msgid "Brand line"
 msgstr "Naslovna vrstica"
 
-#: includes/class-pairsmg-admin-settings.php:366
+#: includes/class-pairsmg-admin-settings.php:367
 msgid "Small header text above the game. Defaults to the site title."
 msgstr "Kratko besedilo nad igro. Privzeto naslov spletnega mesta."
 
-#: includes/class-pairsmg-admin-settings.php:367
+#: includes/class-pairsmg-admin-settings.php:368
 msgid "Intro eyebrow"
 msgstr "Nadnaslov uvoda"
 
-#: includes/class-pairsmg-admin-settings.php:367
+#: includes/class-pairsmg-admin-settings.php:368
 msgid "Short label above the intro title. Leave empty for the default."
 msgstr "Kratka oznaka nad uvodnim naslovom. Prazno pomeni privzeto."
 
-#: includes/class-pairsmg-admin-settings.php:368
+#: includes/class-pairsmg-admin-settings.php:369
 msgid "Intro title"
 msgstr "Uvodni naslov"
 
-#: includes/class-pairsmg-admin-settings.php:371
+#: includes/class-pairsmg-admin-settings.php:372
 msgid "Intro text"
 msgstr "Uvodno besedilo"
 
-#: includes/class-pairsmg-admin-settings.php:378
+#: includes/class-pairsmg-admin-settings.php:379
 msgid "Leaderboard title"
 msgstr "Naslov lestvice"
 
-#: includes/class-pairsmg-admin-settings.php:379
+#: includes/class-pairsmg-admin-settings.php:380
 msgid "Max name length"
 msgstr "Največja dolžina imena"
 
-#: includes/class-pairsmg-admin-settings.php:379
+#: includes/class-pairsmg-admin-settings.php:380
 msgid "Characters allowed in the player name on the leaderboard."
 msgstr "Dovoljeno število znakov v imenu igralca na lestvici."
 
-#: includes/class-pairsmg-admin-settings.php:380
+#: includes/class-pairsmg-admin-settings.php:381
 msgid "Name when left blank"
 msgstr "Ime, če ostane prazno"
 
-#: includes/class-pairsmg-admin-settings.php:381
+#: includes/class-pairsmg-admin-settings.php:382
 msgid "Dedicated page"
 msgstr "Namenska stran"
 
-#: includes/class-pairsmg-admin-settings.php:381
+#: includes/class-pairsmg-admin-settings.php:382
 msgid "Create and maintain a page for the game at the address below"
 msgstr "Ustvari in vzdržuj stran z igro na spodnjem naslovu"
 
-#: includes/class-pairsmg-admin-settings.php:381
+#: includes/class-pairsmg-admin-settings.php:382
 msgid "The plugin keeps a page at this slug and renames it when the slug changes. It never renames a page it did not create. Turn this off if you only use the shortcode or block."
 msgstr "Vtičnik vzdržuje stran na tem naslovu in jo preimenuje, če naslov spremenite. Nikoli ne preimenuje strani, ki je ni ustvaril sam. Izklopite, če uporabljate samo kratko kodo ali blok."
 
-#: includes/class-pairsmg-admin-settings.php:384
+#: includes/class-pairsmg-admin-settings.php:385
 msgid "Page slug"
 msgstr "Naslov strani"
 
-#: includes/class-pairsmg-admin-settings.php:392
+#: includes/class-pairsmg-admin-settings.php:393
 msgid "Exit URL"
 msgstr "Povratni naslov"
 
-#: includes/class-pairsmg-admin-settings.php:392
+#: includes/class-pairsmg-admin-settings.php:393
 msgid "Where the \"back to site\" button (shown on phones in full-screen mode) leads. Empty means the home page."
 msgstr "Kam vodi gumb \"Na stran\" (prikazan na telefonih v celozaslonskem načinu). Prazno pomeni domačo stran."
 
-#: includes/class-pairsmg-admin-settings.php:396
+#: includes/class-pairsmg-admin-settings.php:397
 msgid "Pairs - Easy"
 msgstr "Parov - Lahko"
 
-#: includes/class-pairsmg-admin-settings.php:397
+#: includes/class-pairsmg-admin-settings.php:398
 msgid "Pairs - Medium"
 msgstr "Parov - Srednje"
 
-#: includes/class-pairsmg-admin-settings.php:398
+#: includes/class-pairsmg-admin-settings.php:399
 msgid "Pairs - Hard"
 msgstr "Parov - Težko"
 
-#: includes/class-pairsmg-admin-settings.php:398
+#: includes/class-pairsmg-admin-settings.php:399
 msgid "Each difficulty has its own leaderboard. Changing a pair count keeps old scores in the same tier, so change it before the game goes live if you can."
 msgstr "Vsaka težavnost ima svojo lestvico. Če spremenite število parov, stari rezultati ostanejo v isti težavnosti - po možnosti to spremenite, preden gre igra v živo."
 
-#: includes/class-pairsmg-admin-settings.php:399
+#: includes/class-pairsmg-admin-settings.php:400
 #: blocks/game/index.js:29
 msgid "Preselected difficulty"
 msgstr "Vnaprej izbrana težavnost"
 
-#: includes/class-pairsmg-admin-settings.php:400
+#: includes/class-pairsmg-admin-settings.php:401
 msgid "Special cards per board"
 msgstr "Posebnih kartic na ploščo"
 
-#: includes/class-pairsmg-admin-settings.php:400
+#: includes/class-pairsmg-admin-settings.php:401
 msgid "How many cards flagged \"special\" are guaranteed on every board (if that many exist). 0 = no guarantee, they appear at random like the rest."
 msgstr "Koliko kartic, označenih kot \"posebne\", je zagotovljenih na vsaki plošči (če jih je toliko). 0 = brez zagotovila, pojavijo se naključno kot ostale."
 
-#: includes/class-pairsmg-admin-settings.php:401
+#: includes/class-pairsmg-admin-settings.php:402
 msgid "Built-in deck"
 msgstr "Vgrajeni komplet"
 
-#: includes/class-pairsmg-admin-settings.php:401
+#: includes/class-pairsmg-admin-settings.php:402
 msgid "Top up the board with the built-in animal cards when there are not enough of my own"
 msgstr "Dopolni ploščo z vgrajenimi živalskimi karticami, kadar mojih ni dovolj"
 
-#: includes/class-pairsmg-admin-settings.php:401
+#: includes/class-pairsmg-admin-settings.php:402
 msgid "Once you have published enough cards for the hardest board, the built-in ones stop appearing by themselves."
 msgstr "Ko objavite dovolj kartic za najtežjo ploščo, se vgrajene nehajo pojavljati same od sebe."
 
-#: includes/class-pairsmg-admin-settings.php:402
-#: includes/class-pairsmg-assets.php:139
+#: includes/class-pairsmg-admin-settings.php:403
+#: includes/class-pairsmg-assets.php:147
 #: includes/class-pairsmg-settings.php:157
 msgid "Leaderboard"
 msgstr "Lestvica"
 
-#: includes/class-pairsmg-admin-settings.php:402
+#: includes/class-pairsmg-admin-settings.php:403
 msgid "Let players save their score with a name"
 msgstr "Igralcem dovoli, da rezultat shranijo z imenom"
 
-#: includes/class-pairsmg-admin-settings.php:402
+#: includes/class-pairsmg-admin-settings.php:403
 msgid "Off: the game still shows the score, but nothing is stored."
 msgstr "Izklopljeno: igra rezultat še vedno pokaže, a ničesar ne shrani."
 
-#: includes/class-pairsmg-admin-settings.php:403
+#: includes/class-pairsmg-admin-settings.php:404
 msgid "Leaderboard entries shown"
 msgstr "Prikazanih vnosov na lestvici"
 
-#: includes/class-pairsmg-admin-settings.php:404
+#: includes/class-pairsmg-admin-settings.php:405
 msgid "Sound"
 msgstr "Zvok"
 
-#: includes/class-pairsmg-admin-settings.php:404
+#: includes/class-pairsmg-admin-settings.php:405
 msgid "Sound effects on by default (players can toggle)"
 msgstr "Zvočni učinki privzeto vklopljeni (igralci jih lahko izklopijo)"
 
-#: includes/class-pairsmg-admin-settings.php:405
+#: includes/class-pairsmg-admin-settings.php:406
 msgid "Confetti"
 msgstr "Konfeti"
 
-#: includes/class-pairsmg-admin-settings.php:405
+#: includes/class-pairsmg-admin-settings.php:406
 msgid "Confetti on a good result"
 msgstr "Konfeti ob dobrem rezultatu"
 
-#: includes/class-pairsmg-admin-settings.php:406
+#: includes/class-pairsmg-admin-settings.php:407
 msgid "Full screen on phones"
 msgstr "Celozaslonski način na telefonih"
 
-#: includes/class-pairsmg-admin-settings.php:406
+#: includes/class-pairsmg-admin-settings.php:407
 msgid "Pin the game over the whole viewport on small screens"
 msgstr "Na majhnih zaslonih igro razpni čez celoten zaslon"
 
-#: includes/class-pairsmg-admin-settings.php:406
+#: includes/class-pairsmg-admin-settings.php:407
 msgid "Recommended for a game that is played at events from a QR code. Off: the game sits inside the page like any other block."
 msgstr "Priporočeno za igro, ki se igra na dogodkih prek QR kode. Izklopljeno: igra je del strani kot kateri koli drug blok."
 
-#: includes/class-pairsmg-admin-settings.php:410
+#: includes/class-pairsmg-admin-settings.php:411
 msgid "Provider"
 msgstr "Ponudnik"
 
-#: includes/class-pairsmg-admin-settings.php:410
+#: includes/class-pairsmg-admin-settings.php:411
 msgid "Players solve one challenge per visit before the first game. Score submissions are always tied to a server-issued single-use token, so bot protection guards against automated play, not against score tampering (which is prevented regardless)."
 msgstr "Igralci pred prvo igro enkrat na obisk rešijo preizkus. Oddaja rezultata je vedno vezana na strežniški enkratni žeton, zato zaščita pred boti preprečuje avtomatizirano igranje, ne ponarejanja rezultatov (to je preprečeno v vsakem primeru)."
 
-#: includes/class-pairsmg-admin-settings.php:411
+#: includes/class-pairsmg-admin-settings.php:412
 msgid "Site key"
 msgstr "Javni ključ (site key)"
 
-#: includes/class-pairsmg-admin-settings.php:411
+#: includes/class-pairsmg-admin-settings.php:412
 msgid "The public key rendered in the browser."
 msgstr "Javni ključ, ki se uporabi v brskalniku."
 
-#: includes/class-pairsmg-admin-settings.php:414
+#: includes/class-pairsmg-admin-settings.php:415
 msgid "Secret key"
 msgstr "Skrivni ključ"
 
-#: includes/class-pairsmg-admin-settings.php:421
+#: includes/class-pairsmg-admin-settings.php:422
 msgid "A secret key is stored. Leave blank to keep it."
 msgstr "Skrivni ključ je shranjen. Pustite prazno, da ga obdržite."
 
-#: includes/class-pairsmg-admin-settings.php:423
+#: includes/class-pairsmg-admin-settings.php:424
 msgid "Never leaves the server."
 msgstr "Nikoli ne zapusti strežnika."
 
-#: includes/class-pairsmg-admin-settings.php:430
+#: includes/class-pairsmg-admin-settings.php:431
 msgid "Test mode"
 msgstr "Testni način"
 
-#: includes/class-pairsmg-admin-settings.php:430
+#: includes/class-pairsmg-admin-settings.php:431
 msgid "Use the provider's official always-pass test keys"
 msgstr "Uporabi uradne testne ključe ponudnika, ki vedno uspejo"
 
-#: includes/class-pairsmg-admin-settings.php:430
+#: includes/class-pairsmg-admin-settings.php:431
 msgid "For local and staging sites, where real keys will not validate. The server-side verification still runs. reCAPTCHA v3 has no test keys - in test mode it is skipped. Turn this off before going live."
 msgstr "Za lokalna in testna okolja, kjer pravi ključi ne delujejo. Strežniško preverjanje se še vedno izvede. reCAPTCHA v3 nima testnih ključev - v testnem načinu se preskoči. Pred objavo v živo izklopite."
 
-#: includes/class-pairsmg-admin-settings.php:433
+#: includes/class-pairsmg-admin-settings.php:434
 msgid "reCAPTCHA v3 score threshold"
 msgstr "Prag ocene reCAPTCHA v3"
 
-#: includes/class-pairsmg-admin-settings.php:437
+#: includes/class-pairsmg-admin-settings.php:438
 msgid "Scores below this are rejected. Google suggests 0.5."
 msgstr "Ocene pod tem pragom so zavrnjene. Google priporoča 0.5."
 
-#: includes/class-pairsmg-admin-settings.php:441
+#: includes/class-pairsmg-admin-settings.php:442
 msgid "Privacy"
 msgstr "Zasebnost"
 
-#: includes/class-pairsmg-admin-settings.php:444
+#: includes/class-pairsmg-admin-settings.php:445
 msgid "With a provider selected, the game page loads that provider's script and the verification token is sent to the provider's servers along with the visitor's IP address. Mention this in your privacy policy. With \"None\", no third-party requests are made."
 msgstr "Ko je ponudnik izbran, stran z igro naloži njegovo skripto, žeton preverjanja pa se skupaj z IP naslovom obiskovalca pošlje na strežnike ponudnika. To omenite v politiki zasebnosti. Pri \"Brez\" ni nobenih zunanjih zahtev."
 
-#: includes/class-pairsmg-admin-settings.php:452
+#: includes/class-pairsmg-admin-settings.php:453
 msgid "Theme"
 msgstr "Tema"
-
-#: includes/class-pairsmg-admin-settings.php:453
-msgid "Parchment (warm)"
-msgstr "Pergament (toplo)"
 
 #: includes/class-pairsmg-admin-settings.php:454
 msgid "Light"
@@ -431,209 +427,213 @@ msgid "Dark"
 msgstr "Temno"
 
 #: includes/class-pairsmg-admin-settings.php:456
+msgid "Parchment (warm)"
+msgstr "Pergament (toplo)"
+
+#: includes/class-pairsmg-admin-settings.php:457
 msgid "Custom colours"
 msgstr "Barve po meri"
 
-#: includes/class-pairsmg-admin-settings.php:457
+#: includes/class-pairsmg-admin-settings.php:458
 msgid "Presets fill the colour fields; pick \"Custom\" to keep your own values."
 msgstr "Prednastavitve izpolnijo barvna polja; izberite \"Po meri\", da obdržite svoje vrednosti."
 
-#: includes/class-pairsmg-admin-settings.php:458
+#: includes/class-pairsmg-admin-settings.php:459
 msgid "Background"
 msgstr "Ozadje"
 
-#: includes/class-pairsmg-admin-settings.php:459
+#: includes/class-pairsmg-admin-settings.php:460
 msgid "Panels"
 msgstr "Plošče"
 
-#: includes/class-pairsmg-admin-settings.php:460
+#: includes/class-pairsmg-admin-settings.php:461
 msgid "Text"
 msgstr "Besedilo"
 
-#: includes/class-pairsmg-admin-settings.php:461
+#: includes/class-pairsmg-admin-settings.php:462
 msgid "Accent / buttons"
 msgstr "Poudarek / gumbi"
 
-#: includes/class-pairsmg-admin-settings.php:462
+#: includes/class-pairsmg-admin-settings.php:463
 msgid "Success (matched cards)"
 msgstr "Uspeh (najdeni pari)"
 
-#: includes/class-pairsmg-admin-settings.php:463
+#: includes/class-pairsmg-admin-settings.php:464
 msgid "Card back"
 msgstr "Hrbtna stran kartice"
 
-#: includes/class-pairsmg-admin-settings.php:464
+#: includes/class-pairsmg-admin-settings.php:465
 msgid "Card frame"
 msgstr "Okvir kartice"
 
-#: includes/class-pairsmg-admin-settings.php:465
+#: includes/class-pairsmg-admin-settings.php:466
 msgid "Fonts"
 msgstr "Pisave"
 
-#: includes/class-pairsmg-admin-settings.php:466
+#: includes/class-pairsmg-admin-settings.php:467
 msgid "Bundled (Rajdhani + Open Sans, served from this site)"
 msgstr "Priložene (Rajdhani + Open Sans, strežene s te strani)"
 
-#: includes/class-pairsmg-admin-settings.php:467
+#: includes/class-pairsmg-admin-settings.php:468
 msgid "Inherit from the theme"
 msgstr "Podeduj iz teme"
 
-#: includes/class-pairsmg-admin-settings.php:469
+#: includes/class-pairsmg-admin-settings.php:470
 msgid "Card shape"
 msgstr "Oblika kartice"
 
-#: includes/class-pairsmg-admin-settings.php:470
+#: includes/class-pairsmg-admin-settings.php:471
 msgid "Portrait 7:10 (playing card)"
 msgstr "Pokončna 7:10 (igralna karta)"
 
-#: includes/class-pairsmg-admin-settings.php:471
+#: includes/class-pairsmg-admin-settings.php:472
 msgid "Portrait 3:4"
 msgstr "Pokončna 3:4"
 
-#: includes/class-pairsmg-admin-settings.php:472
+#: includes/class-pairsmg-admin-settings.php:473
 msgid "Square"
 msgstr "Kvadratna"
 
-#: includes/class-pairsmg-admin-settings.php:474
+#: includes/class-pairsmg-admin-settings.php:475
 msgid "Corner radius (px)"
 msgstr "Zaobljenost robov (px)"
 
-#: includes/class-pairsmg-admin-settings.php:474
+#: includes/class-pairsmg-admin-settings.php:475
 msgid "0 for square corners everywhere."
 msgstr "0 za oglate robove povsod."
 
-#: includes/class-pairsmg-admin-settings.php:475
+#: includes/class-pairsmg-admin-settings.php:476
 msgid "Card image fit"
 msgstr "Prileganje slike na kartici"
 
-#: includes/class-pairsmg-admin-settings.php:476
+#: includes/class-pairsmg-admin-settings.php:477
 msgid "Inset - image centred with a margin (logos)"
 msgstr "Vstavljeno - slika na sredini z robom (logotipi)"
 
-#: includes/class-pairsmg-admin-settings.php:477
+#: includes/class-pairsmg-admin-settings.php:478
 msgid "Full face - image fills the card (finished artwork)"
 msgstr "Cela kartica - slika zapolni kartico (končna grafika)"
 
-#: includes/class-pairsmg-admin-settings.php:478
+#: includes/class-pairsmg-admin-settings.php:479
 msgid "Default for your cards; each card can override it."
 msgstr "Privzeto za vaše kartice; vsaka kartica lahko to spremeni."
 
-#: includes/class-pairsmg-admin-settings.php:483
+#: includes/class-pairsmg-admin-settings.php:484
 msgid "Card back image"
 msgstr "Slika na hrbtni strani"
 
-#: includes/class-pairsmg-admin-settings.php:489
+#: includes/class-pairsmg-admin-settings.php:490
 msgid "Choose image"
 msgstr "Izberi sliko"
 
-#: includes/class-pairsmg-admin-settings.php:490
+#: includes/class-pairsmg-admin-settings.php:491
 msgid "Remove"
 msgstr "Odstrani"
 
-#: includes/class-pairsmg-admin-settings.php:491
+#: includes/class-pairsmg-admin-settings.php:492
 msgid "Optional. Drawn centred on the card back on top of the card back colour. A logo or emblem, ideally SVG or PNG with transparency."
 msgstr "Izbirno. Narisana na sredini hrbtne strani čez barvo hrbta. Logotip ali znak, najbolje SVG ali PNG s prosojnostjo."
 
-#: includes/class-pairsmg-admin-settings.php:498
+#: includes/class-pairsmg-admin-settings.php:499
 msgid "Verifications per IP per hour"
 msgstr "Preverjanj na IP na uro"
 
-#: includes/class-pairsmg-admin-settings.php:498
+#: includes/class-pairsmg-admin-settings.php:499
 msgid "Each verification may cost an outbound request to the bot-protection provider. 0 disables the limit."
 msgstr "Vsako preverjanje lahko pomeni zunanjo zahtevo do ponudnika zaščite. 0 izklopi omejitev."
 
-#: includes/class-pairsmg-admin-settings.php:499
+#: includes/class-pairsmg-admin-settings.php:500
 msgid "Game starts per IP per hour"
 msgstr "Začetkov igre na IP na uro"
 
-#: includes/class-pairsmg-admin-settings.php:500
+#: includes/class-pairsmg-admin-settings.php:501
 msgid "Scores saved per IP per hour"
 msgstr "Shranjenih rezultatov na IP na uro"
 
-#: includes/class-pairsmg-admin-settings.php:501
+#: includes/class-pairsmg-admin-settings.php:502
 msgid "Reverse proxy / CDN"
 msgstr "Posredniški strežnik / CDN"
 
-#: includes/class-pairsmg-admin-settings.php:501
+#: includes/class-pairsmg-admin-settings.php:502
 msgid "This site is behind Cloudflare or another proxy - read the visitor IP from CF-Connecting-IP / X-Forwarded-For"
 msgstr "Ta stran je za Cloudflarom ali drugim posrednikom - IP obiskovalca beri iz CF-Connecting-IP / X-Forwarded-For"
 
-#: includes/class-pairsmg-admin-settings.php:501
+#: includes/class-pairsmg-admin-settings.php:502
 msgid "Only turn this on if the site really is behind a proxy, otherwise a visitor could forge the header and dodge the rate limits. IPs are only ever stored as a salted hash."
 msgstr "Vklopite samo, če je stran res za posrednikom, sicer bi obiskovalec lahko ponaredil glavo in se izognil omejitvam. IP naslovi so vedno shranjeni le kot soljen izvleček."
 
-#: includes/class-pairsmg-admin-settings.php:502
+#: includes/class-pairsmg-admin-settings.php:503
 msgid "Uninstall"
 msgstr "Odstranitev"
 
-#: includes/class-pairsmg-admin-settings.php:502
+#: includes/class-pairsmg-admin-settings.php:503
 msgid "Delete all plugin data (settings, scores, cards) when the plugin is deleted"
 msgstr "Ob izbrisu vtičnika izbriši vse njegove podatke (nastavitve, rezultate, kartice)"
 
-#: includes/class-pairsmg-assets.php:135
+#: includes/class-pairsmg-assets.php:143
 msgid "Verification"
 msgstr "Preverjanje"
 
-#: includes/class-pairsmg-assets.php:136
+#: includes/class-pairsmg-assets.php:144
 msgid "Setup"
 msgstr "Priprava"
 
-#: includes/class-pairsmg-assets.php:138
+#: includes/class-pairsmg-assets.php:146
 msgid "Result"
 msgstr "Rezultat"
 
-#: includes/class-pairsmg-assets.php:140
+#: includes/class-pairsmg-assets.php:148
 msgid "Verifying..."
 msgstr "Preverjanje ..."
 
-#: includes/class-pairsmg-assets.php:141
+#: includes/class-pairsmg-assets.php:149
 msgid "Verification failed. Please refresh the page and try again."
 msgstr "Preverjanje ni uspelo. Osvežite stran in poskusite znova."
 
-#: includes/class-pairsmg-assets.php:142
+#: includes/class-pairsmg-assets.php:150
 msgid "Please complete the verification first."
 msgstr "Najprej dokončajte preverjanje."
 
-#: includes/class-pairsmg-assets.php:143
+#: includes/class-pairsmg-assets.php:151
 msgid "Your session has expired. Please verify again."
 msgstr "Seja je potekla. Prosimo, ponovite preverjanje."
 
 #. translators: %d: number of pairs
-#: includes/class-pairsmg-assets.php:145
+#: includes/class-pairsmg-assets.php:153
 #, php-format
 msgid "%d pairs"
 msgstr "%d parov"
 
 #. translators: %d: number of cards
-#: includes/class-pairsmg-assets.php:147
+#: includes/class-pairsmg-assets.php:155
 #, php-format
 msgid "%d cards on the board"
 msgstr "%d kartic na plošči"
 
 #. translators: %d: best score
-#: includes/class-pairsmg-assets.php:149
+#: includes/class-pairsmg-assets.php:157
 #, php-format
 msgid "Best: %d"
 msgstr "Najboljši: %d"
 
-#: includes/class-pairsmg-assets.php:150
+#: includes/class-pairsmg-assets.php:158
 #: templates/game.php:50
 msgid "Loading..."
 msgstr "Nalaganje ..."
 
-#: includes/class-pairsmg-assets.php:151
+#: includes/class-pairsmg-assets.php:159
 msgid "No scores for this difficulty yet - be the first."
 msgstr "Za to težavnost še ni rezultatov - bodi prvi."
 
-#: includes/class-pairsmg-assets.php:152
+#: includes/class-pairsmg-assets.php:160
 msgid "The leaderboard cannot be loaded right now."
 msgstr "Lestvice trenutno ni mogoče naložiti."
 
 #. translators: %d: number of results
-#: includes/class-pairsmg-assets.php:157
-#: includes/class-pairsmg-assets.php:159
-#: includes/class-pairsmg-assets.php:161
-#: includes/class-pairsmg-assets.php:163
+#: includes/class-pairsmg-assets.php:165
+#: includes/class-pairsmg-assets.php:167
+#: includes/class-pairsmg-assets.php:169
+#: includes/class-pairsmg-assets.php:171
 #, php-format
 msgid "%d result"
 msgid_plural "%d results"
@@ -643,49 +643,49 @@ msgstr[2] "%d rezultati"
 msgstr[3] "%d rezultatov"
 
 #. translators: %d: number of moves
-#: includes/class-pairsmg-assets.php:166
+#: includes/class-pairsmg-assets.php:174
 #, php-format
 msgid "%d moves"
 msgstr "%d potez"
 
-#: includes/class-pairsmg-assets.php:167
+#: includes/class-pairsmg-assets.php:175
 msgid "The score could not be saved."
 msgstr "Rezultata ni bilo mogoče shraniti."
 
-#: includes/class-pairsmg-assets.php:168
+#: includes/class-pairsmg-assets.php:176
 #: includes/class-pairsmg-rest.php:287
 msgid "This score has already been saved."
 msgstr "Ta rezultat je že shranjen."
 
-#: includes/class-pairsmg-assets.php:169
+#: includes/class-pairsmg-assets.php:177
 #: includes/class-pairsmg-rest.php:171
 #: includes/class-pairsmg-rest.php:187
 #: includes/class-pairsmg-rest.php:275
 msgid "Too many attempts. Please try again in a few minutes."
 msgstr "Preveč poskusov. Poskusite čez nekaj minut."
 
-#: includes/class-pairsmg-assets.php:170
+#: includes/class-pairsmg-assets.php:178
 msgid "The session has expired, the score could not be saved."
 msgstr "Seja je potekla, rezultata ni bilo mogoče shraniti."
 
-#: includes/class-pairsmg-assets.php:171
+#: includes/class-pairsmg-assets.php:179
 #: includes/class-pairsmg-rest.php:205
 msgid "There are not enough cards for this board size yet."
 msgstr "Za to velikost plošče še ni dovolj kartic."
 
-#: includes/class-pairsmg-assets.php:172
+#: includes/class-pairsmg-assets.php:180
 msgid "The game is not finished. Leave anyway?"
 msgstr "Igra še ni končana. Res želite oditi?"
 
-#: includes/class-pairsmg-assets.php:173
+#: includes/class-pairsmg-assets.php:181
 msgid "Memory card"
 msgstr "Kartica igre spomina"
 
-#: includes/class-pairsmg-assets.php:174
+#: includes/class-pairsmg-assets.php:182
 msgid "Sound on"
 msgstr "Zvok vklopljen"
 
-#: includes/class-pairsmg-assets.php:175
+#: includes/class-pairsmg-assets.php:183
 msgid "Sound off"
 msgstr "Zvok izklopljen"
 
@@ -928,98 +928,98 @@ msgstr "Kratko preverjanje ohranja lestvico za prave igralce. Traja le trenutek.
 msgid "Choose difficulty"
 msgstr "Izberi težavnost"
 
-#: templates/game.php:67
+#: templates/game.php:69
 msgid "Start game"
 msgstr "Začni igro"
 
-#: templates/game.php:69
+#: templates/game.php:71
 msgid "View leaderboard"
 msgstr "Ogled lestvice"
 
-#: templates/game.php:77
+#: templates/game.php:79
 msgid "Top scores"
 msgstr "Najboljši rezultati"
 
-#: templates/game.php:78
+#: templates/game.php:80
 msgid "Show all"
 msgstr "Prikaži vse"
 
-#: templates/game.php:89
+#: templates/game.php:91
 msgid "Difficulty"
 msgstr "Težavnost"
 
-#: templates/game.php:92
+#: templates/game.php:94
 msgid "Pairs"
 msgstr "Pari"
 
-#: templates/game.php:94
+#: templates/game.php:96
 msgid "Quit"
 msgstr "Prekini"
 
-#: templates/game.php:102
+#: templates/game.php:104
 msgid "Restart"
 msgstr "Ponovno začni"
 
-#: templates/game.php:110
+#: templates/game.php:112
 msgid "All pairs found!"
 msgstr "Vsi pari najdeni!"
 
-#: templates/game.php:113
+#: templates/game.php:115
 msgid "score"
 msgstr "rezultat"
 
-#: templates/game.php:116
+#: templates/game.php:118
 msgid "How is the score calculated?"
 msgstr "Kako se izračuna rezultat?"
 
-#: templates/game.php:117
+#: templates/game.php:119
 msgid "The score combines speed and accuracy: fewer wrong guesses and a shorter time mean a higher score (1000 at most). Each difficulty has its own leaderboard, so scores are always compared between boards of the same size."
 msgstr "Rezultat združuje hitrost in natančnost: manj napačnih poskusov in krajši čas pomenita višji rezultat (največ 1000). Vsaka težavnost ima svojo lestvico, zato se rezultati vedno primerjajo med enako velikimi ploščami."
 
-#: templates/game.php:122
+#: templates/game.php:124
 msgid "Board"
 msgstr "Plošča"
 
-#: templates/game.php:127
+#: templates/game.php:129
 msgid "Your name for the leaderboard"
 msgstr "Tvoje ime za lestvico"
 
-#: templates/game.php:129
+#: templates/game.php:131
 msgid "e.g. Alex"
 msgstr "npr. Janez"
 
 #. translators: %d: max characters
-#: templates/game.php:134
+#: templates/game.php:136
 #, php-format
 msgid "Up to %d characters. The name is shown publicly on the leaderboard."
 msgstr "Največ %d znakov. Ime bo javno prikazano na lestvici."
 
-#: templates/game.php:140
+#: templates/game.php:142
 msgid "Save to leaderboard"
 msgstr "Dodaj na lestvico"
 
-#: templates/game.php:141
-#: templates/game.php:148
+#: templates/game.php:143
+#: templates/game.php:150
 msgid "Play again"
 msgstr "Igraj znova"
 
-#: templates/game.php:143
+#: templates/game.php:145
 msgid "Saved to the leaderboard"
 msgstr "Shranjeno na lestvico"
 
-#: templates/game.php:149
+#: templates/game.php:151
 msgid "Change difficulty"
 msgstr "Spremeni težavnost"
 
-#: templates/game.php:162
+#: templates/game.php:164
 msgid "Back"
 msgstr "Nazaj"
 
-#: templates/game.php:164
+#: templates/game.php:166
 msgid "Choose leaderboard difficulty"
 msgstr "Izberi težavnost lestvice"
 
-#: templates/game.php:168
+#: templates/game.php:170
 msgid "Each difficulty has its own leaderboard, so scores are always compared between boards of the same size. Within a difficulty the score combines speed and accuracy."
 msgstr "Vsaka težavnost ima svojo lestvico, zato se rezultati vedno primerjajo med enako velikimi ploščami. Znotraj težavnosti rezultat združuje hitrost in natančnost."
 

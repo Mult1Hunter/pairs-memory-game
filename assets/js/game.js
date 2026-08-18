@@ -354,6 +354,13 @@
   }
 
   /* ---------------- Setup screen ---------------- */
+  function showSetupNotice(text) {
+    var el = $("setupNotice");
+    if (!el) return;
+    el.textContent = text || "";
+    el.style.display = text ? "" : "none";
+  }
+
   function buildTierGrid() {
     var grid = $("tierGrid");
     if (!grid) return;
@@ -374,6 +381,7 @@
       btn.querySelector(".pmg-tier-sub").textContent = fmt(T.cardsOnBoard, pairs * 2);
       btn.addEventListener("click", function () {
         state.tier = key;
+        showSetupNotice("");
         grid.querySelectorAll(".pmg-tier-btn").forEach(function (b) { b.classList.remove("pmg-selected"); });
         btn.classList.add("pmg-selected");
         refreshMiniLeaderboard();
@@ -417,8 +425,8 @@
           setGateStatus(T.sessionExpired);
           resetWidget();
           if (CFG.captchaProvider === "none" || CFG.captchaProvider === "recaptcha_v3") initCaptcha();
-        } else if (err.code === "not_enough_cards") {
-          window.alert(T.notEnoughCards);
+        } else {
+          showSetupNotice(err.code === "not_enough_cards" ? T.notEnoughCards : (err.message || T.saveFailed));
         }
       });
   }

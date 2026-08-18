@@ -62,22 +62,32 @@ Local WordPress via Docker is not part of this repo - point any WordPress
 install's `wp-content/plugins/pairs-memory-game` at a checkout.
 
 ```
-composer install          # PHPCS (WordPress + PHPCompatibility), parallel-lint
-composer check            # lint + phpcs
+composer install          # PHPCS (WordPress + PHPCompatibility), parallel-lint, PHPUnit
+composer check            # lint + phpcs + unit tests
+composer test             # unit tests only (tests/, no WordPress needed - see tests/bootstrap.php)
 node --check assets/js/game.js blocks/game/index.js
 ```
+
+The unit tests cover the parts that must not regress silently: the score
+formula, token signing / expiry / tamper / replay, deck selection (own
+cards first, special quota, fallback deck), settings sanitising (per-tab
+checkbox handling, secret retention, clamping) and the captcha provider
+matrix. They run against a ~100-line stub of the WordPress functions the
+classes use, so they take milliseconds and need no database.
 
 Regenerate the translation template after changing strings:
 
 ```
-wp i18n make-pot . languages/pairs-memory-game.pot --exclude=vendor,node_modules,.github,bin
+wp i18n make-pot . languages/pairs-memory-game.pot --exclude=vendor,node_modules,.github,bin,tests
 python3 bin/build-sl_SI.py && wp i18n make-mo languages
 ```
 
 Build the release zip (respects `.distignore`):
 
 ```
-wp dist-archive . ./pairs-memory-game.zip --plugin-dirname=pairs-memory-game
+mkdir -p /tmp/dist/pairs-memory-game
+rsync -a --exclude-from=.distignore ./ /tmp/dist/pairs-memory-game/
+(cd /tmp/dist && zip -r pairs-memory-game.zip pairs-memory-game)
 ```
 
 Tagging `vX.Y.Z` runs the release workflow, which checks that the tag,

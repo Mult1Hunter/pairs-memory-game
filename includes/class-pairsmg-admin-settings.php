@@ -157,7 +157,7 @@ class PairsMG_Admin_Settings {
             } elseif ($key === 'recaptcha_v3_threshold') {
                 $out[$key] = max(0, min(1, round((float) $val, 2)));
             } elseif ($key === 'theme') {
-                $out[$key] = in_array($val, PairsMG_Settings::THEMES, true) ? $val : 'parchment';
+                $out[$key] = in_array($val, PairsMG_Settings::THEMES, true) ? $val : 'light';
             } elseif ($key === 'font_mode') {
                 $out[$key] = in_array($val, PairsMG_Settings::FONT_MODES, true) ? $val : 'bundled';
             } elseif ($key === 'card_ratio') {
@@ -192,14 +192,15 @@ class PairsMG_Admin_Settings {
         return PairsMG_Settings::OPTION . '[' . $key . ']';
     }
 
-    private static function text_row($key, $label, $s, $desc = '', $type = 'text', $attrs = '') {
+    private static function text_row($key, $label, $s, $desc = '', $type = 'text', $placeholder = '') {
         ?>
         <tr>
             <th scope="row"><label for="pmg_<?php echo esc_attr($key); ?>"><?php echo esc_html($label); ?></label></th>
             <td>
                 <input type="<?php echo esc_attr($type); ?>" id="pmg_<?php echo esc_attr($key); ?>" class="regular-text"
                        name="<?php echo esc_attr(self::field_name($key)); ?>"
-                       value="<?php echo esc_attr($s[$key]); ?>" <?php echo $attrs; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- literal attribute strings from this file. ?> />
+                       value="<?php echo esc_attr($s[$key]); ?>"
+                       <?php if ($placeholder !== '') : ?>placeholder="<?php echo esc_attr($placeholder); ?>"<?php endif; ?> />
                 <?php if ($desc !== '') : ?><p class="description"><?php echo esc_html($desc); ?></p><?php endif; ?>
             </td>
         </tr>
@@ -236,12 +237,12 @@ class PairsMG_Admin_Settings {
         <?php
     }
 
-    private static function select_row($key, $label, $s, $options, $desc = '', $attrs = '') {
+    private static function select_row($key, $label, $s, $options, $desc = '', $class = '') {
         ?>
         <tr>
             <th scope="row"><label for="pmg_<?php echo esc_attr($key); ?>"><?php echo esc_html($label); ?></label></th>
             <td>
-                <select id="pmg_<?php echo esc_attr($key); ?>" name="<?php echo esc_attr(self::field_name($key)); ?>" <?php echo $attrs; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- literal attribute strings from this file. ?>>
+                <select id="pmg_<?php echo esc_attr($key); ?>" name="<?php echo esc_attr(self::field_name($key)); ?>" class="<?php echo esc_attr($class); ?>">
                     <?php foreach ($options as $value => $text) : ?>
                         <option value="<?php echo esc_attr($value); ?>" <?php selected($s[$key], $value); ?>><?php echo esc_html($text); ?></option>
                     <?php endforeach; ?>
@@ -364,8 +365,8 @@ class PairsMG_Admin_Settings {
 
     private static function tab_general($s) {
         self::text_row('brand_name', __('Brand line', 'pairs-memory-game'), $s, __('Small header text above the game. Defaults to the site title.', 'pairs-memory-game'));
-        self::text_row('intro_eyebrow', __('Intro eyebrow', 'pairs-memory-game'), $s, __('Short label above the intro title. Leave empty for the default.', 'pairs-memory-game'), 'text', 'placeholder="' . esc_attr(PairsMG_Settings::text('intro_eyebrow')) . '"');
-        self::text_row('intro_title', __('Intro title', 'pairs-memory-game'), $s, '', 'text', 'placeholder="' . esc_attr(PairsMG_Settings::text('intro_title')) . '"');
+        self::text_row('intro_eyebrow', __('Intro eyebrow', 'pairs-memory-game'), $s, __('Short label above the intro title. Leave empty for the default.', 'pairs-memory-game'), 'text', PairsMG_Settings::text('intro_eyebrow'));
+        self::text_row('intro_title', __('Intro title', 'pairs-memory-game'), $s, '', 'text', PairsMG_Settings::text('intro_title'));
         ?>
         <tr>
             <th scope="row"><label for="pmg_intro_copy"><?php esc_html_e('Intro text', 'pairs-memory-game'); ?></label></th>
@@ -375,9 +376,9 @@ class PairsMG_Admin_Settings {
             </td>
         </tr>
         <?php
-        self::text_row('leaderboard_title', __('Leaderboard title', 'pairs-memory-game'), $s, '', 'text', 'placeholder="' . esc_attr(PairsMG_Settings::text('leaderboard_title')) . '"');
+        self::text_row('leaderboard_title', __('Leaderboard title', 'pairs-memory-game'), $s, '', 'text', PairsMG_Settings::text('leaderboard_title'));
         self::number_row('name_max_length', __('Max name length', 'pairs-memory-game'), $s, 3, 40, __('Characters allowed in the player name on the leaderboard.', 'pairs-memory-game'));
-        self::text_row('anonymous_name', __('Name when left blank', 'pairs-memory-game'), $s, '', 'text', 'placeholder="' . esc_attr(PairsMG_Settings::text('anonymous_name')) . '"');
+        self::text_row('anonymous_name', __('Name when left blank', 'pairs-memory-game'), $s, '', 'text', PairsMG_Settings::text('anonymous_name'));
         self::checkbox_row('create_page', __('Dedicated page', 'pairs-memory-game'), $s, __('Create and maintain a page for the game at the address below', 'pairs-memory-game'), __('The plugin keeps a page at this slug and renames it when the slug changes. It never renames a page it did not create. Turn this off if you only use the shortcode or block.', 'pairs-memory-game'));
         ?>
         <tr>
@@ -389,7 +390,7 @@ class PairsMG_Admin_Settings {
             </td>
         </tr>
         <?php
-        self::text_row('exit_url', __('Exit URL', 'pairs-memory-game'), $s, __('Where the "back to site" button (shown on phones in full-screen mode) leads. Empty means the home page.', 'pairs-memory-game'), 'url', 'placeholder="' . esc_attr(home_url('/')) . '"');
+        self::text_row('exit_url', __('Exit URL', 'pairs-memory-game'), $s, __('Where the "back to site" button (shown on phones in full-screen mode) leads. Empty means the home page.', 'pairs-memory-game'), 'url', home_url('/'));
     }
 
     private static function tab_game($s) {
@@ -407,7 +408,7 @@ class PairsMG_Admin_Settings {
     }
 
     private static function tab_protection($s) {
-        self::select_row('captcha_provider', __('Provider', 'pairs-memory-game'), $s, PairsMG_Captcha::labels(), __('Players solve one challenge per visit before the first game. Score submissions are always tied to a server-issued single-use token, so bot protection guards against automated play, not against score tampering (which is prevented regardless).', 'pairs-memory-game'), 'class="pmg-provider"');
+        self::select_row('captcha_provider', __('Provider', 'pairs-memory-game'), $s, PairsMG_Captcha::labels(), __('Players solve one challenge per visit before the first game. Score submissions are always tied to a server-issued single-use token, so bot protection guards against automated play, not against score tampering (which is prevented regardless).', 'pairs-memory-game'), 'pmg-provider');
         self::text_row('captcha_site_key', __('Site key', 'pairs-memory-game'), $s, __('The public key rendered in the browser.', 'pairs-memory-game'));
         ?>
         <tr>
@@ -450,11 +451,11 @@ class PairsMG_Admin_Settings {
 
     private static function tab_appearance($s) {
         self::select_row('theme', __('Theme', 'pairs-memory-game'), $s, array(
-            'parchment' => __('Parchment (warm)', 'pairs-memory-game'),
             'light'     => __('Light', 'pairs-memory-game'),
             'dark'      => __('Dark', 'pairs-memory-game'),
+            'parchment' => __('Parchment (warm)', 'pairs-memory-game'),
             'custom'    => __('Custom colours', 'pairs-memory-game'),
-        ), __('Presets fill the colour fields; pick "Custom" to keep your own values.', 'pairs-memory-game'), 'class="pmg-theme"');
+        ), __('Presets fill the colour fields; pick "Custom" to keep your own values.', 'pairs-memory-game'), 'pmg-theme');
         self::color_row('color_bg', __('Background', 'pairs-memory-game'), $s);
         self::color_row('color_panel', __('Panels', 'pairs-memory-game'), $s);
         self::color_row('color_ink', __('Text', 'pairs-memory-game'), $s);

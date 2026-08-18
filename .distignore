@@ -9,6 +9,7 @@
 /vendor
 /node_modules
 /tests
+/phpunit.xml.dist
 /bin
 /composer.json
 /composer.lock

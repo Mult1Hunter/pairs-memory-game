@@ -63,6 +63,8 @@ $pairsmg_max = max(3, min(40, (int) $settings['name_max_length']));
 
             <div class="pmg-tier-grid" data-pmg="tierGrid" role="group" aria-label="<?php esc_attr_e('Choose difficulty', 'pairs-memory-game'); ?>"></div>
 
+            <div class="pmg-setup-notice pmg-error" data-pmg="setupNotice" role="alert" style="display:none"></div>
+
             <div class="pmg-setup-actions">
                 <button class="pmg-btn pmg-btn-primary" data-pmg="startBtn" type="button"><?php esc_html_e('Start game', 'pairs-memory-game'); ?></button>
                 <?php if ($pairsmg_lb) : ?>
