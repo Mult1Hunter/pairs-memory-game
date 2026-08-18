@@ -204,6 +204,7 @@ T = {
     "missing": "manjka",
     "yes": "da",
     "Unknown difficulty.": "Neznana težavnost.",
+    "Requests from other sites are not allowed.": "Zahteve z drugih spletnih mest niso dovoljene.",
     "This run has already been finished.": "Ta igra je že končana.",
     "The leaderboard is turned off.": "Lestvica je izklopljena.",
     "Easy": "Lahko",

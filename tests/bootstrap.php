@@ -70,6 +70,8 @@ function wp_generate_password($length = 12, $special = true, $extra = false) {
 function __($text, $domain = null) { return $text; }
 function _n($single, $plural, $n, $domain = null) { return $n == 1 ? $single : $plural; }
 function get_bloginfo($what = '') { return 'Test Site'; }
+function home_url($path = '') { return 'https://example.test' . $path; }
+function wp_parse_url($url, $component = -1) { return parse_url($url, $component); }
 function sanitize_text_field($v) { return trim(strip_tags((string) $v)); }
 function sanitize_textarea_field($v) { return trim(strip_tags((string) $v)); }
 function sanitize_key($v) { return preg_replace('/[^a-z0-9_\-]/', '', strtolower((string) $v)); }
@@ -93,3 +95,4 @@ require_once PAIRSMG_DIR . 'includes/class-pairsmg-post-type.php';
 require_once PAIRSMG_DIR . 'includes/class-pairsmg-game-page.php';
 require_once PAIRSMG_DIR . 'includes/class-pairsmg-admin-settings.php';
 require_once PAIRSMG_DIR . 'includes/class-pairsmg-admin-leaderboard.php';
+require_once PAIRSMG_DIR . 'includes/class-pairsmg-rest.php';

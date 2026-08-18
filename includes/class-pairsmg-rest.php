@@ -134,6 +134,44 @@ class PairsMG_REST {
         return false;
     }
 
+    /**
+     * Same-origin guard for the state-changing routes.
+     *
+     * WordPress's REST layer answers CORS preflights permissively (it echoes
+     * any Origin back), so without this a third-party page could drive the
+     * game API - and its leaderboard - from another site. Browsers always
+     * send Origin on cross-site POSTs; a request with an Origin that is not
+     * this site (or an explicitly allowed one) is refused. Requests without
+     * an Origin header (non-browser clients) are left to the rate limiter.
+     *
+     * @return bool True when the request may proceed.
+     */
+    public static function origin_allowed($origin) {
+        $origin = trim((string) $origin);
+        if ($origin === '' || $origin === 'null') {
+            return $origin === '';
+        }
+        $allowed = array(wp_parse_url(home_url(), PHP_URL_HOST));
+        /**
+         * Filter the hosts allowed to call the game's POST endpoints
+         * cross-origin (host names, no scheme). The site's own host is
+         * always allowed.
+         *
+         * @param string[] $allowed
+         */
+        $allowed = (array) apply_filters('pairsmg_allowed_origins', $allowed);
+        $host = wp_parse_url($origin, PHP_URL_HOST);
+        return $host && in_array(strtolower($host), array_map('strtolower', array_filter($allowed)), true);
+    }
+
+    private static function cross_origin_rejected() {
+        $origin = isset($_SERVER['HTTP_ORIGIN']) ? sanitize_text_field(wp_unslash($_SERVER['HTTP_ORIGIN'])) : '';
+        if (self::origin_allowed($origin)) {
+            return null;
+        }
+        return self::error('cross_origin', __('Requests from other sites are not allowed.', 'pairs-memory-game'), 403);
+    }
+
     private static function error($code, $message, $status) {
         return new WP_REST_Response(array('ok' => false, 'error' => $code, 'message' => $message), $status);
     }
@@ -166,6 +204,10 @@ class PairsMG_REST {
     /* ---------------- routes ---------------- */
 
     public static function verify(WP_REST_Request $req) {
+        $blocked = self::cross_origin_rejected();
+        if ($blocked) {
+            return $blocked;
+        }
         $s = PairsMG_Settings::get();
         if (self::rate_limited('verify', $s['rate_limit_verify'])) {
             return self::error('rate_limited', __('Too many attempts. Please try again in a few minutes.', 'pairs-memory-game'), 429);
@@ -182,6 +224,10 @@ class PairsMG_REST {
     }
 
     public static function start_run(WP_REST_Request $req) {
+        $blocked = self::cross_origin_rejected();
+        if ($blocked) {
+            return $blocked;
+        }
         $s = PairsMG_Settings::get();
         if (self::rate_limited('start', $s['rate_limit_start'])) {
             return self::error('rate_limited', __('Too many attempts. Please try again in a few minutes.', 'pairs-memory-game'), 429);
@@ -229,6 +275,10 @@ class PairsMG_REST {
      * claim a faster time than it really took.
      */
     public static function finish_run(WP_REST_Request $req) {
+        $blocked = self::cross_origin_rejected();
+        if ($blocked) {
+            return $blocked;
+        }
         $run_token = (string) $req->get_param('runToken');
         $moves = absint($req->get_param('moves'));
 
@@ -267,6 +317,10 @@ class PairsMG_REST {
     }
 
     public static function submit_score(WP_REST_Request $req) {
+        $blocked = self::cross_origin_rejected();
+        if ($blocked) {
+            return $blocked;
+        }
         $s = PairsMG_Settings::get();
         if (empty($s['leaderboard_enabled'])) {
             return self::error('leaderboard_disabled', __('The leaderboard is turned off.', 'pairs-memory-game'), 403);
