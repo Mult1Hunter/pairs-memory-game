@@ -16,8 +16,6 @@ class PairsMG_Admin_Leaderboard {
         if (!current_user_can('manage_options')) {
             wp_die(esc_html__('You do not have permission to access this page.', 'pairs-memory-game'));
         }
-        global $wpdb;
-        $table = PairsMG_DB::table_name();
         $labels = PairsMG_Settings::tier_labels();
 
         // phpcs:disable WordPress.Security.NonceVerification.Recommended -- read-only filters.
@@ -31,15 +29,8 @@ class PairsMG_Admin_Leaderboard {
         // phpcs:enable
         $offset = ($paged - 1) * self::PER_PAGE;
 
-        // phpcs:disable WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- table name from $wpdb->prefix.
-        $total = (int) $wpdb->get_var($wpdb->prepare("SELECT COUNT(*) FROM {$table} WHERE tier = %s", $tier));
-        $rows = $wpdb->get_results($wpdb->prepare(
-            "SELECT id, name, score, pairs, moves, time_seconds, created_at FROM {$table} WHERE tier = %s ORDER BY score DESC, id ASC LIMIT %d OFFSET %d",
-            $tier,
-            self::PER_PAGE,
-            $offset
-        ), ARRAY_A);
-        // phpcs:enable
+        $total = PairsMG_DB::count($tier);
+        $rows = PairsMG_DB::page($tier, self::PER_PAGE, $offset);
         ?>
         <div class="wrap">
             <h1><?php esc_html_e('Memory Game - Leaderboards', 'pairs-memory-game'); ?></h1>
@@ -61,8 +52,7 @@ class PairsMG_Admin_Leaderboard {
 
             <h2 class="nav-tab-wrapper">
                 <?php foreach ($labels as $key => $label) :
-                    // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
-                    $count = (int) $wpdb->get_var($wpdb->prepare("SELECT COUNT(*) FROM {$table} WHERE tier = %s", $key));
+                    $count = PairsMG_DB::count($key);
                     $url = add_query_arg(array('page' => self::MENU_SLUG, 'tier' => $key), admin_url('admin.php'));
                     ?>
                     <a href="<?php echo esc_url($url); ?>" class="nav-tab <?php echo $tier === $key ? 'nav-tab-active' : ''; ?>">
@@ -165,8 +155,7 @@ class PairsMG_Admin_Leaderboard {
     public static function handle_delete() {
         $id = isset($_GET['id']) ? (int) $_GET['id'] : 0; // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- verified in guard().
         self::guard('pairsmg_delete_score_' . $id);
-        global $wpdb;
-        $wpdb->delete(PairsMG_DB::table_name(), array('id' => $id), array('%d'));
+        PairsMG_DB::delete_row($id);
         wp_safe_redirect(add_query_arg(array('page' => self::MENU_SLUG, 'tier' => self::tier_from_request(), 'deleted' => 1), admin_url('admin.php')));
         exit;
     }
@@ -174,8 +163,7 @@ class PairsMG_Admin_Leaderboard {
     public static function handle_clear_tier() {
         $tier = self::tier_from_request();
         self::guard('pairsmg_clear_tier_' . $tier);
-        global $wpdb;
-        $count = $wpdb->delete(PairsMG_DB::table_name(), array('tier' => $tier), array('%s'));
+        $count = PairsMG_DB::delete_tier($tier);
         wp_safe_redirect(add_query_arg(array('page' => self::MENU_SLUG, 'tier' => $tier, 'cleared' => (int) $count), admin_url('admin.php')));
         exit;
     }
@@ -183,10 +171,7 @@ class PairsMG_Admin_Leaderboard {
     public static function handle_export() {
         self::guard('pairsmg_export_csv');
         $tier = self::tier_from_request();
-        global $wpdb;
-        $table = PairsMG_DB::table_name();
-        // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
-        $rows = $wpdb->get_results($wpdb->prepare("SELECT name, score, pairs, moves, time_seconds, created_at FROM {$table} WHERE tier = %s ORDER BY score DESC, id ASC", $tier), ARRAY_A);
+        $rows = PairsMG_DB::all($tier);
 
         nocache_headers();
         header('Content-Type: text/csv; charset=utf-8');

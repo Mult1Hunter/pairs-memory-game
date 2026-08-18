@@ -21,6 +21,7 @@ $GLOBALS['pairsmg_test_remote'] = null;
 $GLOBALS['pairsmg_test_actions'] = array();
 
 function pairsmg_test_reset() {
+    $GLOBALS['pairsmg_test_cache'] = array();
     $GLOBALS['pairsmg_test_options'] = array();
     $GLOBALS['pairsmg_test_transients'] = array();
     $GLOBALS['pairsmg_test_filters'] = array();
@@ -42,6 +43,9 @@ function get_option($key, $default = false) {
 }
 function update_option($key, $value, $autoload = null) { $GLOBALS['pairsmg_test_options'][$key] = $value; return true; }
 function delete_option($key) { unset($GLOBALS['pairsmg_test_options'][$key]); return true; }
+$GLOBALS['pairsmg_test_cache'] = array();
+function wp_cache_get($key, $group = '') { return $GLOBALS['pairsmg_test_cache'][$group . ':' . $key] ?? false; }
+function wp_cache_set($key, $value, $group = '', $ttl = 0) { $GLOBALS['pairsmg_test_cache'][$group . ':' . $key] = $value; return true; }
 function get_transient($key) {
     return array_key_exists($key, $GLOBALS['pairsmg_test_transients']) ? $GLOBALS['pairsmg_test_transients'][$key] : false;
 }

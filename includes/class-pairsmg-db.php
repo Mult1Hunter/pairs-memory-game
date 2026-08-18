@@ -68,21 +68,107 @@ class PairsMG_DB {
         // phpcs:enable
     }
 
+    const CACHE_GROUP = 'pairsmg';
+
+    /**
+     * Leaderboard reads are cached in the object cache under a generation
+     * number that every write bumps, so a persistent cache (Redis, Memcached)
+     * serves the hot leaderboard queries without a DB hit and never serves a
+     * stale board; without a persistent cache this is a per-request memo.
+     */
+    private static function generation() {
+        $gen = wp_cache_get('generation', self::CACHE_GROUP);
+        if ($gen === false) {
+            $gen = 1;
+            wp_cache_set('generation', $gen, self::CACHE_GROUP);
+        }
+        return (int) $gen;
+    }
+
+    public static function invalidate() {
+        $gen = self::generation();
+        wp_cache_set('generation', $gen + 1, self::CACHE_GROUP);
+    }
+
+    private static function cached($key, $callback) {
+        $key = $key . ':' . self::generation();
+        $value = wp_cache_get($key, self::CACHE_GROUP);
+        if ($value === false) {
+            $value = $callback();
+            wp_cache_set($key, $value, self::CACHE_GROUP, 5 * MINUTE_IN_SECONDS);
+        }
+        return $value;
+    }
+
     /**
      * Top scores for one tier.
      *
      * @return array<int, array>
      */
     public static function top($tier, $limit) {
+        $limit = (int) $limit;
+        return self::cached("top:{$tier}:{$limit}", function () use ($tier, $limit) {
+            global $wpdb;
+            $table = self::table_name();
+            $rows = $wpdb->get_results($wpdb->prepare( // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- plugin's own table; wrapped in cached().
+                "SELECT name, score, pairs, moves, time_seconds FROM {$table} WHERE tier = %s ORDER BY score DESC, id ASC LIMIT %d", // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- table name from $wpdb->prefix.
+                $tier,
+                $limit
+            ), ARRAY_A);
+            return $rows ? $rows : array();
+        });
+    }
+
+    /** Number of stored scores for one tier. */
+    public static function count($tier) {
+        return (int) self::cached("count:{$tier}", function () use ($tier) {
+            global $wpdb;
+            $table = self::table_name();
+            // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- plugin's own table; wrapped in cached().
+            return (int) $wpdb->get_var($wpdb->prepare("SELECT COUNT(*) FROM {$table} WHERE tier = %s", $tier));
+        });
+    }
+
+    /**
+     * One page of a tier's scores for the admin screen, best first.
+     *
+     * @return array<int, array>
+     */
+    public static function page($tier, $per_page, $offset) {
+        return self::cached("page:{$tier}:{$per_page}:{$offset}", function () use ($tier, $per_page, $offset) {
+            global $wpdb;
+            $table = self::table_name();
+            $rows = $wpdb->get_results($wpdb->prepare( // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- plugin's own table; wrapped in cached().
+                "SELECT id, name, score, pairs, moves, time_seconds, created_at FROM {$table} WHERE tier = %s ORDER BY score DESC, id ASC LIMIT %d OFFSET %d", // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- table name from $wpdb->prefix.
+                $tier,
+                (int) $per_page,
+                (int) $offset
+            ), ARRAY_A);
+            return $rows ? $rows : array();
+        });
+    }
+
+    /** Every row of a tier, for export. Not cached: one-off admin action. */
+    public static function all($tier) {
         global $wpdb;
         $table = self::table_name();
-        $rows = $wpdb->get_results($wpdb->prepare(
-            // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- table name from $wpdb->prefix.
-            "SELECT name, score, pairs, moves, time_seconds FROM {$table} WHERE tier = %s ORDER BY score DESC, id ASC LIMIT %d",
-            $tier,
-            (int) $limit
-        ), ARRAY_A);
+        // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- plugin's own table; admin export.
+        $rows = $wpdb->get_results($wpdb->prepare("SELECT name, score, pairs, moves, time_seconds, created_at FROM {$table} WHERE tier = %s ORDER BY score DESC, id ASC", $tier), ARRAY_A);
         return $rows ? $rows : array();
+    }
+
+    public static function delete_row($id) {
+        global $wpdb;
+        $n = $wpdb->delete(self::table_name(), array('id' => (int) $id), array('%d')); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- plugin's own table; invalidate() follows.
+        self::invalidate();
+        return (int) $n;
+    }
+
+    public static function delete_tier($tier) {
+        global $wpdb;
+        $n = $wpdb->delete(self::table_name(), array('tier' => $tier), array('%s')); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- plugin's own table; invalidate() follows.
+        self::invalidate();
+        return (int) $n;
     }
 
     /** @return bool False when the run nonce already exists (duplicate submit). */
@@ -90,7 +176,7 @@ class PairsMG_DB {
         global $wpdb;
         // A duplicate run nonce is an expected outcome, not a DB error worth logging.
         $prev = $wpdb->suppress_errors(true);
-        $ok = $wpdb->insert(
+        $ok = $wpdb->insert( // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery -- plugin's own table.
             self::table_name(),
             array(
                 'run_nonce'    => isset($row['run_nonce']) ? (string) $row['run_nonce'] : substr(hash('sha256', wp_generate_password(16, false)), 0, 32),
@@ -106,6 +192,9 @@ class PairsMG_DB {
             array('%s', '%s', '%s', '%d', '%d', '%d', '%d', '%s', '%s')
         );
         $wpdb->suppress_errors($prev);
+        if ($ok) {
+            self::invalidate();
+        }
         return (bool) $ok;
     }
 }
