@@ -306,6 +306,7 @@ class PairsMG_REST {
         $score = PairsMG_Scoring::compute($pairs, $moves, $elapsed);
 
         set_transient(self::pending_key($payload['n']), array(
+            'nonce'   => (string) $payload['n'],
             'tier'    => $payload['tier'],
             'pairs'   => $pairs,
             'moves'   => $moves,
@@ -351,6 +352,7 @@ class PairsMG_REST {
         $name = self::sanitize_name($req->get_param('name'));
 
         $row = array(
+            'run_nonce'    => md5((string) $pending['nonce']),
             'name'         => $name,
             'tier'         => $pending['tier'],
             'pairs'        => (int) $pending['pairs'],
@@ -359,7 +361,12 @@ class PairsMG_REST {
             'score'        => (int) $pending['score'],
             'ip_hash'      => self::ip_hash(),
         );
-        PairsMG_DB::insert($row);
+        // The UNIQUE index on run_nonce is the real one-score-per-run
+        // guarantee: the transient check above is a fast path that two
+        // concurrent requests can both pass, the index cannot be.
+        if (!PairsMG_DB::insert($row)) {
+            return self::error('already_submitted', __('This score has already been saved.', 'pairs-memory-game'), 409);
+        }
 
         /**
          * Fires after a score is stored.
