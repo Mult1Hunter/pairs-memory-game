@@ -86,6 +86,11 @@ wp i18n make-pot . languages/pairs-memory-game.pot --exclude=vendor,node_modules
 python3 bin/build-sl_SI.py && wp i18n make-mo languages
 ```
 
+Deploy the current checkout into the local Docker WordPress as a real
+plugin install (builds the same zip the release workflow does, then
+`wp plugin install --force`): `bin/deploy-local.sh`. Run it after every push
+so the local site tracks `main`.
+
 Build the release zip (respects `.distignore`):
 
 ```
