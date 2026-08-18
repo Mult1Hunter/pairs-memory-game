@@ -16,7 +16,7 @@ if (!is_array($pairsmg_settings) || empty($pairsmg_settings['delete_on_uninstall
 global $wpdb;
 
 // Scores table.
-$wpdb->query('DROP TABLE IF EXISTS ' . $wpdb->prefix . 'pairsmg_scores'); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.SchemaChange, WordPress.DB.PreparedSQL.NotPrepared
+$wpdb->query('DROP TABLE IF EXISTS ' . $wpdb->prefix . 'pairsmg_scores'); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.DirectDatabaseQuery.SchemaChange, WordPress.DB.PreparedSQL.NotPrepared -- removing the plugin's own table on uninstall.
 
 // Cards.
 $pairsmg_posts = get_posts(array(
@@ -42,4 +42,4 @@ foreach (array('pairsmg_settings', 'pairsmg_db_version', 'pairsmg_hmac_secret', 
     delete_option($pairsmg_option);
 }
 delete_transient('pairsmg_pairs_cache');
-$wpdb->query("DELETE FROM {$wpdb->options} WHERE option_name LIKE '\_transient\_pairsmg\_%' OR option_name LIKE '\_transient\_timeout\_pairsmg\_%'"); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.PreparedSQL.NotPrepared
+$wpdb->query("DELETE FROM {$wpdb->options} WHERE option_name LIKE '\_transient\_pairsmg\_%' OR option_name LIKE '\_transient\_timeout\_pairsmg\_%'"); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared -- sweeping the plugin's own transients on uninstall. 

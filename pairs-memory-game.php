@@ -63,7 +63,10 @@ require_once PAIRSMG_DIR . 'includes/class-pairsmg-cron.php';
  * Boot. Everything is hooked from one place so the load order is obvious.
  */
 function pairsmg_boot() {
-    load_plugin_textdomain('pairs-memory-game', false, dirname(plugin_basename(PAIRSMG_FILE)) . '/languages');
+    // Kept on purpose: wp.org language packs make this redundant, but a copy
+    // installed from GitHub relies on the .mo files shipped in /languages,
+    // and WordPress only auto-loads those from WP_LANG_DIR.
+    load_plugin_textdomain('pairs-memory-game', false, dirname(plugin_basename(PAIRSMG_FILE)) . '/languages'); // phpcs:ignore PluginCheck.CodeAnalysis.DiscouragedFunctions.load_plugin_textdomainFound
 
     PairsMG_Post_Type::register();
     PairsMG_Shortcode::register();
