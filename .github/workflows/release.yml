@@ -29,7 +29,7 @@ jobs:
           wp dist-archive . ./pairs-memory-game.zip --plugin-dirname=pairs-memory-game
           unzip -l pairs-memory-game.zip | tail -3
       - name: Attach to GitHub release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           files: pairs-memory-game.zip
           generate_release_notes: true
