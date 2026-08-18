@@ -54,10 +54,25 @@
     return fmt(forms[Math.min(i, forms.length - 1)], n);
   }
 
+  // Uniform integer in [0, n). The layout shuffle is cosmetic (the server
+  // already picked and shuffled the deck), but crypto.getRandomValues is
+  // available everywhere the game runs, so use it and keep static analysis
+  // quiet about Math.random feeding a DOM lookup.
+  function randInt(n) {
+    var c = window.crypto || window.msCrypto;
+    if (c && c.getRandomValues) {
+      var buf = new Uint32Array(1);
+      var limit = Math.floor(4294967296 / n) * n; // rejection sampling, no modulo bias
+      do { c.getRandomValues(buf); } while (buf[0] >= limit);
+      return buf[0] % n;
+    }
+    return Math.floor(Math.random() * n);
+  }
+
   function shuffle(arr) {
     var a = arr.slice();
     for (var i = a.length - 1; i > 0; i--) {
-      var j = Math.floor(Math.random() * (i + 1));
+      var j = randInt(i + 1);
       var t = a[i]; a[i] = a[j]; a[j] = t;
     }
     return a;
