@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img">
+  <title>zajec</title>
+  <rect x="0" y="0" width="400" height="400" rx="22" fill="#fdfaf4"/>
+  <rect x="7" y="7" width="386" height="386" rx="17" fill="none" stroke="#2b211c" stroke-width="3.5"/>
+  <rect x="18" y="18" width="364" height="364" rx="10" fill="#9fb268"/>
+  <rect x="18" y="18" width="364" height="364" rx="10" fill="none" stroke="#2b211c" stroke-width="2" opacity="0.45"/>
+  <ellipse cx="200" cy="368" rx="150" ry="34" fill="#ffffff" opacity="0.20"/>
+  <g transform="translate(72,30) scale(1.28)">
+  <g fill="#2b211c">
+    <path d="M108,110 C92,110 80,124 80,142 C80,152 84,160 90,166 C74,174 62,190 62,206 L150,206 C150,186 140,168 124,160 C132,152 136,142 134,132 C132,118 122,110 108,110 Z"/>
+    <path d="M96,112 C86,90 84,64 92,48 C104,54 110,80 108,108 Z"/>
+    <path d="M118,112 C124,90 134,68 146,58 C152,74 142,98 128,114 Z"/>
+  </g>
+  <g fill="#ffffff">
+    <circle cx="98" cy="138" r="5.5"/>
+  </g>
+  <g fill="#f7f1e6">
+    <circle cx="152" cy="196" r="14"/>
+  </g>
+  <g fill="none" stroke="#2b211c" stroke-width="3" stroke-linecap="round">
+    <path d="M84,146 L60,140 M84,152 L60,154"/>
+  </g>
+  </g>
+  <g><path d="M49.5,41.0 L58.8,71.0 L68.1,41.0" fill="none" stroke="#2b211c" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><rect x="71.1" y="41.0" width="3.4" height="30" fill="#2b211c"/></g>
+  <g transform="rotate(180 338 344)"><path d="M325.5,329.0 L334.8,359.0 L344.1,329.0" fill="none" stroke="#2b211c" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><rect x="347.1" y="329.0" width="3.4" height="30" fill="#2b211c"/></g>
+</svg>

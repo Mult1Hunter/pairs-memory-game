@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img">
+  <title>ris</title>
+  <rect x="0" y="0" width="400" height="400" rx="22" fill="#fdfaf4"/>
+  <rect x="7" y="7" width="386" height="386" rx="17" fill="none" stroke="#2b211c" stroke-width="3.5"/>
+  <rect x="18" y="18" width="364" height="364" rx="10" fill="#a077b5"/>
+  <rect x="18" y="18" width="364" height="364" rx="10" fill="none" stroke="#2b211c" stroke-width="2" opacity="0.45"/>
+  <ellipse cx="200" cy="368" rx="150" ry="34" fill="#ffffff" opacity="0.20"/>
+  <g transform="translate(72,30) scale(1.28)">
+  <g fill="#2b211c">
+    <path d="M100,84 C70,84 50,108 50,140 C50,176 72,200 100,200 C128,200 150,176 150,140 C150,108 130,84 100,84 Z"/>
+    <path d="M58,100 L52,58 L84,86 Z"/>
+    <path d="M142,100 L148,58 L116,86 Z"/>
+    <path d="M52,58 L48,32 L60,54 Z"/>
+    <path d="M148,58 L152,32 L140,54 Z"/>
+    <path d="M50,142 C34,150 24,166 24,182 C40,178 52,168 58,156 Z"/>
+    <path d="M150,142 C166,150 176,166 176,182 C160,178 148,168 142,156 Z"/>
+  </g>
+  <g fill="#ffffff">
+    <path d="M82,134 C78,128 70,128 66,134 C70,142 78,142 82,134 Z"/>
+    <path d="M118,134 C122,128 130,128 134,134 C130,142 122,142 118,134 Z"/>
+  </g>
+  <g fill="#2b211c">
+    <path d="M100,150 L108,162 L92,162 Z"/>
+  </g>
+  <g fill="none" stroke="#f7f1e6" stroke-width="3.4" stroke-linecap="round">
+    <path d="M92,172 C96,180 104,180 108,172"/>
+  </g>
+
+  </g>
+  <g><rect x="49.5" y="41.0" width="3.4" height="30" fill="#2b211c"/><path d="M55.9,41.0 L74.5,71.0 M74.5,41.0 L55.9,71.0" fill="none" stroke="#2b211c" stroke-width="3.4" stroke-linecap="round"/></g>
+  <g transform="rotate(180 338 344)"><rect x="325.5" y="329.0" width="3.4" height="30" fill="#2b211c"/><path d="M331.9,329.0 L350.5,359.0 M350.5,329.0 L331.9,359.0" fill="none" stroke="#2b211c" stroke-width="3.4" stroke-linecap="round"/></g>
+</svg>

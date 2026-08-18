@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img">
+  <title>caplja</title>
+  <rect x="0" y="0" width="400" height="400" rx="22" fill="#fdfaf4"/>
+  <rect x="7" y="7" width="386" height="386" rx="17" fill="none" stroke="#2b211c" stroke-width="3.5"/>
+  <rect x="18" y="18" width="364" height="364" rx="10" fill="#8a86c0"/>
+  <rect x="18" y="18" width="364" height="364" rx="10" fill="none" stroke="#2b211c" stroke-width="2" opacity="0.45"/>
+  <ellipse cx="200" cy="368" rx="150" ry="34" fill="#ffffff" opacity="0.20"/>
+  <g transform="translate(72,30) scale(1.28)">
+  <g fill="none" stroke="#2b211c" stroke-width="14" stroke-linecap="round">
+    <path d="M120,166 C102,142 94,116 100,92 C106,70 120,58 138,56"/>
+  </g>
+  <g fill="#2b211c">
+    <ellipse cx="126" cy="184" rx="42" ry="32"/>
+    <circle cx="140" cy="56" r="12"/>
+    <path d="M150,50 L200,58 L150,64 Z"/>
+    <path d="M132,44 C126,28 130,14 140,10 C146,20 146,36 142,48 Z"/>
+  </g>
+  <g fill="#f7f1e6">
+    <path d="M108,168 C132,162 158,174 168,196 C148,206 122,196 108,180 Z"/>
+  </g>
+  <g fill="none" stroke="#2b211c" stroke-width="6" stroke-linecap="round">
+    <path d="M112,214 L104,272 M104,272 L86,278 M104,272 L120,278"/>
+    <path d="M140,214 L150,272 M150,272 L134,278 M150,272 L166,278"/>
+  </g>
+  <g fill="#ffffff"><circle cx="136" cy="52" r="3.6"/></g>
+
+  </g>
+  <g><path d="M41.9,41.0 L60.5,71.0 M60.5,41.0 L41.9,71.0" fill="none" stroke="#2b211c" stroke-width="3.4" stroke-linecap="round"/><path d="M63.5,41.0 L72.8,71.0 L82.1,41.0" fill="none" stroke="#2b211c" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></g>
+  <g transform="rotate(180 338 344)"><path d="M317.9,329.0 L336.5,359.0 M336.5,329.0 L317.9,359.0" fill="none" stroke="#2b211c" stroke-width="3.4" stroke-linecap="round"/><path d="M339.5,329.0 L348.8,359.0 L358.1,329.0" fill="none" stroke="#2b211c" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></g>
+</svg>

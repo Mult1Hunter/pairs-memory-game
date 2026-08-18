@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img">
+  <title>postrv</title>
+  <rect x="0" y="0" width="400" height="400" rx="22" fill="#fdfaf4"/>
+  <rect x="7" y="7" width="386" height="386" rx="17" fill="none" stroke="#2b211c" stroke-width="3.5"/>
+  <rect x="18" y="18" width="364" height="364" rx="10" fill="#6aa8c0"/>
+  <rect x="18" y="18" width="364" height="364" rx="10" fill="none" stroke="#2b211c" stroke-width="2" opacity="0.45"/>
+  <ellipse cx="200" cy="368" rx="150" ry="34" fill="#ffffff" opacity="0.20"/>
+  <g transform="translate(72,30) scale(1.28)">
+  <g fill="#2b211c">
+    <path d="M22,146 C50,104 108,96 148,116 C168,126 180,140 186,150 C180,160 168,174 148,184 C108,204 50,196 22,154 Z"/>
+    <path d="M22,150 L-2,120 L4,150 L-2,180 Z" transform="translate(6,0)"/>
+    <path d="M92,110 L104,80 L124,112 Z"/>
+    <path d="M92,190 L104,216 L124,188 Z"/>
+  </g>
+  <g fill="#ffffff">
+    <circle cx="160" cy="146" r="8"/>
+  </g>
+  <g fill="#f7f1e6">
+    <circle cx="70" cy="140" r="6"/><circle cx="96" cy="132" r="6"/>
+    <circle cx="120" cy="140" r="6"/><circle cx="84" cy="162" r="6"/>
+    <circle cx="110" cy="166" r="6"/>
+  </g>
+  </g>
+  <g><path d="M46.3,41.0 L64.9,71.0 M64.9,41.0 L46.3,71.0" fill="none" stroke="#2b211c" stroke-width="3.4" stroke-linecap="round"/><rect x="67.9" y="41.0" width="3.4" height="30" fill="#2b211c"/><rect x="74.3" y="41.0" width="3.4" height="30" fill="#2b211c"/></g>
+  <g transform="rotate(180 338 344)"><path d="M322.3,329.0 L340.9,359.0 M340.9,329.0 L322.3,359.0" fill="none" stroke="#2b211c" stroke-width="3.4" stroke-linecap="round"/><rect x="343.9" y="329.0" width="3.4" height="30" fill="#2b211c"/><rect x="350.3" y="329.0" width="3.4" height="30" fill="#2b211c"/></g>
+</svg>

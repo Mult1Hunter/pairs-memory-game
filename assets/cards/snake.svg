@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img">
+  <title>kaca</title>
+  <rect x="0" y="0" width="400" height="400" rx="22" fill="#fdfaf4"/>
+  <rect x="7" y="7" width="386" height="386" rx="17" fill="none" stroke="#2b211c" stroke-width="3.5"/>
+  <rect x="18" y="18" width="364" height="364" rx="10" fill="#6f9c62"/>
+  <rect x="18" y="18" width="364" height="364" rx="10" fill="none" stroke="#2b211c" stroke-width="2" opacity="0.45"/>
+  <ellipse cx="200" cy="368" rx="150" ry="34" fill="#ffffff" opacity="0.20"/>
+  <g transform="translate(72,30) scale(1.28)">
+  <g fill="none" stroke="#2b211c" stroke-width="19" stroke-linecap="round">
+    <path d="M150,84 C96,72 52,104 56,142 C60,178 108,196 138,178 C160,164 156,138 134,132 C114,126 98,142 104,156"/>
+  </g>
+  <g fill="none" stroke="#f7f1e6" stroke-width="6" stroke-linecap="round" opacity="0.85">
+    <path d="M150,84 C96,72 52,104 56,142 C60,178 108,196 138,178 C160,164 156,138 134,132 C114,126 98,142 104,156"
+          stroke-dasharray="2 20"/>
+  </g>
+  <g fill="#2b211c">
+    <path d="M104,156 C98,162 100,172 110,172 C120,172 124,162 118,154 Z"/>
+    <path d="M150,74 C166,70 180,76 184,88 C176,96 160,96 150,92 Z"/>
+  </g>
+  <g fill="#ffffff"><circle cx="168" cy="82" r="4"/></g>
+  <g stroke="#2b211c" stroke-width="3.4" stroke-linecap="round" fill="none">
+    <path d="M184,88 L200,92 M184,88 L200,84"/>
+  </g>
+  </g>
+  <g><path d="M43.1,41.0 L61.7,71.0 M61.7,41.0 L43.1,71.0" fill="none" stroke="#2b211c" stroke-width="3.4" stroke-linecap="round"/><rect x="64.7" y="41.0" width="3.4" height="30" fill="#2b211c"/><rect x="71.1" y="41.0" width="3.4" height="30" fill="#2b211c"/><rect x="77.5" y="41.0" width="3.4" height="30" fill="#2b211c"/></g>
+  <g transform="rotate(180 338 344)"><path d="M319.1,329.0 L337.7,359.0 M337.7,329.0 L319.1,359.0" fill="none" stroke="#2b211c" stroke-width="3.4" stroke-linecap="round"/><rect x="340.7" y="329.0" width="3.4" height="30" fill="#2b211c"/><rect x="347.1" y="329.0" width="3.4" height="30" fill="#2b211c"/><rect x="353.5" y="329.0" width="3.4" height="30" fill="#2b211c"/></g>
+</svg>

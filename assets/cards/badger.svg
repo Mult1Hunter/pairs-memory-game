@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img">
+  <title>jazbec</title>
+  <rect x="0" y="0" width="400" height="400" rx="22" fill="#fdfaf4"/>
+  <rect x="7" y="7" width="386" height="386" rx="17" fill="none" stroke="#2b211c" stroke-width="3.5"/>
+  <rect x="18" y="18" width="364" height="364" rx="10" fill="#bd77a8"/>
+  <rect x="18" y="18" width="364" height="364" rx="10" fill="none" stroke="#2b211c" stroke-width="2" opacity="0.45"/>
+  <ellipse cx="200" cy="368" rx="150" ry="34" fill="#ffffff" opacity="0.20"/>
+  <g transform="translate(72,30) scale(1.28)">
+  <g fill="#2b211c">
+    <path d="M100,80 C68,80 46,108 46,146 C46,180 70,202 100,202 C130,202 154,180 154,146 C154,108 132,80 100,80 Z"/>
+    <circle cx="56" cy="94" r="17"/><circle cx="144" cy="94" r="17"/>
+  </g>
+  <g fill="#ffffff">
+    <path d="M100,84 C92,84 86,96 86,116 L86,190 C90,196 96,200 100,200 C104,200 110,196 114,190 L114,116 C114,96 108,84 100,84 Z"/>
+    <path d="M64,110 C54,120 50,138 52,156 C62,158 72,150 76,136 C78,124 74,114 64,110 Z"/>
+    <path d="M136,110 C146,120 150,138 148,156 C138,158 128,150 124,136 C122,124 126,114 136,110 Z"/>
+  </g>
+  <g fill="#2b211c">
+    <circle cx="76" cy="132" r="7"/><circle cx="124" cy="132" r="7"/>
+    <ellipse cx="100" cy="176" rx="11" ry="8"/>
+  </g>
+  </g>
+  <g><path d="M38.7,41.0 L57.3,71.0 M57.3,41.0 L38.7,71.0" fill="none" stroke="#2b211c" stroke-width="3.4" stroke-linecap="round"/><path d="M60.3,41.0 L69.6,71.0 L78.9,41.0" fill="none" stroke="#2b211c" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><rect x="81.9" y="41.0" width="3.4" height="30" fill="#2b211c"/></g>
+  <g transform="rotate(180 338 344)"><path d="M314.7,329.0 L333.3,359.0 M333.3,329.0 L314.7,359.0" fill="none" stroke="#2b211c" stroke-width="3.4" stroke-linecap="round"/><path d="M336.3,329.0 L345.6,359.0 L354.9,329.0" fill="none" stroke="#2b211c" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><rect x="357.9" y="329.0" width="3.4" height="30" fill="#2b211c"/></g>
+</svg>
