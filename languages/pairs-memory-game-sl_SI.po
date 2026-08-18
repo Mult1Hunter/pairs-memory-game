@@ -653,14 +653,15 @@ msgid "The score could not be saved."
 msgstr "Rezultata ni bilo mogoče shraniti."
 
 #: includes/class-pairsmg-assets.php:176
-#: includes/class-pairsmg-rest.php:341
+#: includes/class-pairsmg-rest.php:348
+#: includes/class-pairsmg-rest.php:368
 msgid "This score has already been saved."
 msgstr "Ta rezultat je že shranjen."
 
 #: includes/class-pairsmg-assets.php:177
 #: includes/class-pairsmg-rest.php:213
 #: includes/class-pairsmg-rest.php:233
-#: includes/class-pairsmg-rest.php:329
+#: includes/class-pairsmg-rest.php:336
 msgid "Too many attempts. Please try again in a few minutes."
 msgstr "Preveč poskusov. Poskusite čez nekaj minut."
 
@@ -849,7 +850,7 @@ msgid "Requests from other sites are not allowed."
 msgstr "Zahteve z drugih spletnih mest niso dovoljene."
 
 #: includes/class-pairsmg-rest.php:243
-#: includes/class-pairsmg-rest.php:377
+#: includes/class-pairsmg-rest.php:390
 msgid "Unknown difficulty."
 msgstr "Neznana težavnost."
 
@@ -857,7 +858,11 @@ msgstr "Neznana težavnost."
 msgid "This run has already been finished."
 msgstr "Ta igra je že končana."
 
-#: includes/class-pairsmg-rest.php:326
+#: includes/class-pairsmg-rest.php:299
+msgid "That was faster than a person can play. The run was not counted."
+msgstr "To je bilo hitreje, kot lahko igra človek. Igra ni bila upoštevana."
+
+#: includes/class-pairsmg-rest.php:333
 msgid "The leaderboard is turned off."
 msgstr "Lestvica je izklopljena."
 

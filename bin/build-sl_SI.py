@@ -205,6 +205,7 @@ T = {
     "yes": "da",
     "Unknown difficulty.": "Neznana težavnost.",
     "Requests from other sites are not allowed.": "Zahteve z drugih spletnih mest niso dovoljene.",
+    "That was faster than a person can play. The run was not counted.": "To je bilo hitreje, kot lahko igra človek. Igra ni bila upoštevana.",
     "This run has already been finished.": "Ta igra je že končana.",
     "The leaderboard is turned off.": "Lestvica je izklopljena.",
     "Easy": "Lahko",

@@ -30,11 +30,15 @@ one exists. Credit is given in the changelog unless you prefer otherwise.
   `Origin` header that is not this site (or a host allowed through the
   `pairsmg_allowed_origins` filter) gets a 403, so a third-party page cannot
   drive the game API or fill the leaderboard from elsewhere.
-- Known limit: server-side timing prevents impossible scores, not scripted
-  ones - a script that starts and finishes a run instantly earns the same
-  1000 a fast human can. Bot protection (per-session challenge) and the rate
-  limits are the mitigations; a plausibility floor on elapsed time and
-  server-side card flips are planned hardening.
+- Runs finished faster than a person can physically turn the cards
+  (`pairs x 0.8 s`, filter `pairsmg_min_time`) are refused, so start+finish
+  back to back earns nothing. One score per run is enforced by a UNIQUE
+  index on the run nonce in the scores table - two racing submits cannot
+  both land.
+- Known limit: a script that plays at human pace can still post good
+  scores; bot protection (per-session challenge) and the rate limits are the
+  mitigation. Server-side card flips were considered and rejected as too
+  chatty for shared hosting.
 - All database access goes through `$wpdb->prepare()` or `$wpdb->insert()`
   / `->delete()`. All admin output is escaped, all input sanitized. Every
   destructive admin action requires `manage_options` and a nonce.

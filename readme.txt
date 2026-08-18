@@ -4,7 +4,7 @@ Tags: memory game, matching game, game, leaderboard, gamification
 Requires at least: 6.0
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -60,7 +60,7 @@ Square PNGs with a transparent background work best for logos (about 600 x 600 p
 
 = Can players cheat? =
 
-They can flip cards however they like, but not the score. Time is stamped by the server when the last pair is matched, moves are floored at the theoretical minimum, and each run token can be redeemed exactly once. Bot protection additionally keeps scripted play out.
+They can flip cards however they like, but not the score. Time is stamped by the server when the last pair is matched, moves are floored at the theoretical minimum, runs finished faster than a person can turn the cards are refused, and each run is stored at most once (enforced by the database). Bot protection additionally keeps scripted play out.
 
 = Can I disable the leaderboard? =
 
@@ -89,6 +89,10 @@ Only the display name a player types is stored with the score. IP addresses are 
 7. Cards list in wp-admin.
 
 == Changelog ==
+
+= 1.0.2 =
+* Runs finished faster than a person can turn the cards (0.8 s per pair, filter `pairsmg_min_time`) are refused, so a script cannot post perfect scores by starting and finishing a run back to back.
+* One score per run is now guaranteed by a unique index on the scores table, not only by transient checks; existing rows are migrated automatically.
 
 = 1.0.1 =
 * Cross-site requests to the game API are refused (Origin check on the POST routes; `pairsmg_allowed_origins` filter for legitimate exceptions).

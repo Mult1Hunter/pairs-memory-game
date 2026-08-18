@@ -103,9 +103,10 @@ to the GitHub release.
 Filters: `pairsmg_settings`, `pairsmg_pair_counts`, `pairsmg_active_pairs`,
 `pairsmg_default_cards`, `pairsmg_build_deck`, `pairsmg_par_time`,
 `pairsmg_score`, `pairsmg_sanitize_name`, `pairsmg_client_ip`,
-`pairsmg_theme_css`, `pairsmg_frontend_config`, `pairsmg_allowed_origins`.
+`pairsmg_theme_css`, `pairsmg_frontend_config`, `pairsmg_allowed_origins`,
+`pairsmg_min_time`.
 
-Actions: `pairsmg_run_started`, `pairsmg_score_saved`,
+Actions: `pairsmg_run_started`, `pairsmg_run_rejected`, `pairsmg_score_saved`,
 `pairsmg_captcha_verified`, `pairsmg_cleanup_done`.
 
 ## Contributing
