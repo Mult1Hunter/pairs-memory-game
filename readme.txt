@@ -4,7 +4,7 @@ Tags: memory game, matching game, game, leaderboard, gamification
 Requires at least: 6.0
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -89,6 +89,10 @@ Only the display name a player types is stored with the score. IP addresses are 
 7. Cards list in wp-admin.
 
 == Changelog ==
+
+= 1.0.1 =
+* Cross-site requests to the game API are refused (Origin check on the POST routes; `pairsmg_allowed_origins` filter for legitimate exceptions).
+* Daily WP-Cron sweep of expired rate-limit and token transients.
 
 = 1.0.0 =
 * First public release.

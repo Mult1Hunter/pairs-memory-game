@@ -32,6 +32,7 @@ includes/
   class-pairsmg-game-page.php    optional dedicated page at a stable slug
   class-pairsmg-admin-settings.php   tabbed settings screen
   class-pairsmg-admin-leaderboard.php moderation, clear, CSV export
+  class-pairsmg-cron.php         daily sweep of expired rate-limit/token transients
 templates/game.php           frontend markup (data-pmg hooks, no ids)
 assets/js/game.js            frontend logic (no build step, ES5)
 assets/css/game.css          scoped styles, all colours via --pmg-* vars
@@ -53,8 +54,11 @@ POST /submit-score    run token + name -> stored, ranked
 GET  /leaderboard     tier, limit -> entries
 ```
 
-Namespace: `pairs-memory-game/v1`. All routes are anonymous by design; trust
-comes from the signed tokens, not WordPress auth. See [SECURITY.md](SECURITY.md).
+Namespace: `pairs-memory-game/v1`. All routes are anonymous by design (players
+are visitors, not WordPress users); trust comes from the signed tokens, not
+WordPress auth. The POST routes additionally refuse browser requests whose
+`Origin` is another site (filter `pairsmg_allowed_origins`). See
+[SECURITY.md](SECURITY.md).
 
 ## Development
 
@@ -99,10 +103,10 @@ to the GitHub release.
 Filters: `pairsmg_settings`, `pairsmg_pair_counts`, `pairsmg_active_pairs`,
 `pairsmg_default_cards`, `pairsmg_build_deck`, `pairsmg_par_time`,
 `pairsmg_score`, `pairsmg_sanitize_name`, `pairsmg_client_ip`,
-`pairsmg_theme_css`, `pairsmg_frontend_config`.
+`pairsmg_theme_css`, `pairsmg_frontend_config`, `pairsmg_allowed_origins`.
 
 Actions: `pairsmg_run_started`, `pairsmg_score_saved`,
-`pairsmg_captcha_verified`.
+`pairsmg_captcha_verified`, `pairsmg_cleanup_done`.
 
 ## Contributing
 

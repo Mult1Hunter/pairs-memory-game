@@ -24,7 +24,17 @@ one exists. Credit is given in the changelog unless you prefer otherwise.
   verified server-side against the provider's endpoint before a session token
   is issued.
 - All public REST endpoints are rate limited per IP (configurable). IPs are
-  stored only as a salted hash.
+  stored only as a salted hash. Expired limiter/token transients are swept
+  daily by WP-Cron so wp_options cannot bloat under a flood.
+- The state-changing endpoints reject cross-site browser requests: an
+  `Origin` header that is not this site (or a host allowed through the
+  `pairsmg_allowed_origins` filter) gets a 403, so a third-party page cannot
+  drive the game API or fill the leaderboard from elsewhere.
+- Known limit: server-side timing prevents impossible scores, not scripted
+  ones - a script that starts and finishes a run instantly earns the same
+  1000 a fast human can. Bot protection (per-session challenge) and the rate
+  limits are the mitigations; a plausibility floor on elapsed time and
+  server-side card flips are planned hardening.
 - All database access goes through `$wpdb->prepare()` or `$wpdb->insert()`
   / `->delete()`. All admin output is escaped, all input sanitized. Every
   destructive admin action requires `manage_options` and a nonce.
