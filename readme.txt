@@ -4,7 +4,7 @@ Tags: memory game, matching game, game, leaderboard, gamification
 Requires at least: 6.0
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -89,6 +89,10 @@ Only the display name a player types is stored with the score. IP addresses are 
 7. Cards list in wp-admin.
 
 == Changelog ==
+
+= 1.0.4 =
+* Leaderboard reads are served from the object cache (invalidated on every write), so sites with Redis/Memcached no longer hit the database for the hot queries.
+* Plugin Check now reports no findings on the shipped plugin.
 
 = 1.0.3 =
 * Stored run nonces are derived with SHA-256 (was MD5); no functional change.
