@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img">
+  <title>merjasec</title>
+  <rect x="0" y="0" width="400" height="400" rx="22" fill="#fdfaf4"/>
+  <rect x="7" y="7" width="386" height="386" rx="17" fill="none" stroke="#2b211c" stroke-width="3.5"/>
+  <rect x="18" y="18" width="364" height="364" rx="10" fill="#cfa963"/>
+  <rect x="18" y="18" width="364" height="364" rx="10" fill="none" stroke="#2b211c" stroke-width="2" opacity="0.45"/>
+  <ellipse cx="200" cy="368" rx="150" ry="34" fill="#ffffff" opacity="0.20"/>
+  <g transform="translate(72,30) scale(1.28)">
+  <g fill="#2b211c">
+    <path d="M100,86 L110,60 L122,84 L134,58 L146,84 L158,66 L166,96 Z"/>
+    <path d="M40,152 C40,134 54,122 74,118
+             C82,98 100,86 122,86
+             C150,86 170,104 174,130
+             C178,158 164,182 138,190
+             C112,198 82,190 62,174
+             C48,164 40,160 40,152 Z"/>
+    <path d="M126,88 C124,64 136,48 154,48 C160,66 152,84 140,94 Z"/>
+  </g>
+  <g fill="#f7f1e6">
+    <ellipse cx="48" cy="152" rx="15" ry="17"/>
+  </g>
+  <g fill="#2b211c">
+    <circle cx="44" cy="146" r="3.4"/><circle cx="44" cy="158" r="3.4"/>
+    <circle cx="112" cy="122" r="6"/>
+  </g>
+  <g fill="#ffffff" stroke="#2b211c" stroke-width="3" stroke-linejoin="round">
+    <path d="M64,172 C54,182 51,196 58,206 C58,192 62,182 72,176 Z"/>
+    <path d="M92,188 C84,196 82,208 89,214 C89,204 92,197 98,192 Z"/>
+  </g>
+
+  </g>
+  <g><rect x="57.1" y="41.0" width="3.4" height="30" fill="#2b211c"/><rect x="63.5" y="41.0" width="3.4" height="30" fill="#2b211c"/></g>
+  <g transform="rotate(180 338 344)"><rect x="333.1" y="329.0" width="3.4" height="30" fill="#2b211c"/><rect x="339.5" y="329.0" width="3.4" height="30" fill="#2b211c"/></g>
+</svg>

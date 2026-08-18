@@ -1,0 +1,5 @@
+.pmg-settings .pmg-notice { margin: 16px 0; padding: 10px 12px; }
+.pmg-settings .pmg-notice p { margin: 0 0 6px; }
+.pmg-settings .pmg-notice p:last-child { margin-bottom: 0; }
+.pmg-back-preview { width: 96px; height: 130px; background: #ddd; margin: 0 0 8px; display: flex; align-items: center; justify-content: center; }
+.pmg-back-preview img { max-width: 100%; max-height: 100%; }

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img">
+  <title>medved</title>
+  <rect x="0" y="0" width="400" height="400" rx="22" fill="#fdfaf4"/>
+  <rect x="7" y="7" width="386" height="386" rx="17" fill="none" stroke="#2b211c" stroke-width="3.5"/>
+  <rect x="18" y="18" width="364" height="364" rx="10" fill="#c4a186"/>
+  <rect x="18" y="18" width="364" height="364" rx="10" fill="none" stroke="#2b211c" stroke-width="2" opacity="0.45"/>
+  <ellipse cx="200" cy="368" rx="150" ry="34" fill="#ffffff" opacity="0.20"/>
+  <g transform="translate(72,30) scale(1.28)">
+  <g fill="#2b211c">
+    <path d="M100,80 C66,80 44,106 44,140 C44,176 68,200 100,200 C132,200 156,176 156,140 C156,106 134,80 100,80 Z"/>
+    <circle cx="54" cy="86" r="22"/><circle cx="146" cy="86" r="22"/>
+  </g>
+  <g fill="#f7f1e6">
+    <circle cx="54" cy="86" r="11"/><circle cx="146" cy="86" r="11"/>
+    <ellipse cx="100" cy="164" rx="30" ry="22"/>
+  </g>
+  <g fill="#2b211c">
+    <ellipse cx="100" cy="150" rx="11" ry="8"/>
+    <circle cx="80" cy="122" r="6"/><circle cx="120" cy="122" r="6"/>
+    <path d="M100,158 L100,176 M100,176 C94,182 86,180 84,174 M100,176 C106,182 114,180 116,174"
+          fill="none" stroke="#2b211c" stroke-width="3.6" stroke-linecap="round"/>
+  </g>
+  </g>
+  <g><path d="M43.1,41.0 L52.4,71.0 L61.7,41.0" fill="none" stroke="#2b211c" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><rect x="64.7" y="41.0" width="3.4" height="30" fill="#2b211c"/><rect x="71.1" y="41.0" width="3.4" height="30" fill="#2b211c"/><rect x="77.5" y="41.0" width="3.4" height="30" fill="#2b211c"/></g>
+  <g transform="rotate(180 338 344)"><path d="M319.1,329.0 L328.4,359.0 L337.7,329.0" fill="none" stroke="#2b211c" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><rect x="340.7" y="329.0" width="3.4" height="30" fill="#2b211c"/><rect x="347.1" y="329.0" width="3.4" height="30" fill="#2b211c"/><rect x="353.5" y="329.0" width="3.4" height="30" fill="#2b211c"/></g>
+</svg>

@@ -1,0 +1,32 @@
+{
+  "name": "mult1hunter/pairs-memory-game",
+  "description": "Pairs - Memory Game for WordPress: your own card images, three difficulties, server-verified scores, leaderboards, optional bot protection.",
+  "type": "wordpress-plugin",
+  "license": "GPL-2.0-or-later",
+  "homepage": "https://github.com/Mult1Hunter/pairs-memory-game",
+  "authors": [
+    { "name": "Matic Korošec", "homepage": "https://nextgen-solutions.xyz" }
+  ],
+  "require": {
+    "php": ">=7.4"
+  },
+  "require-dev": {
+    "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+    "wp-coding-standards/wpcs": "^3.1",
+    "phpcompatibility/phpcompatibility-wp": "^2.1",
+    "php-parallel-lint/php-parallel-lint": "^1.4",
+    "php-stubs/wordpress-stubs": "^6.7"
+  },
+  "scripts": {
+    "lint": "parallel-lint --exclude vendor --exclude node_modules .",
+    "phpcs": "phpcs",
+    "phpcs:fix": "phpcbf",
+    "check": ["@lint", "@phpcs"]
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    },
+    "sort-packages": true
+  }
+}

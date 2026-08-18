@@ -1,0 +1,26 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Dependencies and build output (dev only, never shipped)
+/vendor/
+/node_modules/
+/build/
+/dist/
+*.zip
+
+# Local secrets and environments - the plugin itself never needs these,
+# but keep them out just in case a contributor drops one here.
+.env
+.env.*
+*.local
+*.log
+*.sql
+
+# Test / tooling scratch
+/.phpunit.result.cache
+/.phpcs.cache
+/tests/_output/

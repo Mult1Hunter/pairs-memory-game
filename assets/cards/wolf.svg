@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img">
+  <title>volk</title>
+  <rect x="0" y="0" width="400" height="400" rx="22" fill="#fdfaf4"/>
+  <rect x="7" y="7" width="386" height="386" rx="17" fill="none" stroke="#2b211c" stroke-width="3.5"/>
+  <rect x="18" y="18" width="364" height="364" rx="10" fill="#6a86b5"/>
+  <rect x="18" y="18" width="364" height="364" rx="10" fill="none" stroke="#2b211c" stroke-width="2" opacity="0.45"/>
+  <ellipse cx="200" cy="368" rx="150" ry="34" fill="#ffffff" opacity="0.20"/>
+  <g transform="translate(72,30) scale(1.28)">
+  <g fill="#2b211c">
+    <path d="M34,52
+             C52,40 76,42 90,56
+             L100,32 L116,60
+             C132,70 142,88 144,108
+             C146,132 138,154 122,168
+             C124,190 118,208 106,222
+             L54,222
+             C68,200 74,174 72,148
+             C70,124 62,104 50,92
+             C40,82 32,66 34,52 Z"/>
+  </g>
+  <g fill="#ffffff">
+    <circle cx="86" cy="80" r="6"/>
+    <path d="M36,58 C48,52 62,54 72,62 L40,68 Z"/>
+  </g>
+
+
+  </g>
+  <g><rect x="53.9" y="41.0" width="3.4" height="30" fill="#2b211c"/><rect x="60.3" y="41.0" width="3.4" height="30" fill="#2b211c"/><rect x="66.7" y="41.0" width="3.4" height="30" fill="#2b211c"/></g>
+  <g transform="rotate(180 338 344)"><rect x="329.9" y="329.0" width="3.4" height="30" fill="#2b211c"/><rect x="336.3" y="329.0" width="3.4" height="30" fill="#2b211c"/><rect x="342.7" y="329.0" width="3.4" height="30" fill="#2b211c"/></g>
+</svg>

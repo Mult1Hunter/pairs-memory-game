@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img">
+  <title>veverica</title>
+  <rect x="0" y="0" width="400" height="400" rx="22" fill="#fdfaf4"/>
+  <rect x="7" y="7" width="386" height="386" rx="17" fill="none" stroke="#2b211c" stroke-width="3.5"/>
+  <rect x="18" y="18" width="364" height="364" rx="10" fill="#c4728a"/>
+  <rect x="18" y="18" width="364" height="364" rx="10" fill="none" stroke="#2b211c" stroke-width="2" opacity="0.45"/>
+  <ellipse cx="200" cy="368" rx="150" ry="34" fill="#ffffff" opacity="0.20"/>
+  <g transform="translate(72,30) scale(1.28)">
+  <g fill="#2b211c">
+    <circle cx="132" cy="198" r="29"/>
+    <circle cx="158" cy="180" r="31"/>
+    <circle cx="176" cy="152" r="32"/>
+    <circle cx="180" cy="120" r="31"/>
+    <circle cx="168" cy="92" r="27"/>
+    <circle cx="148" cy="74" r="22"/>
+  </g>
+  <g fill="#f7f1e6">
+    <circle cx="132" cy="198" r="24"/>
+    <circle cx="158" cy="180" r="26"/>
+    <circle cx="176" cy="152" r="27"/>
+    <circle cx="180" cy="120" r="26"/>
+    <circle cx="168" cy="92" r="22"/>
+    <circle cx="148" cy="74" r="17"/>
+  </g>
+  <g fill="#2b211c">
+    <path d="M84,104 C62,104 46,124 46,150 C46,169 55,185 68,193 L60,220 L124,220 L116,192
+             C129,184 136,169 136,150 C136,124 120,104 98,104 Z"/>
+    <path d="M60,108 C50,90 55,76 68,74 C77,85 77,99 72,110 Z"/>
+    <path d="M118,108 C128,90 123,76 110,74 C101,85 101,99 106,110 Z"/>
+    <path d="M46,148 L20,158 L46,168 Z"/>
+    <path d="M68,193 C58,202 53,211 56,220 L78,220 C75,210 73,200 76,193 Z"/>
+  </g>
+  <g fill="#ffffff"><circle cx="68" cy="142" r="7"/></g>
+
+  </g>
+  <g><path d="M38.7,41.0 L57.3,71.0 M57.3,41.0 L38.7,71.0" fill="none" stroke="#2b211c" stroke-width="3.4" stroke-linecap="round"/><rect x="60.3" y="41.0" width="3.4" height="30" fill="#2b211c"/><path d="M66.7,41.0 L76.0,71.0 L85.3,41.0" fill="none" stroke="#2b211c" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></g>
+  <g transform="rotate(180 338 344)"><path d="M314.7,329.0 L333.3,359.0 M333.3,329.0 L314.7,359.0" fill="none" stroke="#2b211c" stroke-width="3.4" stroke-linecap="round"/><rect x="336.3" y="329.0" width="3.4" height="30" fill="#2b211c"/><path d="M342.7,329.0 L352.0,359.0 L361.3,329.0" fill="none" stroke="#2b211c" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></g>
+</svg>

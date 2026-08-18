@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img">
+  <title>orel</title>
+  <rect x="0" y="0" width="400" height="400" rx="22" fill="#fdfaf4"/>
+  <rect x="7" y="7" width="386" height="386" rx="17" fill="none" stroke="#2b211c" stroke-width="3.5"/>
+  <rect x="18" y="18" width="364" height="364" rx="10" fill="#c9bd63"/>
+  <rect x="18" y="18" width="364" height="364" rx="10" fill="none" stroke="#2b211c" stroke-width="2" opacity="0.45"/>
+  <ellipse cx="200" cy="368" rx="150" ry="34" fill="#ffffff" opacity="0.20"/>
+  <g transform="translate(72,30) scale(1.28)">
+  <g fill="#2b211c">
+    <path d="M96,110 C72,86 44,64 14,50
+             C24,72 38,92 52,108
+             C38,104 26,100 12,96
+             C32,116 58,134 86,146 Z"/>
+    <path d="M104,110 C128,86 156,64 186,50
+             C176,72 162,92 148,108
+             C162,104 174,100 188,96
+             C168,116 142,134 114,146 Z"/>
+    <path d="M86,104 L114,104 L110,190 L90,190 Z"/>
+    <circle cx="100" cy="88" r="17"/>
+    <path d="M84,84 L58,92 L84,100 Z"/>
+    <path d="M86,186 L114,186 L124,232 L100,216 L76,232 Z"/>
+  </g>
+  <g fill="#ffffff">
+    <circle cx="94" cy="84" r="4.2"/>
+  </g>
+  <g fill="#ffffff" opacity="0.55">
+    <path d="M62,126 L74,140 L84,132 Z"/>
+    <path d="M138,126 L126,140 L116,132 Z"/>
+  </g>
+
+  </g>
+  <g><path d="M52.7,41.0 L62.0,71.0 L71.3,41.0" fill="none" stroke="#2b211c" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></g>
+  <g transform="rotate(180 338 344)"><path d="M328.7,329.0 L338.0,359.0 L347.3,329.0" fill="none" stroke="#2b211c" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></g>
+</svg>

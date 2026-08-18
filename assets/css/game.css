@@ -1,0 +1,747 @@
+/* Pairs - Memory Game: frontend styles.
+ *
+ * Every colour and font comes from a --pmg-* custom property set on the
+ * .pairsmg-app wrapper. The base values below are the "parchment" preset;
+ * PairsMG_Assets::theme_css() overrides them inline from the Appearance
+ * settings, and derived tones (soft ink, deep accent, lines, shadows) are
+ * computed with color-mix so one accent colour is enough to retheme.
+ *
+ * Everything is scoped under .pairsmg-app and prefixed pmg- so it cannot
+ * leak into the host theme or be hit by it. Flat and square by default:
+ * no gradients, corner radius is a setting (0 by default).
+ */
+
+  .pairsmg-app {
+    --pmg-bg: #f8eadc;
+    --pmg-panel: #fffbf3;
+    --pmg-ink: #3e2f27;
+    --pmg-accent: #594a41;
+    --pmg-success: #6b7a4a;
+    --pmg-card-back: #56554a;
+    --pmg-card-frame: #d5ab69;
+    --pmg-danger: #a8503a;
+    --pmg-radius: 0px;
+    --pmg-card-ratio: 7 / 10;
+    --pmg-font-display: 'Rajdhani', -apple-system, "Segoe UI", sans-serif;
+    --pmg-font-body: 'Open Sans', -apple-system, "Segoe UI", sans-serif;
+    --pmg-font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+    /* derived */
+    --pmg-bg-deep: color-mix(in srgb, var(--pmg-bg) 88%, var(--pmg-ink));
+    --pmg-ink-soft: color-mix(in srgb, var(--pmg-ink) 78%, var(--pmg-bg));
+    --pmg-accent-deep: color-mix(in srgb, var(--pmg-accent) 80%, black);
+    --pmg-success-deep: color-mix(in srgb, var(--pmg-success) 80%, black);
+    --pmg-line: color-mix(in srgb, var(--pmg-ink) 14%, transparent);
+    --pmg-shadow: color-mix(in srgb, var(--pmg-ink) 22%, transparent);
+  }
+
+  .pairsmg-app * { box-sizing: border-box; }
+
+  /* The embedded block itself. Height is a clamp rather than 100vh - this
+     is a section of a page, not a whole screen, and 100vh would push the
+     site's own header off-screen. */
+  .pairsmg-app {
+    box-sizing: border-box;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: clamp(14px, 3vw, 32px);
+    min-height: clamp(480px, 70vh, 760px);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    position: relative;
+    overflow-x: hidden;
+    background: var(--pmg-bg);
+    color: var(--pmg-ink);
+    font-family: var(--pmg-font-body);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    /* Stops mobile pull-to-refresh firing mid-swipe over the board. */
+    overscroll-behavior-y: none;
+  }
+
+  .pairsmg-app .pmg-sound-toggle {
+    all: unset;
+    cursor: pointer;
+    width: 30px; height: 30px;
+    display: flex; align-items: center; justify-content: center;
+    border: 1.5px solid var(--pmg-line);
+    font-size: 14px;
+    color: var(--pmg-ink-soft);
+    transition: border-color 140ms ease, color 140ms ease;
+  }
+
+  .pairsmg-app .pmg-sound-toggle:hover { border-color: var(--pmg-accent); color: var(--pmg-ink); }
+
+  .pairsmg-app a,
+.pairsmg-app button { font-family: inherit; }
+
+  .pairsmg-app button { cursor: pointer; }
+
+  .pairsmg-app button:focus-visible,
+.pairsmg-app [tabindex]:focus-visible,
+.pairsmg-app input:focus-visible {
+    outline: 2px solid var(--pmg-accent);
+    outline-offset: 2px;
+  }
+
+  /* ---------------- Header / brand ---------------- */
+  .pairsmg-app .pmg-brand-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .pairsmg-app .pmg-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .pairsmg-app .pmg-brand-name {
+    font-family: var(--pmg-font-display);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 16px;
+    color: var(--pmg-ink-soft);
+  }
+
+  .pairsmg-app .pmg-brand-name strong {
+    color: var(--pmg-ink);
+    letter-spacing: 0.02em;
+  }
+
+  .pairsmg-app .pmg-eyebrow {
+    font-family: var(--pmg-font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 11.5px;
+    color: var(--pmg-accent-deep);
+    font-weight: 700;
+  }
+
+  /* ---------------- Panels / cards (UI chrome, not game cards) ---------------- */
+  .pairsmg-app .pmg-panel {
+    background: var(--pmg-panel);
+    border: 1px solid var(--pmg-line);
+    box-shadow: 0 10px 30px -18px var(--pmg-shadow);
+  }
+
+  /* ---------------- Screens ---------------- */
+  .pairsmg-app .pmg-screen { display: none; flex: 1; flex-direction: column; }
+
+  .pairsmg-app .pmg-screen.pmg-active { display: flex; }
+
+  @media (prefers-reduced-motion: no-preference) {
+
+    .pairsmg-app .pmg-screen.pmg-active { animation: pmg-rise 420ms cubic-bezier(.2,.7,.3,1); }
+}
+
+  @keyframes pmg-rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+  /* ================= GATE (bot protection) ================= */
+  .pairsmg-app .pmg-gate-wrap { flex: 1; display: flex; align-items: center; justify-content: center; }
+
+  .pairsmg-app .pmg-gate-card {
+    width: min(420px, 100%);
+    padding: clamp(26px, 5vw, 40px);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .pairsmg-app .pmg-gate-target { width: 84px; height: 84px; }
+
+  .pairsmg-app .pmg-gate-title { font-family: var(--pmg-font-display); font-size: 22px; margin: 0; }
+
+  .pairsmg-app .pmg-gate-copy { color: var(--pmg-ink-soft); font-size: 14.5px; line-height: 1.5; margin: 0; }
+
+.pairsmg-app .pmg-gate-note {
+    font-size: 11.5px; color: var(--pmg-ink-soft); line-height: 1.5;
+    border-top: 1px dashed var(--pmg-line); padding-top: 12px; margin-top: 4px;
+  }
+
+  /* ================= SETUP ================= */
+  .pairsmg-app .pmg-setup-hero {
+    padding: clamp(22px, 4vw, 34px);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .pairsmg-app .pmg-setup-title {
+    font-family: var(--pmg-font-display);
+    font-size: clamp(26px, 4vw, 36px);
+    margin: 4px 0 2px;
+    text-wrap: balance;
+  }
+
+  .pairsmg-app .pmg-setup-copy { color: var(--pmg-ink-soft); font-size: 14.5px; max-width: 60ch; line-height: 1.55; margin: 0; }
+
+  .pairsmg-app .pmg-tier-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 18px;
+  }
+
+  .pairsmg-app .pmg-tier-btn {
+    /* <button> does NOT inherit text color from the page by default -
+       without this, .tier-name/.tier-pairs (which set no color of their
+       own) fell back to the browser's default button-text color instead
+       of any theme token. Harmless-looking in light mode by accident,
+       unreadable in dark mode: that was the actual bug. */
+    color: var(--pmg-ink);
+    border: 1.5px solid var(--pmg-line);
+    background: var(--pmg-bg-deep);
+    padding: 14px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: flex-start;
+    transition: border-color 140ms ease, transform 140ms ease, background 140ms ease;
+    text-align: left;
+  }
+
+  .pairsmg-app .pmg-tier-btn:hover { transform: translateY(-2px); }
+
+  .pairsmg-app .pmg-tier-btn:active { transform: translateY(0) scale(.97); }
+
+  .pairsmg-app .pmg-tier-btn.pmg-selected {
+    border-color: var(--pmg-accent);
+    background: color-mix(in srgb, var(--pmg-accent) 14%, var(--pmg-panel));
+  }
+
+  .pairsmg-app .pmg-tier-name { font-family: var(--pmg-font-display); font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; font-size: 13px; }
+
+  .pairsmg-app .pmg-tier-pairs { font-family: var(--pmg-font-mono); font-size: 20px; font-variant-numeric: tabular-nums; }
+
+  .pairsmg-app .pmg-tier-sub { font-size: 11px; color: var(--pmg-ink-soft); }
+
+  .pairsmg-app .pmg-tier-best { font-size: 11px; color: var(--pmg-accent-deep); font-weight: 600; font-family: var(--pmg-font-mono); }
+
+
+  .pairsmg-app .pmg-setup-actions {
+    margin-top: 22px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .pairsmg-app .pmg-btn {
+    font-family: var(--pmg-font-display);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 12.5px;
+    border: 1.5px solid transparent;
+    padding: 13px 24px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 140ms ease, box-shadow 140ms ease, background 140ms ease;
+  }
+
+  /* var(--pmg-panel) is intentional here, not a hardcoded color: in light
+     mode --pmg-accent is a dark umber, so button text needs to be the near-
+     white panel tone; in dark mode --pmg-accent flips to a light tan, so the
+     same var(--pmg-panel) flips to a dark tone. One declaration, correct
+     contrast in both themes instead of a hardcoded value that only
+     worked for the old (lighter) accent color. */
+  .pairsmg-app .pmg-btn-primary { background: var(--pmg-accent); color: var(--pmg-panel); }
+
+  .pairsmg-app .pmg-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 22px -12px var(--pmg-shadow); }
+
+  .pairsmg-app .pmg-btn-ghost { background: transparent; border-color: var(--pmg-line); color: var(--pmg-ink); }
+
+  .pairsmg-app .pmg-btn-ghost:hover { border-color: var(--pmg-accent); }
+
+  .pairsmg-app .pmg-btn:active { transform: scale(.96); }
+
+  .pairsmg-app .pmg-btn[disabled] { opacity: 0.5; pointer-events: none; }
+
+  .pairsmg-app .pmg-leader-preview { margin-top: 20px; }
+
+  .pairsmg-app .pmg-leader-preview-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+
+  .pairsmg-app .pmg-leader-preview-head h2 { font-family: var(--pmg-font-display); font-size: 18px; margin: 0; }
+
+  .pairsmg-app .pmg-link-btn {
+    font-family: var(--pmg-font-display); font-size: 11.5px; letter-spacing: 0.05em; text-transform: uppercase;
+    color: var(--pmg-accent-deep); background: none; border: none; padding: 0; text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .pairsmg-app .pmg-mini-board { display: flex; flex-direction: column; gap: 6px; margin-top: 10px; }
+
+  .pairsmg-app .pmg-mini-row { display: flex; align-items: center; gap: 10px; font-size: 13px; }
+
+  .pairsmg-app .pmg-mini-rank { font-family: var(--pmg-font-mono); width: 20px; color: var(--pmg-ink-soft); }
+
+  .pairsmg-app .pmg-mini-name { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+  .pairsmg-app .pmg-mini-score { font-family: var(--pmg-font-mono); font-variant-numeric: tabular-nums; color: var(--pmg-accent-deep); font-weight: 700; }
+
+  .pairsmg-app .pmg-mini-empty { font-size: 13px; color: var(--pmg-ink-soft); font-style: italic; }
+
+  /* ================= GAME ================= */
+  .pairsmg-app .pmg-game-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding: 12px 16px;
+  }
+
+  .pairsmg-app .pmg-stat-group { display: flex; gap: 18px; flex-wrap: wrap; }
+
+  .pairsmg-app .pmg-stat { display: flex; flex-direction: column; gap: 1px; }
+
+  .pairsmg-app .pmg-stat-label { font-family: var(--pmg-font-display); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--pmg-ink-soft); }
+
+  .pairsmg-app .pmg-stat-value { font-family: var(--pmg-font-mono); font-size: 19px; font-variant-numeric: tabular-nums; }
+
+  .pairsmg-app .pmg-stat-value.pmg-tier-tag { font-family: var(--pmg-font-display); font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--pmg-success); font-weight: 700; }
+
+  .pairsmg-app .pmg-board-wrap {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+  }
+
+  .pairsmg-app .pmg-board {
+    display: grid;
+    gap: clamp(6px, 1.4vw, 12px);
+    width: 100%;
+  }
+
+  .pairsmg-app .pmg-mem-card {
+    /* Card shape is an Appearance setting. Full-face images are cut to
+       this ratio; inset images (logos) do not care about it. */
+    aspect-ratio: var(--pmg-card-ratio, 7 / 10);
+    opacity: 0;
+    animation: pmg-dealIn 460ms cubic-bezier(.16,.9,.3,1) forwards;
+    animation-delay: var(--deal-delay, 0ms);
+  }
+
+  @keyframes pmg-dealIn {
+    from { opacity: 0; transform: translateY(14px) scale(.92); }
+    to { opacity: 1; transform: none; }
+  }
+
+  .pairsmg-app .pmg-mem-card-btn {
+    all: unset;
+    width: 100%; height: 100%;
+    position: relative;
+    display: block;
+    cursor: pointer;
+    perspective: 800px; /* local 3D context per card - keeps the flip
+      uniform regardless of the card's position in the grid, instead of
+      every card sharing one skewed vanishing point on the whole board */
+  }
+
+  .pairsmg-app .pmg-mem-card-inner {
+    position: relative;
+    width: 100%; height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 480ms cubic-bezier(.34, 1.4, .55, 1);
+    will-change: transform;
+  }
+
+  .pairsmg-app .pmg-mem-card.pmg-flipped .pmg-mem-card-inner { transform: rotateY(180deg); }
+
+  /* A mismatched pair the player has already moved on from (see
+     settlePending in game.js): close fast and without the overshoot, so
+     the two cards are down before the new one has finished turning. */
+  .pairsmg-app .pmg-mem-card.pmg-quick .pmg-mem-card-inner {
+    transition: transform 160ms ease-in;
+  }
+
+  .pairsmg-app .pmg-mem-card.pmg-matched .pmg-mem-card-inner { transform: rotateY(180deg); }
+
+  .pairsmg-app .pmg-mem-card.pmg-mismatch .pmg-mem-card-inner { animation: pmg-shake 480ms cubic-bezier(.36,.07,.19,.97); }
+
+  @keyframes pmg-shake {
+    0%   { transform: rotateY(180deg) translateX(0); }
+    20%  { transform: rotateY(180deg) translateX(-7px) rotate(-1.5deg); }
+    40%  { transform: rotateY(180deg) translateX(5px) rotate(1deg); }
+    60%  { transform: rotateY(180deg) translateX(-3px) rotate(-.5deg); }
+    80%  { transform: rotateY(180deg) translateX(1.5px); }
+    100% { transform: rotateY(180deg) translateX(0); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+
+    .pairsmg-app .pmg-mem-card { opacity: 1; animation: none; }
+
+    .pairsmg-app .pmg-mem-card-inner { transition-duration: 1ms; }
+
+    .pairsmg-app .pmg-mem-card.pmg-mismatch .pmg-mem-card-inner { animation: none; }
+}
+
+  .pairsmg-app .pmg-mem-face {
+    position: absolute; inset: 0;
+    overflow: hidden; /* hard clip: even if a mark's own size were ever
+      miscomputed, it stays inside this card instead of bleeding into
+      the neighboring one. */
+    backface-visibility: hidden;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 2px 8px -4px var(--pmg-shadow);
+  }
+
+  .pairsmg-app .pmg-mem-face.pmg-back {
+    /* Flat card back: solid colour, framed edge, an inset rule and an
+       emblem on top (the built-in one, or the image chosen in Appearance,
+       via --pmg-card-back-image). A background-image rather than an inline
+       <svg> because background-size/position is the one centering
+       mechanism with zero ambiguity. */
+    background-color: var(--pmg-card-back);
+    background-image: var(--pmg-card-back-image, url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48ZyBmaWxsPSJub25lIiBzdHJva2U9IiNlOWRjYzAiIHN0cm9rZS13aWR0aD0iNCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHJlY3QgeD0iMjAiIHk9IjE0IiB3aWR0aD0iNDAiIGhlaWdodD0iNTYiIHJ4PSIyIiB0cmFuc2Zvcm09InJvdGF0ZSgtOCA0MCA0MikiLz48cmVjdCB4PSI0MCIgeT0iMzAiIHdpZHRoPSI0MCIgaGVpZ2h0PSI1NiIgcng9IjIiIGZpbGw9IiNlOWRjYzAiIGZpbGwtb3BhY2l0eT0iLjE4IiB0cmFuc2Zvcm09InJvdGF0ZSg4IDYwIDU4KSIvPjwvZz48L3N2Zz4="));
+    background-repeat: no-repeat;
+    background-position: center 46%;
+    background-size: 52% auto;
+    border: 1.5px solid var(--pmg-card-frame);
+    box-shadow: 0 2px 8px -4px var(--pmg-shadow);
+  }
+
+  /* Inset rule, like the printed frame on the fronts. */
+  .pairsmg-app .pmg-mem-face.pmg-back::after {
+    content: "";
+    position: absolute;
+    inset: 6%;
+    border: 1px solid color-mix(in srgb, var(--pmg-card-frame) 70%, transparent);
+    pointer-events: none;
+  }
+
+  .pairsmg-app .pmg-mem-face.pmg-front {
+    background: var(--pmg-panel);
+    border: 1px solid var(--pmg-line);
+    transform: rotateY(180deg);
+    font-size: clamp(22px, 5vw, 40px);
+  }
+
+  .pairsmg-app .pmg-mem-card.pmg-matched .pmg-mem-face.pmg-front {
+    background: color-mix(in srgb, var(--pmg-success) 20%, var(--pmg-panel));
+    border-color: var(--pmg-success);
+  }
+
+  .pairsmg-app .pmg-mem-card:not(.pmg-flipped):not(.pmg-matched) .pmg-mem-card-btn:hover .pmg-mem-face.pmg-back {
+    filter: brightness(1.08);
+  }
+
+  .pairsmg-app .pmg-mem-card.pmg-matched .pmg-mem-card-btn { cursor: default; }
+
+  .pairsmg-app .pmg-game-bottombar {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding-top: 4px;
+  }
+
+  /* ================= WIN ================= */
+  .pairsmg-app .pmg-win-wrap { flex: 1; display: flex; align-items: center; justify-content: center; }
+
+  .pairsmg-app .pmg-win-card {
+    width: min(460px, 100%);
+    padding: clamp(26px, 5vw, 38px);
+    text-align: center;
+    display: flex; flex-direction: column; align-items: center; gap: 14px;
+  }
+
+  .pairsmg-app .pmg-win-icon { width: 64px; height: 64px; }
+
+  .pairsmg-app .pmg-win-title { font-family: var(--pmg-font-display); font-size: 26px; margin: 0; }
+
+  .pairsmg-app .pmg-win-score { font-family: var(--pmg-font-mono); font-size: 44px; font-variant-numeric: tabular-nums; color: var(--pmg-accent-deep); font-weight: 700; line-height: 1; }
+
+  .pairsmg-app .pmg-win-score.pmg-score-great { animation: pmg-scoreGlow 1.7s ease-in-out 1; }
+
+  @keyframes pmg-scoreGlow {
+    0%, 100% { text-shadow: 0 0 0 transparent; transform: scale(1); }
+    35% { text-shadow: 0 0 22px color-mix(in srgb, var(--pmg-accent) 75%, transparent); transform: scale(1.06); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+
+    .pairsmg-app .pmg-win-score.pmg-score-great { animation: none; }
+}
+
+  .pairsmg-app .pmg-win-score-label { font-family: var(--pmg-font-display); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--pmg-ink-soft); }
+
+  .pairsmg-app .pmg-win-stats { display: flex; gap: 22px; margin: 4px 0; }
+
+  .pairsmg-app .pmg-win-stat { display: flex; flex-direction: column; gap: 2px; }
+
+  .pairsmg-app .pmg-win-stat-value { font-family: var(--pmg-font-mono); font-size: 17px; font-variant-numeric: tabular-nums; }
+
+  .pairsmg-app .pmg-win-stat-label { font-size: 10.5px; color: var(--pmg-ink-soft); font-family: var(--pmg-font-display); letter-spacing: 0.08em; text-transform: uppercase; }
+
+  .pairsmg-app .pmg-name-form { width: 100%; display: flex; flex-direction: column; gap: 10px; margin-top: 6px; }
+
+  .pairsmg-app .pmg-name-input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1.5px solid var(--pmg-line);
+    background: var(--pmg-bg-deep);
+    color: var(--pmg-ink);
+    font-size: 15px;
+    font-family: var(--pmg-font-body);
+  }
+
+  .pairsmg-app .pmg-name-input:focus-visible { outline: 2px solid var(--pmg-accent); outline-offset: 1px; }
+
+  .pairsmg-app .pmg-name-help { font-size: 11px; color: var(--pmg-ink-soft); text-align: left; }
+
+  .pairsmg-app .pmg-win-actions { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 4px; }
+
+  .pairsmg-app .pmg-saved-note { font-size: 13px; color: var(--pmg-success); font-weight: 600; display: none; align-items: center; gap: 6px; }
+
+  .pairsmg-app .pmg-saved-note.pmg-show { display: flex; }
+
+  .pairsmg-app .pmg-score-explainer { font-size: 11.5px; color: var(--pmg-ink-soft); text-align: left; width: 100%; }
+
+  .pairsmg-app .pmg-score-explainer summary {
+    cursor: pointer; color: var(--pmg-accent-deep); font-weight: 600; list-style: none;
+  }
+
+  .pairsmg-app .pmg-score-explainer summary::-webkit-details-marker { display: none; }
+
+  .pairsmg-app .pmg-score-explainer summary::before { content: "+ "; }
+
+  .pairsmg-app .pmg-score-explainer[open] summary::before { content: "- "; }
+
+  .pairsmg-app .pmg-score-explainer p { margin: 6px 0 0; line-height: 1.5; }
+
+  /* ================= WIN CELEBRATION ================= */
+  .pairsmg-app .pmg-confetti-layer {
+    position: fixed; inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 60;
+  }
+
+  .pairsmg-app .pmg-confetti-piece {
+    position: absolute;
+    top: -20px;
+    opacity: 0.95;
+    animation-name: pmg-confettiFall;
+    animation-timing-function: cubic-bezier(.24, .68, .4, 1);
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes pmg-confettiFall {
+    0%   { transform: translate(0, 0) rotate(0deg); opacity: 1; }
+    100% { transform: translate(var(--drift), 108vh) rotate(var(--rot)); opacity: 0.85; }
+  }
+
+  /* ================= LEADERBOARD ================= */
+  .pairsmg-app .pmg-lb-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 20px 22px 4px; }
+
+  .pairsmg-app .pmg-lb-title { font-family: var(--pmg-font-display); font-size: 24px; margin: 0; }
+
+  .pairsmg-app .pmg-lb-tabs { display: flex; gap: 8px; padding: 14px 22px 4px; }
+
+  .pairsmg-app .pmg-lb-tab {
+    flex: 1;
+    font-family: var(--pmg-font-display);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 12px;
+    padding: 9px 8px;
+    border: 1.5px solid var(--pmg-line);
+    background: var(--pmg-bg-deep);
+    color: var(--pmg-ink-soft);
+    transition: border-color 140ms ease, color 140ms ease, background 140ms ease;
+  }
+
+  .pairsmg-app .pmg-lb-tab.pmg-selected {
+    border-color: var(--pmg-accent);
+    background: color-mix(in srgb, var(--pmg-accent) 16%, var(--pmg-panel));
+    color: var(--pmg-ink);
+  }
+
+  .pairsmg-app .pmg-lb-list { padding: 10px 12px 20px; display: flex; flex-direction: column; gap: 6px; }
+
+  .pairsmg-app .pmg-lb-row {
+    display: grid;
+    grid-template-columns: 34px 1fr auto auto;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    background: var(--pmg-bg-deep);
+  }
+
+  .pairsmg-app .pmg-lb-row.pmg-top1 { background: color-mix(in srgb, var(--pmg-accent) 24%, var(--pmg-bg-deep)); }
+
+  .pairsmg-app .pmg-lb-row.pmg-top2 { background: color-mix(in srgb, var(--pmg-ink-soft) 16%, var(--pmg-bg-deep)); }
+
+  .pairsmg-app .pmg-lb-row.pmg-top3 { background: color-mix(in srgb, var(--pmg-danger) 14%, var(--pmg-bg-deep)); }
+
+  .pairsmg-app .pmg-lb-rank { font-family: var(--pmg-font-mono); font-weight: 700; text-align: center; }
+
+  .pairsmg-app .pmg-lb-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 600; }
+
+  .pairsmg-app .pmg-lb-meta { font-size: 11px; color: var(--pmg-ink-soft); font-family: var(--pmg-font-display); letter-spacing: 0.03em; }
+
+  .pairsmg-app .pmg-lb-score { font-family: var(--pmg-font-mono); font-weight: 800; font-variant-numeric: tabular-nums; color: var(--pmg-accent-deep); }
+
+  .pairsmg-app .pmg-lb-empty { padding: 30px 20px; text-align: center; color: var(--pmg-ink-soft); font-size: 14px; }
+
+  .pairsmg-app .pmg-lb-footer { display: flex; justify-content: space-between; align-items: center; padding: 0 22px 20px; gap: 10px; flex-wrap: wrap; }
+
+  .pairsmg-app .pmg-reset-link { font-size: 11px; color: var(--pmg-ink-soft); background: none; border: none; text-decoration: underline; text-underline-offset: 3px; padding: 0; }
+
+  .pairsmg-app .pmg-footer-note {
+    text-align: center;
+    font-size: 11.5px;
+    color: var(--pmg-ink-soft);
+    padding: 6px 0 2px;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 640px) {
+
+    .pairsmg-app .pmg-tier-sub { display: none; }
+
+    .pairsmg-app .pmg-win-stats { gap: 14px; }
+}
+
+  /* "Inset" images (the default for logos): object-fit: contain keeps a
+     wide logo and a square portrait both fully visible, never cropped. */
+  .pairsmg-app .pmg-mem-img {
+    display: block;
+    width: 78%;
+    height: 78%;
+    object-fit: contain;
+  }
+
+  /* "Full face" images (finished card artwork) get the whole face rather
+     than the 78% inset. cover absorbs the 1px border's sub-pixel ratio
+     drift so no hairline of card stock shows at an edge. */
+  .pairsmg-app .pmg-mem-img.pmg-mem-img-full {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* ================= IMMERSIVE / FULLSCREEN (small screens) =============
+     Two separate mechanisms, because the native Fullscreen API is not
+     dependable on phones:
+
+       - This CSS class is the one that always works. It pins the game over
+         the whole viewport, including on iPhone Safari, which has no
+         Fullscreen API at all.
+       - Native fullscreen (hiding the browser chrome too) is requested on
+         top of it where supported, but only from a real tap, since browsers
+         refuse requestFullscreen() outside a user gesture.
+
+     Result: the game always fills the screen on a phone; on Android it also
+     loses the browser UI. ==================================================*/
+  .pairsmg-app.pmg-is-immersive {
+    position: fixed;
+    inset: 0;
+    z-index: 99990;
+    max-width: none;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 10px 10px calc(10px + env(safe-area-inset-bottom, 0px));
+    padding-top: calc(10px + env(safe-area-inset-top, 0px));
+  }
+
+  .pmg-exit {
+    display: none;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--pmg-font-display);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 11.5px;
+    color: var(--pmg-ink);
+    background: var(--pmg-panel);
+    border: 1.5px solid var(--pmg-line);
+    padding: 8px 14px;
+    cursor: pointer;
+  }
+  .pairsmg-app.pmg-is-immersive .pmg-exit { display: inline-flex; }
+  .pmg-exit:hover { border-color: var(--pmg-accent); }
+  .pmg-exit svg { width: 13px; height: 13px; flex: none; }
+
+  /* In immersive mode the brand line is redundant chrome - the exit
+     control and the screen tag carry everything that matters. */
+  .pairsmg-app.pmg-is-immersive .pmg-brand-name { display: none; }
+
+/* Not scoped under .pairsmg-app: this deliberately targets the host
+   page so the article behind the game cannot scroll while it is pinned. */
+body.pairsmg-immersive-lock {
+  overflow: hidden !important;
+  overscroll-behavior: none;
+}
+
+  /* Narrow phones: the tier chips are the one place where the type scale
+     from the desktop design overflows - "10 parov" wrapped mid-phrase. */
+  @media (max-width: 430px) {
+    .pairsmg-app .pmg-tier-btn { padding: 11px 8px; gap: 2px; }
+    .pairsmg-app .pmg-tier-pairs { font-size: 16px; white-space: nowrap; }
+    .pairsmg-app .pmg-tier-name { font-size: 11.5px; }
+    .pairsmg-app .pmg-tier-best { font-size: 10px; }
+  }
+
+/* The immersive layer is position:fixed from the top of the viewport, which
+   puts it underneath the WordPress admin bar for logged-in users - hiding
+   the exit control exactly when an admin is testing on a phone. Visitors
+   never see the admin bar, so this only ever applies to staff. */
+body.admin-bar .pairsmg-app.pmg-is-immersive { top: 32px; }
+@media screen and (max-width: 782px) {
+  body.admin-bar .pairsmg-app.pmg-is-immersive { top: 46px; }
+}
+
+  /* The bot-protection provider's own widget, plus one status line. */
+  .pairsmg-app .pmg-captcha-holder {
+    display: flex;
+    justify-content: center;
+    min-height: 65px;
+  }
+  .pairsmg-app .pmg-gate-status {
+    font-size: 12.5px;
+    color: var(--pmg-ink-soft);
+    text-align: center;
+    min-height: 1em;
+  }
+
+  /* ---------------- Corner radius (Appearance setting) ---------------- */
+  .pairsmg-app,
+  .pairsmg-app .pmg-panel,
+  .pairsmg-app .pmg-btn,
+  .pairsmg-app .pmg-tier-btn,
+  .pairsmg-app .pmg-lb-tab,
+  .pairsmg-app .pmg-name-input,
+  .pairsmg-app .pmg-sound-toggle,
+  .pairsmg-app .pmg-exit,
+  .pairsmg-app .pmg-mem-card-btn,
+  .pairsmg-app .pmg-mem-card-inner,
+  .pairsmg-app .pmg-mem-face { border-radius: var(--pmg-radius, 0); }
+  .pairsmg-app .pmg-mem-face.pmg-back::after { border-radius: calc(var(--pmg-radius, 0) * 0.5); }
+  .pairsmg-app .pmg-mem-img.pmg-mem-img-full { border-radius: 0; }
+
+  /* ---------------- Sound toggle icons ---------------- */
+  .pairsmg-app .pmg-sound-toggle svg { width: 16px; height: 16px; }
+  .pairsmg-app .pmg-sound-toggle .pmg-icon-off { display: none; }
+  .pairsmg-app .pmg-sound-toggle.pmg-muted .pmg-icon-on { display: none; }
+  .pairsmg-app .pmg-sound-toggle.pmg-muted .pmg-icon-off { display: block; }
+
+  .pairsmg-app .pmg-brand-tools { display: flex; align-items: center; gap: 10px; }
+  .pairsmg-app .pmg-error { color: var(--pmg-danger); }
+  .pairsmg-app .pmg-leader-preview { padding: 18px 22px 22px; }

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img">
+  <title>gams</title>
+  <rect x="0" y="0" width="400" height="400" rx="22" fill="#fdfaf4"/>
+  <rect x="7" y="7" width="386" height="386" rx="17" fill="none" stroke="#2b211c" stroke-width="3.5"/>
+  <rect x="18" y="18" width="364" height="364" rx="10" fill="#57937c"/>
+  <rect x="18" y="18" width="364" height="364" rx="10" fill="none" stroke="#2b211c" stroke-width="2" opacity="0.45"/>
+  <ellipse cx="200" cy="368" rx="150" ry="34" fill="#ffffff" opacity="0.20"/>
+  <g transform="translate(72,30) scale(1.28)">
+  <g fill="#2b211c">
+    <path d="M100,110 C84,110 72,126 72,148 C72,174 84,194 100,202 C116,194 128,174 128,148 C128,126 116,110 100,110 Z"/>
+    <ellipse cx="100" cy="196" rx="10" ry="8"/>
+    <path d="M72,134 C60,126 46,126 40,132 C46,142 60,146 72,142 Z"/>
+    <path d="M128,134 C140,126 154,126 160,132 C154,142 140,146 128,142 Z"/>
+  </g>
+  <g fill="none" stroke="#2b211c" stroke-width="12" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M88,110 C82,84 82,58 88,40 C90,32 84,26 78,30"/>
+    <path d="M112,110 C118,84 118,58 112,40 C110,32 116,26 122,30"/>
+  </g>
+  <g fill="#ffffff">
+    <circle cx="88" cy="146" r="5"/><circle cx="112" cy="146" r="5"/>
+  </g>
+
+  </g>
+  <g><path d="M52.7,41.0 L71.3,71.0 M71.3,41.0 L52.7,71.0" fill="none" stroke="#2b211c" stroke-width="3.4" stroke-linecap="round"/></g>
+  <g transform="rotate(180 338 344)"><path d="M328.7,329.0 L347.3,359.0 M347.3,329.0 L328.7,359.0" fill="none" stroke="#2b211c" stroke-width="3.4" stroke-linecap="round"/></g>
+</svg>

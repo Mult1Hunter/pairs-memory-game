@@ -1,0 +1,23 @@
+# Excluded from the wp.org / release zip (used by wp dist-archive and the
+# release workflow).
+/.git
+/.github
+/.gitignore
+/.distignore
+/.editorconfig
+/.wordpress-org
+/vendor
+/node_modules
+/tests
+/bin
+/composer.json
+/composer.lock
+/package.json
+/package-lock.json
+/phpcs.xml.dist
+/phpstan.neon.dist
+/README.md
+/SECURITY.md
+/CONTRIBUTING.md
+*.zip
+*.log

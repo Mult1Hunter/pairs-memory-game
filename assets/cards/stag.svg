@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img">
+  <title>jelen</title>
+  <rect x="0" y="0" width="400" height="400" rx="22" fill="#fdfaf4"/>
+  <rect x="7" y="7" width="386" height="386" rx="17" fill="none" stroke="#2b211c" stroke-width="3.5"/>
+  <rect x="18" y="18" width="364" height="364" rx="10" fill="#cf7a68"/>
+  <rect x="18" y="18" width="364" height="364" rx="10" fill="none" stroke="#2b211c" stroke-width="2" opacity="0.45"/>
+  <ellipse cx="200" cy="368" rx="150" ry="34" fill="#ffffff" opacity="0.20"/>
+  <g transform="translate(72,30) scale(1.28)">
+  <g fill="#2b211c">
+    <path d="M100,86 C86,86 78,100 78,120 C78,144 88,164 100,172 C112,164 122,144 122,120 C122,100 114,86 100,86 Z"/>
+    <path d="M78,110 C66,100 52,98 44,104 C50,116 64,122 78,118 Z"/>
+    <path d="M122,110 C134,100 148,98 156,104 C150,116 136,122 122,118 Z"/>
+    <ellipse cx="100" cy="166" rx="9" ry="7"/>
+  </g>
+  <g fill="none" stroke="#2b211c" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M88,88 C80,66 74,50 70,34"/>
+    <path d="M112,88 C120,66 126,50 130,34"/>
+  </g>
+  <g fill="none" stroke="#2b211c" stroke-width="5.5" stroke-linecap="round">
+    <path d="M78,62 C66,56 58,52 48,50"/>
+    <path d="M74,44 C64,38 56,34 48,32"/>
+    <path d="M122,62 C134,56 142,52 152,50"/>
+    <path d="M126,44 C136,38 144,34 152,32"/>
+  </g>
+  <g fill="#ffffff">
+    <circle cx="90" cy="124" r="5"/><circle cx="110" cy="124" r="5"/>
+  </g>
+  </g>
+  <g><rect x="60.3" y="41.0" width="3.4" height="30" fill="#2b211c"/></g>
+  <g transform="rotate(180 338 344)"><rect x="336.3" y="329.0" width="3.4" height="30" fill="#2b211c"/></g>
+</svg>

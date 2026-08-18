@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img">
+  <title>lisica</title>
+  <rect x="0" y="0" width="400" height="400" rx="22" fill="#fdfaf4"/>
+  <rect x="7" y="7" width="386" height="386" rx="17" fill="none" stroke="#2b211c" stroke-width="3.5"/>
+  <rect x="18" y="18" width="364" height="364" rx="10" fill="#dd9552"/>
+  <rect x="18" y="18" width="364" height="364" rx="10" fill="none" stroke="#2b211c" stroke-width="2" opacity="0.45"/>
+  <ellipse cx="200" cy="368" rx="150" ry="34" fill="#ffffff" opacity="0.20"/>
+  <g transform="translate(72,30) scale(1.28)">
+  <g fill="#2b211c">
+    <path d="M54,58 L86,116 L30,106 Z"/>
+    <path d="M146,58 L114,116 L170,106 Z"/>
+    <path d="M100,88 L44,102 C44,148 66,186 100,198 C134,186 156,148 156,102 Z"/>
+  </g>
+  <g fill="#ffffff">
+    <path d="M100,138 L74,168 C82,182 92,192 100,196 C108,192 118,182 126,168 Z"/>
+    <path d="M78,124 C72,118 62,120 60,128 C66,134 76,132 78,124 Z"/>
+    <path d="M122,124 C128,118 138,120 140,128 C134,134 124,132 122,124 Z"/>
+  </g>
+  <g fill="#2b211c">
+    <path d="M100,158 L110,172 L90,172 Z"/>
+  </g>
+
+  </g>
+  <g><path d="M46.3,41.0 L55.6,71.0 L64.9,41.0" fill="none" stroke="#2b211c" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><rect x="67.9" y="41.0" width="3.4" height="30" fill="#2b211c"/><rect x="74.3" y="41.0" width="3.4" height="30" fill="#2b211c"/></g>
+  <g transform="rotate(180 338 344)"><path d="M322.3,329.0 L331.6,359.0 L340.9,329.0" fill="none" stroke="#2b211c" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><rect x="343.9" y="329.0" width="3.4" height="30" fill="#2b211c"/><rect x="350.3" y="329.0" width="3.4" height="30" fill="#2b211c"/></g>
+</svg>

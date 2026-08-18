@@ -1,0 +1,21 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "pairs-memory-game/game",
+  "title": "Pairs - Memory Game",
+  "category": "widgets",
+  "icon": "games",
+  "description": "The memory game with leaderboards. One per page.",
+  "keywords": ["memory", "game", "pairs", "concentration", "leaderboard"],
+  "textdomain": "pairs-memory-game",
+  "attributes": {
+    "tier": { "type": "string", "default": "" },
+    "title": { "type": "string", "default": "" }
+  },
+  "supports": {
+    "html": false,
+    "multiple": false,
+    "align": ["wide", "full"]
+  },
+  "editorScript": "pairsmg-block-editor"
+}
