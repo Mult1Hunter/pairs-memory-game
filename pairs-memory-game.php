@@ -3,7 +3,7 @@
  * Plugin Name:       Pairs - Memory Game
  * Plugin URI:        https://github.com/Mult1Hunter/pairs-memory-game
  * Description:       A memory (concentration) game with your own card images, three difficulty tiers, server-verified scores, per-tier leaderboards and optional bot protection (Turnstile, reCAPTCHA, hCaptcha).
- * Version:           1.0.0
+ * Version:           1.0.1
  * Requires at least: 6.0
  * Requires PHP:      7.4
  * Author:            Matic Korošec
@@ -38,7 +38,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('PAIRSMG_VERSION', '1.0.0');
+define('PAIRSMG_VERSION', '1.0.1');
 define('PAIRSMG_FILE', __FILE__);
 define('PAIRSMG_DIR', plugin_dir_path(__FILE__));
 define('PAIRSMG_URL', plugin_dir_url(__FILE__));
@@ -57,6 +57,7 @@ require_once PAIRSMG_DIR . 'includes/class-pairsmg-block.php';
 require_once PAIRSMG_DIR . 'includes/class-pairsmg-game-page.php';
 require_once PAIRSMG_DIR . 'includes/class-pairsmg-admin-settings.php';
 require_once PAIRSMG_DIR . 'includes/class-pairsmg-admin-leaderboard.php';
+require_once PAIRSMG_DIR . 'includes/class-pairsmg-cron.php';
 
 /**
  * Boot. Everything is hooked from one place so the load order is obvious.
@@ -67,6 +68,7 @@ function pairsmg_boot() {
     PairsMG_Post_Type::register();
     PairsMG_Shortcode::register();
     PairsMG_Block::register();
+    PairsMG_Cron::register();
 }
 add_action('init', 'pairsmg_boot');
 
@@ -75,10 +77,18 @@ function pairsmg_activate() {
     PairsMG_DB::install();
     PairsMG_Post_Type::register();
     PairsMG_Game_Page::ensure();
+    PairsMG_Cron::schedule();
     flush_rewrite_rules();
 }
 
-register_deactivation_hook(__FILE__, 'flush_rewrite_rules');
+register_deactivation_hook(__FILE__, 'pairsmg_deactivate');
+function pairsmg_deactivate() {
+    PairsMG_Cron::unschedule();
+    flush_rewrite_rules();
+}
+
+// Sites that updated without re-activating still get the sweep scheduled.
+add_action('admin_init', array('PairsMG_Cron', 'schedule'));
 
 // Upgrade path: dbDelta is idempotent, so re-running install on a version
 // bump keeps the table schema in step without a separate migration file.
