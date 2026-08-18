@@ -10,6 +10,8 @@
 /node_modules
 /tests
 /phpunit.xml.dist
+/.phpunit.result.cache
+/.phpcs.cache
 /bin
 /composer.json
 /composer.lock
