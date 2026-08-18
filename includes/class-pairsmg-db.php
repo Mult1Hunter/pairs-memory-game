@@ -93,7 +93,7 @@ class PairsMG_DB {
         $ok = $wpdb->insert(
             self::table_name(),
             array(
-                'run_nonce'    => isset($row['run_nonce']) ? (string) $row['run_nonce'] : md5(wp_generate_password(16, false)),
+                'run_nonce'    => isset($row['run_nonce']) ? (string) $row['run_nonce'] : substr(hash('sha256', wp_generate_password(16, false)), 0, 32),
                 'name'         => $row['name'],
                 'tier'         => $row['tier'],
                 'pairs'        => (int) $row['pairs'],

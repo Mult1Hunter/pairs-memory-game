@@ -352,7 +352,7 @@ class PairsMG_REST {
         $name = self::sanitize_name($req->get_param('name'));
 
         $row = array(
-            'run_nonce'    => md5((string) $pending['nonce']),
+            'run_nonce'    => substr(hash('sha256', (string) $pending['nonce']), 0, 32),
             'name'         => $name,
             'tier'         => $pending['tier'],
             'pairs'        => (int) $pending['pairs'],
