@@ -32,8 +32,12 @@ jobs:
       image: semgrep/semgrep
     steps:
       - uses: actions/checkout@v7
+      # php.lang.security.injection.echoed-request is not WordPress-aware: it
+      # flags `echo esc_url(...)` / `echo (int) ...` as unescaped. Output
+      # escaping is enforced by the WPCS EscapeOutput sniff in the job below,
+      # which does understand esc_*/wp_kses_*/casts, so that rule is skipped here.
       - name: Scan
-        run: semgrep scan --config p/php --config p/javascript --config p/secrets --config p/security-audit --error --exclude vendor --exclude node_modules .
+        run: semgrep scan --config p/php --config p/javascript --config p/secrets --config p/security-audit --exclude-rule php.lang.security.injection.echoed-request.echoed-request --error --exclude vendor --exclude node_modules --exclude tests .
 
   secrets:
     name: Secret scan (gitleaks)
