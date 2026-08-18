@@ -19,14 +19,26 @@ jobs:
           grep -q "Version:           $TAG" pairs-memory-game.php || { echo "::error::plugin header version != $TAG"; exit 1; }
           grep -q "define('PAIRSMG_VERSION', '$TAG')" pairs-memory-game.php || { echo "::error::PAIRSMG_VERSION != $TAG"; exit 1; }
           grep -q "Stable tag: $TAG" readme.txt || { echo "::error::readme.txt stable tag != $TAG"; exit 1; }
+      # The zip unpacks to a single "pairs-memory-game/" folder - the exact
+      # slug WordPress expects when it is uploaded through Plugins > Add New.
+      # (GitHub's automatic "Source code" zips unpack to
+      # "pairs-memory-game-X.Y.Z/" and include dev files; they are not
+      # installable. The release notes say so.)
       - name: Build zip (honours .distignore)
         run: |
+          TAG="${GITHUB_REF_NAME#v}"
           mkdir -p /tmp/dist/pairs-memory-game
           rsync -a --exclude-from=.distignore ./ /tmp/dist/pairs-memory-game/
-          (cd /tmp/dist && zip -qr "$GITHUB_WORKSPACE/pairs-memory-game.zip" pairs-memory-game)
-          unzip -l pairs-memory-game.zip | tail -3
+          (cd /tmp/dist && zip -qr "$GITHUB_WORKSPACE/pairs-memory-game-$TAG.zip" pairs-memory-game)
+          unzip -l "pairs-memory-game-$TAG.zip" | awk 'NR>3 {print $4}' | grep -qx 'pairs-memory-game/pairs-memory-game.php'
+          test -z "$(unzip -l "pairs-memory-game-$TAG.zip" | awk 'NR>3 {print $4}' | grep -vE '^pairs-memory-game/')" || { echo "::error::zip has files outside the plugin folder"; exit 1; }
+          echo "ASSET=pairs-memory-game-$TAG.zip" >> "$GITHUB_ENV"
       - name: Attach to GitHub release
         uses: softprops/action-gh-release@v3
         with:
-          files: pairs-memory-game.zip
+          files: ${{ env.ASSET }}
           generate_release_notes: true
+          body: |
+            **Install:** download `${{ env.ASSET }}` below and upload it in WordPress under Plugins > Add New > Upload Plugin. It unpacks to the `pairs-memory-game/` folder WordPress expects.
+
+            Do not install the automatic "Source code" archives - they unpack to a versioned folder name and contain development files.

@@ -95,8 +95,11 @@ rsync -a --exclude-from=.distignore ./ /tmp/dist/pairs-memory-game/
 ```
 
 Tagging `vX.Y.Z` runs the release workflow, which checks that the tag,
-plugin header, `PAIRSMG_VERSION` and `Stable tag` agree and attaches the zip
-to the GitHub release.
+plugin header, `PAIRSMG_VERSION` and `Stable tag` agree, builds
+`pairs-memory-game-X.Y.Z.zip` (unpacking to a plain `pairs-memory-game/`
+folder, as WordPress requires) and attaches it to the GitHub release. Install
+that asset - not GitHub's automatic "Source code" archives, which unpack to
+`pairs-memory-game-X.Y.Z/` and include development files.
 
 ## Hooks
 
