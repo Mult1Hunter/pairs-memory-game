@@ -4,7 +4,7 @@ Tags: memory game, matching game, game, leaderboard, gamification
 Requires at least: 6.0
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -89,6 +89,9 @@ Only the display name a player types is stored with the score. IP addresses are 
 7. Cards list in wp-admin.
 
 == Changelog ==
+
+= 1.0.3 =
+* Stored run nonces are derived with SHA-256 (was MD5); no functional change.
 
 = 1.0.2 =
 * Runs finished faster than a person can turn the cards (0.8 s per pair, filter `pairsmg_min_time`) are refused, so a script cannot post perfect scores by starting and finishing a run back to back.
